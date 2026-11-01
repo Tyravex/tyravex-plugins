@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "plugins": [
+    {
+      "id": "tyravex.language.german",
+      "name": "German Language Pack",
+      "description": "German (Deutsch) translations for Tyravex.",
+      "type": "language",
+      "version": "1.0.0",
+      "downloadUrl": "https://github.com/Tyravex/tyravex-plugins/releases/download/tyravex.language.german-v1.0.0/tyravex.language.german-1.0.0.zip",
+      "sha256": "490937acb97bdb2667179b1e897e635c33e468020d828d7b2bf4d8ecf93e5bd3",
+      "category": "languages",
+      "source": "official"
+    }
+  ]
+}
