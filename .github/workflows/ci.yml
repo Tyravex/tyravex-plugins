@@ -1,0 +1,89 @@
+name: Plugin CI
+
+on:
+    push:
+        branches:
+            - main
+
+    pull_request:
+        branches:
+            - main
+
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+concurrency:
+    group: plugin-ci-${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    validate:
+        name: Validate official plugins
+        runs-on: windows-latest
+        timeout-minutes: 15
+
+        defaults:
+            run:
+                shell: pwsh
+
+        steps:
+            - name: Checkout plugins repository
+              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+              with:
+                  path: tyravex-plugins
+                  persist-credentials: false
+
+            - name: Checkout Tyravex panel translations
+              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+              with:
+                  repository: Tyravex/panel
+                  ref: main
+                  path: panel
+                  persist-credentials: false
+
+            - name: Show PowerShell version
+              run: |
+                  $PSVersionTable.PSVersion.ToString()
+
+            - name: Validate German translations
+              working-directory: tyravex-plugins
+              run: |
+                  & pwsh -NoProfile -NonInteractive -File `
+                    ./tests/Test-Translations.ps1 `
+                    -PanelRoot ../panel
+
+                  if ($LASTEXITCODE -ne 0) {
+                    throw "Translation tests failed: $LASTEXITCODE"
+                  }
+
+            - name: Validate plugin manifest
+              working-directory: tyravex-plugins
+              run: |
+                  & pwsh -NoProfile -NonInteractive -File `
+                    ./tests/Test-Manifest.ps1
+
+                  if ($LASTEXITCODE -ne 0) {
+                    throw "Manifest tests failed: $LASTEXITCODE"
+                  }
+
+            - name: Validate plugin ZIP archive
+              working-directory: tyravex-plugins
+              run: |
+                  & pwsh -NoProfile -NonInteractive -File `
+                    ./tests/Test-Archive.ps1
+
+                  if ($LASTEXITCODE -ne 0) {
+                    throw "Archive tests failed: $LASTEXITCODE"
+                  }
+
+            - name: Validate marketplace registry
+              working-directory: tyravex-plugins
+              run: |
+                  & pwsh -NoProfile -NonInteractive -File `
+                    ./tests/Test-Registry.ps1
+
+                  if ($LASTEXITCODE -ne 0) {
+                    throw "Registry tests failed: $LASTEXITCODE"
+                  }
