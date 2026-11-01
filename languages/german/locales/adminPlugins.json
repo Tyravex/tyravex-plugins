@@ -1,0 +1,117 @@
+{
+  "adminPlugins": {
+    "title": "Plugins",
+    "description": "Verwalte die in Tyravex registrierten Erweiterungen.",
+    "refresh": "Aktualisieren",
+    "loading": "Plugins werden geladen...",
+    "emptyTitle": "Keine installierten Plugins",
+    "emptyDescription": "Im Register wurden keine Plugins gefunden.",
+    "name": "Kennung",
+    "type": "Typ",
+    "version": "Version",
+    "status": "Status",
+    "errorTitle": "Plugins konnten nicht geladen werden",
+    "errorDescription": "Prüfe die Backend-Verbindung und versuche es erneut.",
+    "types": {
+      "BILLING": "Abrechnung",
+      "INTEGRATION": "Integration",
+      "LANGUAGE": "Sprache",
+      "NOTIFICATION": "Benachrichtigung",
+      "OTHER": "Andere",
+      "THEME": "Design"
+    },
+    "statuses": {
+      "DISABLED": "Deaktiviert",
+      "FAILED": "Fehler",
+      "INSTALLED": "Aktiv",
+      "INSTALLING": "Wird installiert",
+      "UNINSTALLING": "Wird deinstalliert",
+      "UPDATING": "Wird aktualisiert"
+    },
+    "categories": {
+      "all": "Alle Plugins",
+      "count_one": "{{count}} Plugin",
+      "count_other": "{{count}} Plugins",
+      "navigationLabel": "Plugin-Kategorien"
+    },
+    "stats": {
+      "active": "Aktiv",
+      "disabled": "Deaktiviert",
+      "navigationLabel": "Plugin-Statistik",
+      "total": "Plugins gesamt",
+      "installing": "Installation läuft",
+      "updating": "Aktualisierung läuft",
+      "failed": "Fehler"
+    },
+    "install": {
+      "cancel": "Abbrechen",
+      "close": "Schließen",
+      "description": "Lade ein kompatibles Tyravex-Sprachplugin als ZIP-Paket hoch.",
+      "errors": {
+        "conflict": "Plugin ist bereits installiert.",
+        "empty": "Das ZIP-Paket ist leer.",
+        "forbidden": "Unzureichende Berechtigungen.",
+        "generic": "Plugin-Installation fehlgeschlagen.",
+        "invalid": "Ungültiges Plugin-Paket.",
+        "selectZip": "Wähle ein ZIP-Paket aus.",
+        "tooLarge": "Das Paket überschreitet die Grenze von 20 MiB.",
+        "unauthorized": "Anmeldung erforderlich.",
+        "unsupported": "Nur ZIP-Pakete werden unterstützt."
+      },
+      "installing": "Wird installiert...",
+      "limit": "Maximale Paketgröße: 20 MiB",
+      "open": "Plugin installieren",
+      "selectFile": "ZIP-Paket auswählen",
+      "submit": "Plugin installieren",
+      "success": "Plugin „{{id}}“ wurde erfolgreich installiert.",
+      "title": "Plugin installieren"
+    },
+    "actions": {
+      "header": "Aktionen",
+      "open": "Plugin-Aktionen öffnen",
+      "details": "Details",
+      "enable": "Aktivieren",
+      "disable": "Deaktivieren",
+      "uninstall": "Deinstallieren"
+    },
+    "toggle": {
+      "enableTitle": "Plugin aktivieren?",
+      "disableTitle": "Plugin deaktivieren?",
+      "enableDescription": "Das Plugin wird wieder aktiviert. Falls es eine Sprache bereitstellt, wird diese im Panel verfügbar.",
+      "disableDescription": "Das Plugin wird deaktiviert. Falls es eine Sprache bereitstellt, kann diese nicht mehr ausgewählt werden.",
+      "cancel": "Abbrechen",
+      "processing": "Wird verarbeitet...",
+      "errors": {
+        "generic": "Der Plugin-Status konnte nicht geändert werden.",
+        "unauthorized": "Deine Sitzung ist abgelaufen. Bitte melde dich erneut an.",
+        "forbidden": "Du hast keine Berechtigung, Plugins zu verwalten.",
+        "notFound": "Plugin nicht gefunden.",
+        "conflict": "Der Plugin-Status wurde geändert oder diese Aktion ist derzeit nicht verfügbar. Bitte aktualisiere die Liste."
+      }
+    },
+    "uninstall": {
+      "title": "Plugin deinstallieren?",
+      "warning": "Diese Aktion kann nicht rückgängig gemacht werden. Das Plugin wird aus dem Tyravex-Register entfernt und seine Dateien werden vom Datenträger gelöscht.",
+      "description": "Gib zur Bestätigung der Deinstallation die unten angezeigte Plugin-Kennung exakt ein.",
+      "confirmLabel": "Plugin-Kennung bestätigen",
+      "confirmPlaceholder": "Vollständige Plugin-Kennung eingeben",
+      "confirm": "Plugin deinstallieren",
+      "processing": "Wird deinstalliert...",
+      "cancel": "Abbrechen",
+      "close": "Schließen",
+      "cleanupPending": "Das Plugin wurde aus dem Register entfernt, aber seine Dateien konnten noch nicht vollständig gelöscht werden. Die Bereinigung auf dem Server muss abgeschlossen werden.",
+      "errors": {
+        "badRequest": "Die Bestätigung der Plugin-Kennung ist ungültig.",
+        "unauthorized": "Deine Sitzung ist abgelaufen. Bitte melde dich erneut an.",
+        "forbidden": "Du hast keine Berechtigung, Plugins zu deinstallieren.",
+        "notFound": "Plugin nicht gefunden. Bitte aktualisiere die Liste.",
+        "conflict": "Das Plugin wird gerade verarbeitet oder sein aktueller Status erlaubt keine Deinstallation. Bitte aktualisiere die Liste.",
+        "generic": "Das Plugin konnte nicht deinstalliert werden. Bitte versuche es erneut."
+      }
+    },
+    "updates": {
+      "available": "Update verfügbar",
+      "failed": "Aktualisierung fehlgeschlagen"
+    }
+  }
+}

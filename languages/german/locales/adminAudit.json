@@ -1,0 +1,43 @@
+{
+  "adminAudit": {
+    "action": "Aktion",
+    "actions": {
+      "ROLE_ASSIGNED": "Rolle zugewiesen",
+      "ROLE_CREATED": "Rolle erstellt",
+      "ROLE_DELETED": "Rolle gelöscht",
+      "ROLE_REVOKED": "Rolle entzogen",
+      "ROLE_UPDATED": "Rolle aktualisiert",
+      "USER_CREATED": "Benutzer erstellt",
+      "USER_DISABLED": "Benutzer deaktiviert",
+      "USER_ENABLED": "Benutzer aktiviert",
+      "USER_UPDATED": "Benutzer aktualisiert"
+    },
+    "activityHistory": "Aktivitätsverlauf",
+    "actorId": "Administrator-ID",
+    "administrator": "Administrator",
+    "allActions": "Alle Aktionen",
+    "anyAdministrator": "Beliebiger Administrator",
+    "apply": "Anwenden",
+    "breadcrumb": "Tyravex / Verwaltung / System",
+    "clearFilters": "Filter zurücksetzen",
+    "description": "Administratoraktionen und Rollenänderungen überprüfen.",
+    "details": "Details",
+    "empty": "Keine Einträge entsprechen den ausgewählten Filtern.",
+    "entriesCount_one": "{{count}} Eintrag",
+    "entriesCount_other": "{{count}} Einträge",
+    "hide": "Ausblenden",
+    "invalidActorId": "Die Administrator-ID muss eine positive ganze Zahl sein.",
+    "loadError": "Auditprotokoll konnte nicht geladen werden.",
+    "loading": "Auditprotokoll wird geladen...",
+    "pageOf": "Seite {{page}} von {{pages}}",
+    "target": "Ziel",
+    "targets": {
+      "ROLE": "Rolle",
+      "USER": "Benutzer"
+    },
+    "time": "Zeit",
+    "title": "Auditprotokoll",
+    "unknownActor": "Gelöscht / unbekannt",
+    "view": "Anzeigen"
+  }
+}

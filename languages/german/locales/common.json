@@ -1,0 +1,30 @@
+{
+  "common": {
+    "active": "Aktiv",
+    "appName": "Tyravex",
+    "back": "Zurück",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "confirm": "Bestätigen",
+    "create": "Erstellen",
+    "delete": "Löschen",
+    "disabled": "Deaktiviert",
+    "edit": "Bearbeiten",
+    "enabled": "Aktiviert",
+    "error": "Fehler",
+    "inactive": "Inaktiv",
+    "loading": "Wird geladen...",
+    "next": "Weiter",
+    "no": "Nein",
+    "noResults": "Keine Ergebnisse",
+    "optional": "Optional",
+    "previous": "Zurück",
+    "refresh": "Aktualisieren",
+    "retry": "Erneut versuchen",
+    "save": "Speichern",
+    "saving": "Wird gespeichert...",
+    "search": "Suchen",
+    "success": "Erfolg",
+    "yes": "Ja"
+  }
+}

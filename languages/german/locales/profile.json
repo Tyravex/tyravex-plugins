@@ -1,0 +1,20 @@
+{
+  "profile": {
+    "accountDetails": "Kontodaten",
+    "description": "Verwalte deine Kontodaten.",
+    "email": "E-Mail-Adresse",
+    "firstName": "Vorname",
+    "firstNamePlaceholder": "Vornamen eingeben",
+    "invalidName": "Bitte gib einen gültigen Vor- und Nachnamen ein.",
+    "lastName": "Nachname",
+    "lastNamePlaceholder": "Nachnamen eingeben",
+    "optionalNamesHint": "Vor- und Nachname sind optional.",
+    "readOnlyHint": "Diese Angaben können hier nicht geändert werden.",
+    "save": "Änderungen speichern",
+    "saved": "Änderungen wurden gespeichert.",
+    "saveError": "Änderungen konnten nicht gespeichert werden.",
+    "saving": "Wird gespeichert...",
+    "title": "Mein Profil",
+    "username": "Benutzername"
+  }
+}

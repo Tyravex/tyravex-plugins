@@ -1,0 +1,14 @@
+{
+  "section": {
+    "administrationDescription": "Verwalte deine Tyravex-Infrastruktur.",
+    "administrationOverview": "Administrationsübersicht",
+    "breadcrumb": "Tyravex / Administration",
+    "moduleInDevelopment": "Modul in Entwicklung",
+    "nodesDescription": "Die Knotenverwaltung wird in einer späteren Phase an das bestehende Backend angebunden.",
+    "nodesTitle": "Knoten",
+    "notAvailableYet": "Dieser Bildschirm bietet noch keine aktiven Verwaltungsfunktionen.",
+    "openUserManagement": "Benutzerverwaltung öffnen",
+    "selectSidebar": "Wähle einen Bereich in der Administrationsseitenleiste aus.",
+    "workspace": "Administrationsbereich"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "adminSettings": {
+    "comingSoon": "Dieser Einstellungsbereich wird zukünftig verfügbar sein.",
+    "description": "Konfiguration des Panels verwalten.",
+    "disabled": "Die Registrierung ist deaktiviert.",
+    "enabled": "Die Registrierung ist aktiviert.",
+    "infoTitle": "Hinweis",
+    "loadError": "Registrierungseinstellungen konnten nicht geladen werden.",
+    "loading": "Einstellungen werden geladen...",
+    "registrationDescription": "Neuen Benutzern erlauben, eigene Konten zu erstellen.",
+    "registrationInfo": "Wenn die Registrierung deaktiviert ist, können nur Administratoren neue Benutzerkonten erstellen.",
+    "registrationTitle": "Benutzerregistrierung",
+    "saveError": "Registrierungseinstellungen konnten nicht gespeichert werden.",
+    "saveSuccess": "Registrierungseinstellungen wurden gespeichert.",
+    "saving": "Änderungen werden gespeichert...",
+    "tabs": {
+      "navigationLabel": "Bereiche der Administratoreinstellungen",
+      "notifications": "Benachrichtigungen",
+      "security": "Sicherheit",
+      "system": "System",
+      "users": "Benutzer"
+    },
+    "title": "Administratoreinstellungen"
+  }
+}

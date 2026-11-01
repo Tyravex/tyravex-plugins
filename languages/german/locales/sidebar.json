@@ -1,0 +1,19 @@
+{
+  "sidebar": {
+    "administration": "Administration",
+    "administrationNavigation": "Administrationsnavigation",
+    "adminPanel": "Administratorbereich",
+    "comingLater": "Funktion in einer späteren Entwicklungsphase verfügbar",
+    "mainNavigation": "Hauptnavigation",
+    "sections": {
+      "account": "Konto",
+      "infrastructure": "Infrastruktur",
+      "management": "Verwaltung",
+      "operations": "Betrieb",
+      "plugins": "Plugins",
+      "system": "System"
+    },
+    "soon": "Bald",
+    "userPanel": "Benutzerbereich"
+  }
+}

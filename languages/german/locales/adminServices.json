@@ -1,0 +1,65 @@
+{
+  "adminServices": {
+    "administration": "Verwaltung",
+    "allServices": "Alle Dienste ({{count}})",
+    "categories": {
+      "discord_bot": "Discord-Bot",
+      "other": "Anderer Dienst",
+      "server": "Server",
+      "telegram_bot": "Telegram-Bot"
+    },
+    "category": "Kategorie",
+    "changeOwner": "Besitzer ändern",
+    "columns": {
+      "actions": "Aktionen",
+      "category": "Kategorie",
+      "node": "Node",
+      "owner": "Besitzer",
+      "service": "Dienst",
+      "status": "Status"
+    },
+    "confirmOwner": "Besitzer des Dienstes „{{name}}“ ändern?",
+    "createdNotice": "Dienstentwurf erstellt. Der Container wurde noch nicht gestartet.",
+    "createDraft": "Entwurf erstellen",
+    "createService": "Dienst erstellen",
+    "createTitle": "Neuer Dienst",
+    "description": "Dienstentwürfe und deren Besitzer verwalten.",
+    "draftDescription": "Beim Erstellen wird nur ein Entwurf (DRAFT) gespeichert. Es werden keine Ressourcen reserviert und kein Docker-Container gestartet.",
+    "empty": "Keine Dienste gefunden.",
+    "loading": "Dienste werden geladen...",
+    "name": "Name",
+    "nodeOptional": "Node (optional)",
+    "nodesLoading": "Knoten werden geladen...",
+    "nodesUnavailable": "Nodes konnten nicht geladen werden: {{message}}",
+    "ownerOptional": "Besitzer (optional)",
+    "ownerPicker": {
+      "empty": "Keine aktiven Benutzer für diese Suche gefunden.",
+      "error": "Benutzer konnten nicht geladen werden. Die Berechtigung user:read ist erforderlich.",
+      "loading": "Benutzer werden geladen...",
+      "noOwner": "Kein Besitzer",
+      "page": "Seite {{page}} von {{pages}}",
+      "searchLabel": "Benutzer nach Name oder E-Mail suchen",
+      "searchPlaceholder": "Nach Name oder E-Mail suchen...",
+      "selected": "Ausgewählt: {{name}}",
+      "selectLabel": "Dienstbesitzer auswählen",
+      "userId": "Benutzer #{{id}}"
+    },
+    "ownerUpdated": "Dienstbesitzer aktualisiert.",
+    "refresh": "Aktualisieren",
+    "resources": {
+      "cpuPercent": "CPU (%)",
+      "diskMb": "Speicherplatz (MB)",
+      "memoryMb": "RAM (MB)"
+    },
+    "searchLabel": "Dienste suchen",
+    "title": "Dienste",
+    "unassigned": "Nicht zugewiesen",
+    "unexpectedError": "Der Vorgang konnte nicht abgeschlossen werden.",
+    "validation": {
+      "cpuPercent": "CPU: Ganzzahl von 1 bis 100000 eingeben.",
+      "diskMb": "Speicherplatz: Ganzzahl von 1 bis 10485760 eingeben.",
+      "memoryMb": "RAM: Ganzzahl von 1 bis 1048576 eingeben.",
+      "name": "Der Name muss zwischen 1 und 100 Zeichen lang sein."
+    }
+  }
+}

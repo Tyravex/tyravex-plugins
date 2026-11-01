@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "tyravex.language.german",
+  "type": "language",
+  "version": "1.0.0",
+  "language": {
+    "code": "de",
+    "name": "German",
+    "nativeName": "Deutsch"
+  },
+  "translations": {
+    "namespace": "translation",
+    "files": [
+      "./locales/sidebar.json",
+      "./locales/navigation.json",
+      "./locales/Navbar.json",
+      "./locales/language.json",
+      "./locales/dashboard.json",
+      "./locales/servers.json",
+      "./locales/common.json",
+      "./locales/auth.json",
+      "./locales/profile.json",
+      "./locales/adminUsers.json",
+      "./locales/adminPlugins.json",
+      "./locales/adminSettings.json",
+      "./locales/adminRoles.json",
+      "./locales/adminAudit.json",
+      "./locales/logout.json",
+      "./locales/section.json",
+      "./locales/layout.json",
+      "./locales/adminNodes.json",
+      "./locales/adminServices.json"
+    ]
+  }
+}

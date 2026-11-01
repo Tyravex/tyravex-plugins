@@ -1,0 +1,6 @@
+{
+  "logout": {
+    "warningDescription": "Du wurdest lokal abgemeldet, aber deine Sitzung auf dem Server könnte noch aktiv sein. Bitte versuche es später erneut.",
+    "warningTitle": "Die Abmeldung auf dem Server konnte nicht bestätigt werden"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "adminRoles": {
+    "breadcrumb": "Tyravex / Verwaltung / RBAC",
+    "cannotUndo": "Diese Aktion kann nicht rückgängig gemacht werden.",
+    "confirmDelete": "Möchtest du die Rolle „{{role}}“ wirklich löschen?",
+    "created": "Rolle wurde erstellt. Du kannst sie jetzt Benutzern zuweisen.",
+    "createRole": "Rolle erstellen",
+    "deleted": "Rolle wurde gelöscht.",
+    "deleteRole": "Rolle löschen",
+    "deleteTitle": "Rolle löschen?",
+    "description": "Rollen erstellen, bearbeiten und löschen oder ihre Berechtigungen vergleichen.",
+    "editRole": "Rolle bearbeiten",
+    "existingRoles": "Vorhandene Rollen",
+    "hideMatrix": "Matrix ausblenden",
+    "loadingPermissions": "Berechtigungen werden geladen...",
+    "noPermissions": "Keine Berechtigungen",
+    "noPermissionsAvailable": "Keine Berechtigungen in der Datenbank verfügbar.",
+    "permission": "Berechtigung",
+    "permissionMatrix": "Berechtigungsmatrix",
+    "roleName": "Rollenname",
+    "roleNamePlaceholder": "z. B. Support-Moderator",
+    "saveChanges": "Änderungen speichern",
+    "selectedPermissions_one": "Berechtigungen ({{count}} ausgewählt)",
+    "selectedPermissions_other": "Berechtigungen ({{count}} ausgewählt)",
+    "showMatrix": "Matrix anzeigen",
+    "title": "Rollen und Berechtigungen",
+    "unassignUsersFirst": "Zuerst allen Benutzern die Rolle entziehen",
+    "updated": "Rolle wurde erfolgreich aktualisiert.",
+    "usersCount_one": "{{count}} Benutzer",
+    "usersCount_other": "{{count}} Benutzer"
+  }
+}
