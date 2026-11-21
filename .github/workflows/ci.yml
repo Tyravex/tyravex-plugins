@@ -93,7 +93,6 @@ jobs:
         name: Compatibility with published panel (advisory)
         runs-on: windows-latest
         timeout-minutes: 10
-        continue-on-error: true
         defaults:
             run:
                 shell: pwsh
@@ -114,13 +113,9 @@ jobs:
             - name: Compare against published panel
               working-directory: tyravex-plugins
               run: |
-                  & pwsh -NoProfile -NonInteractive -File ./tests/Test-Translations.ps1 -PanelRoot ../panel *> compatibility.log
+                  & pwsh -NoProfile -NonInteractive -File ./tests/Test-Translations.ps1 -PanelRoot ../panel -Advisory *> compatibility.log
                   $comparisonExit = $LASTEXITCODE
-                  if ($comparisonExit -ne 0) {
-                      Get-Content compatibility.log -Tail 15
-                      Write-Output '::warning::Published panel translations differ from this plugin release reference. See the advisory compatibility job.'
-                      '## Panel compatibility warning' >> $env:GITHUB_STEP_SUMMARY
-                      'Release validation uses a versioned reference. Published panel/main differs from this reference; review compatibility before deployment.' >> $env:GITHUB_STEP_SUMMARY
-                      exit $comparisonExit
-                  }
                   Get-Content compatibility.log
+                  if ($comparisonExit -ne 0) {
+                      throw 'Panel compatibility check could not validate resources. See the log for malformed files or execution errors.'
+                  }

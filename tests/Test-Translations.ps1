@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param(
     [string]$PanelRoot,
-    [string]$ReferenceRoot
+    [string]$ReferenceRoot,
+    [switch]$Advisory
 )
 
 $ErrorActionPreference = 'Stop'
@@ -21,6 +22,9 @@ if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf)) {
 # Released packages use their versioned reference; panel comparisons are explicit.
 if ($PanelRoot -and $ReferenceRoot) {
     throw 'Specify either PanelRoot or ReferenceRoot, not both.'
+}
+if ($Advisory -and -not $PanelRoot) {
+    throw 'Advisory mode requires an explicit PanelRoot.'
 }
 $manifest = Get-Content -LiteralPath $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
 if ($manifest.version -notmatch '^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?$') {
@@ -97,6 +101,7 @@ $manifest = Get-Content -LiteralPath $manifestPath `
 
 $files = @($manifest.translations.files)
 $issues = [System.Collections.Generic.List[string]]::new()
+$catalogDifferences = [System.Collections.Generic.List[string]]::new()
 
 # Compare the manifest too, so a whole missing section cannot pass unnoticed.
 $englishManifestPath = Join-Path $englishRoot 'manifest.json'
@@ -105,12 +110,12 @@ $expectedFiles = @($englishManifest.translations.files)
 $declaredFiles = @($files | ForEach-Object { Split-Path $_ -Leaf })
 foreach ($expectedFile in $expectedFiles) {
     if ($expectedFile -cnotin $declaredFiles) {
-        $issues.Add("Missing manifest translation section: $expectedFile")
+        $catalogDifferences.Add("Missing manifest translation section: $expectedFile")
     }
 }
 foreach ($declaredFile in $declaredFiles) {
     if ($declaredFile -cnotin $expectedFiles) {
-        $issues.Add("Unexpected manifest translation section: $declaredFile")
+        $catalogDifferences.Add("Unexpected manifest translation section: $declaredFile")
     }
 }
 
@@ -139,7 +144,11 @@ foreach ($relativeFile in $files) {
     }
 
     if (-not (Test-Path -LiteralPath $englishPath -PathType Leaf)) {
-        $issues.Add("Missing English reference file: $fileName")
+        if ($fileName -cin $expectedFiles) {
+            $issues.Add("Missing declared English reference file: $fileName")
+        } else {
+            $catalogDifferences.Add("Missing English reference file: $fileName")
+        }
         continue
     }
 
@@ -160,7 +169,7 @@ foreach ($relativeFile in $files) {
 
     foreach ($key in $englishEntries.Keys) {
         if (-not $germanEntries.ContainsKey($key)) {
-            $issues.Add("[$fileName] Missing German key: $key")
+            $catalogDifferences.Add("[$fileName] Missing German key: $key")
             continue
         }
 
@@ -204,7 +213,7 @@ foreach ($relativeFile in $files) {
 
     foreach ($key in $germanEntries.Keys) {
         if (-not $englishEntries.ContainsKey($key)) {
-            $issues.Add("[$fileName] Extra German key: $key")
+            $catalogDifferences.Add("[$fileName] Extra German key: $key")
         }
     }
 
@@ -213,12 +222,32 @@ foreach ($relativeFile in $files) {
 
 Write-Host ''
 
+# Catalog drift is advisory only; malformed resources and execution errors remain fatal.
+if (-not $Advisory) {
+    foreach ($difference in $catalogDifferences) { $issues.Add($difference) }
+}
 if ($issues.Count -gt 0) {
     foreach ($issue in $issues) {
         Write-Host "FAIL: $issue" -ForegroundColor Red
     }
 
     throw "Translation verification failed: $($issues.Count) issue(s)."
+}
+
+if ($Advisory -and $catalogDifferences.Count -gt 0) {
+    Write-Warning "Published panel catalog differs: $($catalogDifferences.Count) difference(s)."
+    foreach ($difference in $catalogDifferences | Select-Object -First 15) {
+        Write-Host "DIFFERENCE: $difference"
+    }
+    if ($env:GITHUB_ACTIONS -eq 'true') {
+        Write-Host "::warning::Published panel catalog differs: $($catalogDifferences.Count) difference(s). Release reference validation is separate."
+    }
+    if ($env:GITHUB_STEP_SUMMARY) {
+        Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY -Encoding UTF8 -Value "## Panel compatibility warning
+
+Published panel catalog differs: $($catalogDifferences.Count) difference(s). Release validation uses the versioned reference."
+    }
+    return
 }
 
 Write-Host "Translation verification passed: $($files.Count) files." `

@@ -25,7 +25,7 @@ function Update-TestJson {
 }
 
 function Invoke-TranslationCase {
-    param([string]$Name, [bool]$ShouldSucceed, [scriptblock]$Modify, [switch]$ComparePanel)
+    param([string]$Name, [bool]$ShouldSucceed, [scriptblock]$Modify, [switch]$ComparePanel, [switch]$Advisory)
     $caseRoot = Join-Path $tempRoot ('case-' + [guid]::NewGuid().ToString('N'))
     try {
         $languages = Join-Path $caseRoot 'languages'
@@ -43,11 +43,13 @@ function Invoke-TranslationCase {
         foreach ($file in Get-ChildItem -LiteralPath $sourceEnglish -Filter '*.json' -File) {
             Copy-Item -LiteralPath $file.FullName -Destination $reference
         }
-        if ($null -ne $Modify) { & $Modify (Join-Path $languages 'german') }
+        if ($null -ne $Modify) { & $Modify (Join-Path $languages 'german') $english }
         $succeeded = $false
         $failure = ''
         try {
-            if ($ComparePanel) {
+            if ($Advisory) {
+                & (Join-Path $tests 'Test-Translations.ps1') -PanelRoot $panel -Advisory *> $null
+            } elseif ($ComparePanel) {
                 & (Join-Path $tests 'Test-Translations.ps1') -PanelRoot $panel *> $null
             } else {
                 & (Join-Path $tests 'Test-Translations.ps1') *> $null
@@ -108,6 +110,31 @@ try {
     Invoke-TranslationCase -Name 'Legitimate question punctuation' -ShouldSucceed $true -Modify {
         param($plugin)
         Update-TestJson (Join-Path $plugin 'locales/common.json') { param($json) $json.common.cancel = 'Fortfahren?' }
+    }
+    Invoke-TranslationCase -Name 'Advisory extra key is a warning' -ShouldSucceed $true -Advisory -Modify {
+        param($plugin)
+        Update-TestJson (Join-Path $plugin 'locales/common.json') { param($json) $json.common | Add-Member -NotePropertyName advisoryExtra -NotePropertyValue 'Zusatz' }
+    }
+    Invoke-TranslationCase -Name 'Advisory absent panel module is a warning' -ShouldSucceed $true -Advisory -Modify {
+        param($plugin, $english)
+        Update-TestJson (Join-Path $english 'manifest.json') { param($json) $json.translations.files = @($json.translations.files | Where-Object { $_ -ne 'domains.json' }) }
+        Remove-Item -LiteralPath (Join-Path $english 'domains.json')
+    }
+    Invoke-TranslationCase -Name 'Advisory missing declared file is fatal' -ShouldSucceed $false -Advisory -Modify {
+        param($plugin, $english)
+        Remove-Item -LiteralPath (Join-Path $english 'common.json')
+    }
+    Invoke-TranslationCase -Name 'Advisory invalid JSON is fatal' -ShouldSucceed $false -Advisory -Modify {
+        param($plugin, $english)
+        [IO.File]::WriteAllText((Join-Path $english 'common.json'), '{invalid')
+    }
+    Invoke-TranslationCase -Name 'Advisory missing German file is fatal' -ShouldSucceed $false -Advisory -Modify {
+        param($plugin)
+        Remove-Item -LiteralPath (Join-Path $plugin 'locales/common.json')
+    }
+    Invoke-TranslationCase -Name 'Advisory empty translation is fatal' -ShouldSucceed $false -Advisory -Modify {
+        param($plugin)
+        Update-TestJson (Join-Path $plugin 'locales/common.json') { param($json) $json.common.cancel = '' }
     }
     Write-Host "Passed: $passed"
     Write-Host "Failed: $failed"
