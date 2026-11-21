@@ -1,0 +1,561 @@
+{
+  "services": {
+    "minecraft": {
+      "title": "Minecraft-Konfiguration",
+      "help": "Wähle eine offizielle Vanilla-Version und einen TCP-Port des Knotens. Java wird passend zur Version ausgewählt. Empfohlene Ressourcen: 2 GiB RAM und 4 GiB Speicherplatz. Nach der Installation bleibt der Server gestoppt.",
+      "createHelp": "Wähle nach dem Speichern des Dienstes eine Minecraft-Version und einen Port aus und akzeptiere die EULA. Die Serverdateien werden von Mojang heruntergeladen; ein Git-Repository ist nicht erforderlich.",
+      "version": "Minecraft-Version",
+      "chooseVersion": "Version auswählen",
+      "port": "TCP-Port des Knotens",
+      "acceptEula": "Ich habe die Bedingungen gelesen und akzeptiere die",
+      "savedConfiguration": "Gespeichert: Minecraft {{version}}, Java {{java}}, TCP-Port {{port}}.",
+      "locked": "Version und Port können vor Beginn der Installation geändert werden.",
+      "saved": "Konfiguration gespeichert. Du kannst mit der Installation des Dienstes fortfahren."
+    },
+    "status": {
+      "installation": "Installation",
+      "runtime": "Prozess",
+      "installationStates": {
+        "DRAFT": "Entwurf",
+        "INSTALLED": "Bereit",
+        "FAILED": "Fehlgeschlagen",
+        "INSTALLING": "In Bearbeitung",
+        "PENDING_INSTALL": "Wartend"
+      }
+    },
+    "workspace": {
+      "appearance": {
+        "title": "Darstellung",
+        "navigation": "Position des Dienstmenüs",
+        "side": "Seitlich",
+        "top": "Oben",
+        "showResources": "Ressourcenstatistiken anzeigen",
+        "compact": "Kompakte Ansicht",
+        "advanced": "Erweiterte Optionen",
+        "local": "Darstellungseinstellungen werden in deinem Konto gespeichert. Alle Optionen findest du in deinem Profil.",
+        "reset": "Standarddarstellung wiederherstellen"
+      },
+      "profiles": {
+        "discord": {
+          "title": "Discord-Bot",
+          "description": "Konsole, Dateien und Umgebung für deinen Discord-Bot. Ein laufender Prozess bestätigt keine erfolgreiche Anmeldung bei Discord."
+        },
+        "telegram": {
+          "title": "Telegram-Bot",
+          "description": "Konsole, Dateien und Umgebung für deinen Telegram-Bot. Polling und Webhooks hängen von der ausgewählten Anwendung ab."
+        },
+        "bot": {
+          "title": "Bot",
+          "description": "Verwalte den Bot-Prozess, Projektdateien und Umgebungsvariablen."
+        },
+        "minecraft": {
+          "title": "Minecraft",
+          "description": "Konsole und Ressourcen für deinen Minecraft-Server. Spieler, Servervarianten und Erweiterungen erfordern eine Integration mit dem ausgewählten Egg."
+        },
+        "game": {
+          "title": "Spielserver",
+          "description": "Gemeinsamer Arbeitsbereich für Spielserver mit Modulen passend zum Spiel und zur Egg-Umgebung."
+        },
+        "voice": {
+          "title": "Sprachdienst",
+          "description": "Konsole und Umgebung für deinen Sprachdienst. Die Kanalverwaltung hängt von der Anwendungsintegration ab."
+        },
+        "other": {
+          "title": "Dienst",
+          "description": "Konsole, Ressourcen und Konfiguration für deinen Dienst."
+        }
+      },
+      "resources": {
+        "title": "Ressourcen",
+        "memory": "Arbeitsspeicher",
+        "cpu": "Prozessor",
+        "disk": "Speicherplatz",
+        "limit": "Zuweisung",
+        "noLimit": "Zuweisung nicht verfügbar",
+        "noData": "Keine Messung",
+        "waiting": "Die Auslastung wird angezeigt, sobald die Diensttelemetrie verbunden ist. Eine fehlende Messung bedeutet keine Auslastung von null.",
+        "lastMeasurement": "Letzte Messung"
+      },
+      "console": {
+        "title": "Konsole",
+        "connected": "Agent-Aktualisierungen aktiv",
+        "unavailable": "Konsolenstream nicht verfügbar",
+        "unavailableHelp": "Für diesen Dienst ist noch kein Agent-Protokollstream verbunden. Die Prozesssteuerung funktioniert unabhängig von der Konsole.",
+        "empty": "Warten auf Protokolle",
+        "emptyHelp": "Neue Anwendungsausgaben werden hier angezeigt.",
+        "search": "Konsole durchsuchen…",
+        "noMatches": "Keine passende Ausgabe",
+        "pause": "Ansicht anhalten",
+        "resume": "Ansicht fortsetzen",
+        "paused": "Ansicht angehalten. Die Anwendung läuft weiterhin.",
+        "clear": "Ansicht leeren",
+        "expand": "Konsole vergrößern",
+        "autoScroll": "Automatisch scrollen",
+        "readOnly": "Anwendungsausgabe · kein Shell-Zugriff",
+        "wrap": "Zeilenumbruch",
+        "timestamps": "Zeitstempel",
+        "fontSize": "Schriftgröße",
+        "buffer": "Anzeigepuffer: bis zu 2000 Zeilen",
+        "output": "Anwendungsausgabe"
+      },
+      "technical": "Technische Details",
+      "processNote": "Umgebungsinstallation, Prozessausführung und Plattformverbindung sind getrennte Zustände.",
+      "settingsHelp": "Öffne die vollständige Konfiguration, um Projektquelle, Egg, zugewiesene Ressourcen und Anwendungsvariablen zu prüfen. Mögliche Änderungen hängen vom Installationsstatus ab.",
+      "files": {
+        "externalSource": "Dieser Dienst verwendet Git oder eine Anwendungsvorlage. Das Hochladen von Projektdateien ist für Dienste mit der Quelle „Eigene Dateien“ verfügbar. Prüfe die Quelle in der Konfiguration."
+      },
+      "upcoming": "Dieses Modul benötigt eine Integration und ist noch nicht verfügbar.",
+      "soon": "Demnächst",
+      "npmTerminationNote": "npm hat das Beendigungssignal SIGTERM protokolliert. Beim Stoppen oder Neustarten eines Dienstes ist dies normal und bedeutet allein keinen Bot-Absturz. Falls kein Herunterfahren geplant war, prüfe den Zeitplanverlauf und den Dienststatus. Die Originalprotokolle bleiben unten erhalten."
+    },
+    "sources": {
+      "startRequirements": "Vor dem Start der Anwendung erforderlich",
+      "installEmpty": "Du kannst eine leere Umgebung installieren und später Dateien hochladen. Nach der Installation bleibt die Anwendung gestoppt. Hochgeladene Änderungen werden beim nächsten Start oder Neustart übernommen; dabei werden auch die Abhängigkeiten vorbereitet.",
+      "title": "Wie möchtest du die Dienstdateien bereitstellen?",
+      "FILES": "Eigene Dateien — über das Panel hochladen",
+      "APPLICATION": "Fertige Anwendung aus dem Katalog",
+      "GIT": "Git-Repository — optionale Quelle",
+      "help": {
+        "FILES": "GitHub ist nicht erforderlich. Speichere diese Quellenauswahl und lade anschließend Projektdateien oder einen Ordner im Abschnitt unten hoch.",
+        "APPLICATION": "Wähle eine Anwendung aus. Das Panel verwendet die Quelle und Einstellungen ihres freigegebenen Profils; ein eigenes Repository ist nicht erforderlich.",
+        "GIT": "Du kannst dein eigenes Projekt optional aus einem öffentlichen Git-Repository abrufen. Dieser Modus erfordert eine Projekt-URL und das Speichern der Konfiguration."
+      },
+      "filesTitle": "Projektdateien",
+      "filesHelp": "Lade dein Projekt vor oder nach der Installation der Umgebung hoch. Beim Hochladen desselben Pfads wird die vorgemerkte Version ersetzt; Änderungen werden beim nächsten Start oder Neustart übernommen.",
+      "filesLimits": "Bis zu 512 Dateien, 8 MiB pro Datei und insgesamt 32 MiB. Die Ordner .git, node_modules und .venv werden übersprungen; der Agent installiert die Abhängigkeiten.",
+      "filesLocked": "Dateien können bei einem Entwurf oder installierten Dienst mit der Dateiquelle bearbeitet werden, solange kein Vorgang aktiv ist.",
+      "chooseFiles": "Dateien auswählen",
+      "chooseFolder": "Projektordner auswählen",
+      "selected": "Ausgewählte Dateien: {{count}}",
+      "upload": "Ausgewählte Dateien hochladen",
+      "remove": "Datei entfernen",
+      "empty": "Noch keine Projektdateien. Du kannst die Umgebung jetzt installieren und später Dateien hinzufügen.",
+      "confirmRemove": "„{{path}}“ aus dem vorbereiteten Projekt entfernen?"
+    },
+    "power": {
+      "kill": "Kill",
+      "killDescription": "Sofortiges Beenden des Prozesses erzwingen",
+      "killUnavailable": "Das erzwungene Beenden erfordert einen verbundenen Agenten mit Kill-Unterstützung.",
+      "killConfirmTitle": "Diesen Dienst zwangsweise beenden?",
+      "killConfirmDescription": "Der Prozess wird sofort beendet, ohne Zeit zum Speichern seines Zustands. Ungespeicherte Anwendungsdaten können verloren gehen. Dienstdateien und Volume werden nicht gelöscht.",
+      "killConfirm": "Beenden erzwingen",
+      "details": "Status und Startvoraussetzungen",
+      "title": "Dienststeuerung",
+      "description": "Starten, Stoppen und Neustarten werden vom Agenten ausgeführt. Der Auftragsstatus bestätigt nicht die Verbindung des Bots mit Discord oder Twitch.",
+      "active": "Ein Vorgang ist aktiv",
+      "queued": "Der Befehl wurde angenommen.",
+      "unknown": "Der Agent hat das Ergebnis nicht bestätigt. Prüfe, ob der Vorgang abgeschlossen ist. Das Entsperren beendet die Auftragsverfolgung, ohne den Befehl zu wiederholen oder den Bot-Zustand zu ändern.",
+      "reconcile": "Prüfen und entsperren"
+    },
+    "installation": {
+      "title": "Installationszentrum für Dienste",
+      "serviceLabel": "Dienst",
+      "status": {
+        "draft": {
+          "title": "Der Dienst wartet auf die Installation",
+          "description": "Der Dienst wurde erstellt, seine Umgebung aber noch nicht installiert."
+        },
+        "pending": {
+          "title": "Warten auf die Installation",
+          "description": "Der Installationsauftrag wartet auf die Verarbeitung."
+        },
+        "installing": {
+          "title": "Installation läuft",
+          "description": "Die Dienstumgebung wird vorbereitet. Die Verwaltung bleibt gesperrt."
+        },
+        "failed": {
+          "title": "Installation fehlgeschlagen",
+          "description": "Während der Installation ist ein Fehler aufgetreten. Prüfe die Auftragsdetails unten."
+        },
+        "installed": {
+          "title": "Installation abgeschlossen",
+          "description": "Der Dienst kann jetzt verwaltet werden."
+        },
+        "unknown": {
+          "title": "Installationsstatus wird geprüft",
+          "description": "Der aktuelle Installationsstatus konnte nicht ermittelt werden."
+        }
+      },
+      "steps": {
+        "title": "Installationsschritte",
+        "current": "Aktueller Schritt",
+        "preparation": {
+          "title": "Vorbereitung",
+          "description": "Dienstkonfiguration"
+        },
+        "queue": {
+          "title": "Warten",
+          "description": "Auftragszuweisung"
+        },
+        "installation": {
+          "title": "Installation",
+          "description": "Vorbereitung der Umgebung"
+        },
+        "completed": {
+          "title": "Abgeschlossen",
+          "description": "Aktivierung des Verwaltungspanels"
+        }
+      },
+      "locked": {
+        "badge": "Panel gesperrt",
+        "title": "Dienstverwaltung nicht verfügbar",
+        "description": "Konsole, Dateien, Einstellungen und weitere Module werden nach erfolgreicher Installation verfügbar."
+      },
+      "job": {
+        "title": "Installationsauftrag",
+        "description": "Aktueller Status des an das Tyravex-Installationssystem übermittelten Auftrags.",
+        "loading": "Installationsauftrag wird geprüft…",
+        "loadError": "Der aktuelle Installationsauftrag konnte nicht geladen werden. Das Erstellen eines weiteren Auftrags bleibt gesperrt.",
+        "noActiveJob": "Kein aktiver Installationsauftrag.",
+        "progress": "Installationsfortschritt",
+        "progressSource": "Der Fortschritt stammt vom aktuellen Installationsauftrag des Backends.",
+        "status": {
+          "pending": "Warten auf die Installation",
+          "dispatching": "Installation wird vorbereitet",
+          "queued": "In der Installationswarteschlange",
+          "running": "Installation läuft"
+        }
+      },
+      "actions": {
+        "start": "Installation starten",
+        "retry": "Installation erneut versuchen",
+        "requesting": "Installation wird angefordert…",
+        "alreadyRequested": "Installation bereits angefordert",
+        "checkAgain": "Erneut prüfen"
+      },
+      "errors": {
+        "installationFailed": "Installation fehlgeschlagen. Ein erneuter Versuch ist nur möglich, wenn das Backend einen neuen Auftrag zulässt.",
+        "requestFailed": "Die Installation konnte nicht angefordert werden."
+      },
+      "notifications": {
+        "requested": {
+          "description": "Der Installationsauftrag wartet auf die Ausführung.",
+          "title": "Installation angefordert"
+        },
+        "alreadyRequested": {
+          "description": "Es gibt bereits einen aktiven Installationsauftrag.",
+          "title": "Installation bereits angefordert"
+        },
+        "requestFailed": {
+          "description": "Bitte versuche es später erneut.",
+          "title": "Installation konnte nicht angefordert werden"
+        }
+      },
+      "readiness": {
+        "title": "Installationsbereitschaft",
+        "missing": "Fehlende Variablen",
+        "configure": "Variablen im Administrationspanel konfigurieren",
+        "contactAdmin": "Bitte einen Administrator, die Dienstkonfiguration zu vervollständigen."
+      },
+      "environment": {
+        "locked": "Die Bearbeitung ist während der Installation oder eines anderen Dienstvorgangs vorübergehend gesperrt.",
+        "unsaved": "Speichere oder verwirf deine Variablenänderungen.",
+        "empty": "Keine deklarierten Variablen. Füge eigene hinzu oder importiere .env."
+      }
+    },
+    "details": {
+      "installationStatusLabel": "Installationsstatus",
+      "informationTitle": "Dienstinformationen"
+    },
+    "configuration": {
+      "title": "Dienstkonfiguration",
+      "action": "Konfiguration ändern",
+      "back": "Zurück zum Dienst",
+      "sourceTitle": "Projekt und Laufzeitumgebung",
+      "sourceLocked": "Projekt und Laufzeitumgebung können vor der ersten Installation geändert werden, solange kein Auftrag aktiv ist.",
+      "saved": "Konfiguration gespeichert.",
+      "allocationNote": "Ein Administrator weist den Knoten und die Ressourcenlimits zu. Vor der Installation kannst du ein kompatibles, aktiviertes Egg und ein Anwendungsprofil auswählen.",
+      "egg": "Egg-Vorlage",
+      "node": "Knoten",
+      "adminHelp": "Administrative Dienstdiagnose öffnen"
+    },
+    "profiles": {
+      "catalog": "Katalog fertiger Anwendungen",
+      "catalogHelp": "Wähle eine Anwendung aus, um ihr kompatibles Egg, Profil und die Projektquelle zu übernehmen. Die Installation startet separat nach dem Speichern der Konfiguration und dem Erfüllen der Voraussetzungen.",
+      "platform": "Plattform",
+      "allPlatforms": "Alle Plattformen",
+      "platforms": {
+        "discord": "Discord",
+        "twitch": "Twitch",
+        "teamspeak": "TeamSpeak 3"
+      },
+      "noApplications": "Keine Anwendungen entsprechen diesen Filtern.",
+      "preview": "Vorschau — Installer-Unterstützung muss erweitert werden",
+      "installerAvailable": "Installer verfügbar — Anwendungsvoraussetzungen prüfen",
+      "importRequired": "Importiere und aktiviere zuerst ein kompatibles Egg mit diesem Profil",
+      "upstream": "Ursprungsprojekt",
+      "useApplication": "Diese Anwendung auswählen",
+      "eggSearch": "Umgebungen oder Anwendungen suchen",
+      "eggSelect": "Egg-Umgebung",
+      "noEggs": "Für diese Kategorie sind keine Eggs verfügbar.",
+      "approvedOnly": "Es können nur aktivierte Eggs aus aktiven Repositorys zugewiesen werden.",
+      "openCatalog": "Repositorys öffnen und Eggs herunterladen",
+      "search": "Anwendungen oder Varianten suchen",
+      "select": "Anwendung oder Startvariante",
+      "applySource": "Diese fertige Anwendung auswählen",
+      "sourceHelp": "Das Panel verwendet die Quelle des Anwendungsprofils. Ein eigenes Repository ist nicht erforderlich. Konfiguration speichern und Installation starten sind getrennte Schritte.",
+      "customHelp": "Eine Variante für dein eigenes Projekt. Lade Dateien über das Panel hoch oder wähle optional die Git-Quelle.",
+      "variables": "Anwendungsvariablen",
+      "credentialsWarning": "Beim Ändern des gespeicherten Profils werden die bisherigen Anwendungsvariablen und Geheimnisse gelöscht. Gib sie nach dem Speichern erneut ein."
+    },
+    "live": {
+      "files": "Dienstdateien",
+      "newFile": "Neue Datei",
+      "newFolder": "Neuer Ordner",
+      "upload": "Dateien hochladen",
+      "refresh": "Aktualisieren",
+      "filesNote": "Tatsächliche Dienstdateien auf dem Knoten. Änderungen werden sofort gespeichert; die Anwendung benötigt möglicherweise einen Neustart. Limit pro Datei: 8 MiB. Die Suche umfasst den aktuellen Ordner.",
+      "search": "Ordner durchsuchen",
+      "hidden": "Versteckte Dateien anzeigen",
+      "name": "Name",
+      "size": "Größe",
+      "modified": "Geändert",
+      "actions": "Aktionen",
+      "download": "Herunterladen",
+      "rename": "Umbenennen",
+      "remove": "Löschen",
+      "empty": "Keine passenden Dateien.",
+      "invalidName": "Gib einen gültigen Namen ein.",
+      "fileLimit": "Die Datei überschreitet 8 MiB.",
+      "confirmRemove": "Löschen bestätigen",
+      "removeNote": "Der Ordner und sein Inhalt werden gelöscht. Dies kann nicht rückgängig gemacht werden.",
+      "saveHint": "Datei auf dem Knoten speichern",
+      "saved": "Auf dem Knoten gespeichert",
+      "saveFailed": "Die Datei wurde nicht gespeichert. Sie wurde möglicherweise anderweitig geändert oder der Agent ist nicht verfügbar. Behalte deine Änderungen und lade die Datei erneut.",
+      "backups": "Sicherungen",
+      "createBackup": "Sicherung erstellen",
+      "backupsNote": "Private Dateiarchive auf diesem Knoten, maximal 5 Sicherungen. Im Panel verschlüsselte Variablen und externe Datenbanken sind ausgeschlossen. Ein Ausfall des Knotenspeichers kann auch diese Sicherungen zerstören.",
+      "stopForBackup": "Stoppe den Dienst, um eine Sicherung zu erstellen oder wiederherzustellen. Ein bestätigter Agent-Status ist erforderlich.",
+      "safetyBackup": "Sicherheitskopie vor der Wiederherstellung",
+      "filesCount": "Dateien",
+      "skipped": "übersprungen",
+      "restore": "Wiederherstellen",
+      "noBackups": "Noch keine Sicherungen.",
+      "confirmRestore": "Dateien aus der Sicherung wiederherstellen?",
+      "restoreNote": "Die aktuellen Dienstdateien werden ersetzt. Der Agent prüft SHA-256 und sichert die aktuellen Dateien vor dem Ersetzen. Innerhalb des Limits von 5 Sicherungen muss ein Platz frei sein.",
+      "removeBackupNote": "Dieses Archiv wird dauerhaft vom Knoten gelöscht.",
+      "confirm": "Bestätigen",
+      "environmentNote": "Im Panel gespeicherte Geheimnisse bleiben verborgen. Falls eine .env-Datei vorhanden ist, zeigt das Formular deren Werte an. Änderungen der Panelkonfiguration werden beim nächsten Start oder Neustart eingebunden. Bearbeite die physische Datei separat unter Dateien.",
+      "variableName": "Variablenname",
+      "addVariable": "Variable hinzufügen",
+      "importEnv": "Werte aus .env importieren",
+      "envImportFailed": "Ungültige .env-Datei oder Limit von 64 KiB überschritten. Unterstützt werden einzeilige Einträge im Format KEY=value.",
+      "errors": {
+        "AGENT_WORKSPACE_UNAVAILABLE": "Der Agent kann derzeit keine Dienstdateien oder Statusdaten bereitstellen. Prüfe seine Verbindung und Version.",
+        "FILE_REVISION_CHANGED": "Die Datei wurde geändert. Aktualisiere den Ordner oder behalte deinen Text und lade die Datei erneut.",
+        "FILE_ALREADY_EXISTS": "Eine Datei oder ein Ordner mit diesem Namen ist bereits vorhanden. Öffne den Eintrag zum Bearbeiten oder wähle einen anderen Namen.",
+        "INVALID_SERVICE_PATH": "Ungültiger Pfad oder symbolischer Link. Wähle eine Datei innerhalb des Dienstverzeichnisses.",
+        "FILE_NOT_FOUND": "Datei nicht gefunden. Aktualisiere den Ordner.",
+        "BACKUP_LIMIT_REACHED": "Sicherungslimit erreicht. Lösche ein nicht benötigtes Archiv; die Wiederherstellung benötigt einen freien Platz für die Sicherheitskopie.",
+        "BACKUP_CHECKSUM_MISMATCH": "Die Prüfsumme der Sicherung stimmt nicht überein. Die Dienstdateien wurden nicht ersetzt.",
+        "STOP_SERVICE_FOR_BACKUP": "Stoppe den Dienst, bevor du eine Sicherung erstellst oder wiederherstellst.",
+        "WORKSPACE_BUSY": "Der Agent ist beschäftigt. Aktualisiere den Status und versuche es erneut.",
+        "SERVICE_OPERATION_ACTIVE": "Ein anderer Dienstvorgang ist aktiv. Warte, bis er abgeschlossen ist.",
+        "WORKSPACE_TIMEOUT": "Der Agent hat nicht rechtzeitig geantwortet. Aktualisiere den Status.",
+        "WORKSPACE_OUTCOME_UNKNOWN": "Das Ergebnis konnte nicht bestätigt werden. Der Vorgang wurde nicht wiederholt. Aktualisiere den Status vor einer weiteren Änderung.",
+        "WORKSPACE_OPERATION_FAILED": "Der Agent konnte den Vorgang nicht abschließen. Aktualisiere den Status und prüfe die Knotenverbindung.",
+        "RESTORE_PARTIAL_SAFETY_BACKUP_AVAILABLE": "Die Wiederherstellung wurde unterbrochen. Dateien wurden möglicherweise teilweise ersetzt; eine Sicherheitskopie des vorherigen Zustands ist verfügbar.",
+        "INVALID_SCHEDULE_NAME": "Gib einen Zeitplannamen ein (maximal 100 Zeichen).",
+        "INVALID_TIMEZONE": "Gib eine gültige IANA-Zeitzone ein, beispielsweise Europe/Berlin.",
+        "INVALID_SCHEDULE_DATE": "Wähle ein gültiges zukünftiges Datum mit Uhrzeit innerhalb des nächsten Jahres.",
+        "INVALID_SCHEDULE_DAYS": "Wähle mindestens einen Wochentag aus.",
+        "SCHEDULE_LIMIT_REACHED": "Das Limit von 20 Zeitplänen pro Dienst wurde erreicht.",
+        "SCHEDULE_CHANGED": "Der Zeitplan wurde geändert. Aktualisiere die Liste vor der erneuten Bearbeitung.",
+        "SCHEDULE_PHASE_CHANGED": "Die Zeitplanphase wurde geändert. Der Vorgang wurde nicht wiederholt.",
+        "SCHEDULE_RUNNING": "Dieser Zeitplan wird ausgeführt. Warte vor dem Bearbeiten oder Löschen auf den Abschluss.",
+        "SCHEDULE_OPERATION_ACTIVE": "Ein anderer Dienstvorgang oder Zeitplan ist aktiv.",
+        "SCHEDULE_MISSED": "Das Panel hat diese Ausführung verpasst. Der überfällige Termin wurde übersprungen.",
+        "SCHEDULE_OWNER_CHANGED": "Der Dienstbesitzer wurde geändert oder das Konto ist inaktiv. Der Zeitplan wurde deaktiviert.",
+        "SCHEDULE_INTERRUPTED": "Die Ausführung wurde unterbrochen. Prüfe den Dienst vor einem weiteren Vorgang.",
+        "SCHEDULE_RESUME_FAILED": "Der Dienst konnte nach der Sicherung nicht fortgesetzt werden. Prüfe seine Konsole und Konfiguration.",
+        "SCHEDULE_POWER_FAILED": "Der Agent hat den erfolgreichen Abschluss des Steuerungsvorgangs nicht bestätigt.",
+        "SCHEDULE_EXECUTION_FAILED": "Die Zeitplanausführung ist fehlgeschlagen. Prüfe den Knotenstatus und die Dienstkonfiguration.",
+        "SCHEDULE_RESERVATION_EXPIRED": "Die Zeitplanreservierung ist abgelaufen. Prüfe den Verlauf und den Dienststatus.",
+        "SERVICE_NOT_INSTALLED": "Der Dienst muss installiert und einem Knoten zugewiesen sein.",
+        "INVALID_SCHEDULE_TIME": "Gib eine gültige Uhrzeit im Format HH:MM ein.",
+        "INVALID_SCHEDULE_ACTION": "Wähle einen unterstützten Vorgang und eine Häufigkeit aus.",
+        "INVALID_SCHEDULE_OPTIONS": "Prüfe die Optionen zum Stoppen und Fortsetzen des Dienstes.",
+        "INVALID_HISTORY_FILTER": "Ungültiger Verlaufsfilter.",
+        "INVALID_HISTORY_CURSOR": "Diese Verlaufsseite ist nicht verfügbar. Kehre zur ersten Seite zurück.",
+        "INVALID_SERVICE_APPEARANCE": "Ungültige Darstellungseinstellungen für den Dienst.",
+        "AGENT_FILE_OPERATIONS_UNAVAILABLE": "Der Knotenagent benötigt das aktualisierte Modul für Dateioperationen.",
+        "FILE_TRANSFER_LIMIT": "Übertragungslimit überschritten: 1.000 Elemente oder 200 MiB. ZIP-Eingaben sind auf 100 MiB begrenzt.",
+        "SERVICE_DISK_LIMIT": "Im Speicherbudget des Dienstes ist nicht genügend Platz frei.",
+        "INVALID_ZIP_ARCHIVE": "Das ZIP-Archiv ist ungültig oder beschädigt.",
+        "INVALID_TRANSFER_TARGET": "Wähle ein anderes Ziel. Ein Ordner kann nicht in sich selbst oder auf denselben Pfad verschoben werden.",
+        "FILE_TRANSFER_SESSION_CHANGED": "Deine Kontositzung wurde geändert. Der vorgemerkte Vorgang wurde nicht gesendet.",
+        "VIRTUAL_FILES_DROP_UNSUPPORTED": "Der Browser hat virtuelle Dateien aus einem Windows-Archiv erhalten. Entpacke zuerst die ZIP-Datei oder lade das Archiv selbst hoch. Keine Datei dieses Stapels wurde hochgeladen.",
+        "AGENT_RECONCILIATION_UNAVAILABLE": "Die Wiederherstellung erfordert einen verbundenen Agenten mit Unterstützung für die Wiederherstellung der Prozesssteuerung.",
+        "AGENT_OPERATION_STILL_ACTIVE": "Der Agent führt noch einen Vorgang aus. Warte und prüfe erneut.",
+        "SERVICE_OPERATION_NOT_RECONCILABLE": "Der Auftrag wurde geändert oder kann nicht sicher entsperrt werden. Aktualisiere die Ansicht.",
+        "AGENT_SESSION_CHANGED": "Die Agent-Verbindung wurde geändert. Prüfe den Zustand erneut."
+      }
+    },
+    "schedules": {
+      "title": "Zeitpläne",
+      "description": "Plane einen Neustart, ein Herunterfahren oder eine Sicherung. Die Ausführung erfolgt im Panel, auch wenn dein Browser geschlossen ist.",
+      "create": "Zeitplan hinzufügen",
+      "edit": "Bearbeiten",
+      "remove": "Zeitplan löschen",
+      "name": "Name",
+      "action": "Vorgang",
+      "cadence": "Häufigkeit",
+      "timezone": "Zeitzone (IANA)",
+      "date": "Datum und Uhrzeit in der ausgewählten Zeitzone",
+      "time": "Uhrzeit in der ausgewählten Zeitzone",
+      "enabled": "Aktiviert",
+      "disabled": "Deaktiviert",
+      "pause": "Deaktivieren",
+      "enable": "Aktivieren",
+      "next": "Nächste Ausführung",
+      "empty": "Noch keine Zeitpläne.",
+      "backupNote": "Sicherungen erfordern einen gestoppten Dienst und einen freien Platz innerhalb des Limits von 5 Archiven. Ein laufender Dienst wird übersprungen, sofern das Stoppen nicht erlaubt ist. Archive werden nicht automatisch gelöscht.",
+      "stopForBackup": "Laufenden Dienst vor der Sicherung stoppen",
+      "resumeAfterBackup": "Nach der Sicherung nur starten, wenn dieser Zeitplan den Dienst gestoppt hat",
+      "timezoneNote": "Durch die Zeitumstellung nicht vorhandene Uhrzeiten werden übersprungen. Doppelte Uhrzeiten werden einmal beim ersten Auftreten ausgeführt. Verpasste Ausführungen, die mehr als 2 Minuten zurückliegen, werden übersprungen.",
+      "history": "Ausführungsverlauf",
+      "historyNote": "Filterbarer Verlauf mit Seitennavigation. Datumsangaben verwenden die Zeitzone deines Browsers. Ein erfolgreiches Ergebnis bedeutet, dass das System den Abschluss bestätigt hat.",
+      "scheduled": "Geplant",
+      "result": "Ergebnis",
+      "noHistory": "Noch keine Ausführungen.",
+      "removeNote": "Dieser Zeitplan wird deaktiviert und aus der Liste entfernt. Sein Verlauf bleibt erhalten. Aktive Ausführungen können nicht gelöscht werden.",
+      "actions": {
+        "RESTART": "Dienst neu starten",
+        "STOP": "Dienst herunterfahren",
+        "BACKUP": "Sicherung erstellen"
+      },
+      "cadences": {
+        "ONCE": "Einmalig",
+        "DAILY": "Täglich",
+        "WEEKLY": "Ausgewählte Wochentage"
+      },
+      "days": {
+        "0": "Sonntag",
+        "1": "Montag",
+        "2": "Dienstag",
+        "3": "Mittwoch",
+        "4": "Donnerstag",
+        "5": "Freitag",
+        "6": "Samstag"
+      },
+      "statuses": {
+        "RUNNING": "Wird ausgeführt",
+        "COMPLETED": "Erfolgreich",
+        "FAILED": "Nicht erfolgreich",
+        "SKIPPED": "Übersprungen",
+        "UNKNOWN": "Ergebnis nicht bestätigt"
+      },
+      "phases": {
+        "CLAIMED": "Bereitschaft wird geprüft",
+        "WAIT_ACTION": "Warten auf den Vorgang",
+        "WAIT_STOP": "Dienst wird gestoppt",
+        "BACKUP_EXECUTING": "Sicherung wird erstellt",
+        "BACKUP_DONE": "Sicherung wird abgeschlossen",
+        "WAIT_START": "Dienst wird nach der Sicherung gestartet"
+      },
+      "searchTimezone": "Zeitzonen suchen",
+      "chooseTimezone": "Zeitzone auswählen",
+      "offsetNote": "UTC-Abweichungen gelten für heute; Zeitpläne berücksichtigen die Sommerzeit.",
+      "lastExecution": "Letzte Ausführung",
+      "neverExecuted": "Noch nicht ausgeführt",
+      "details": "Ausführungsdetails",
+      "phase": "Phase",
+      "finished": "Abgeschlossen",
+      "executionId": "Ausführungs-ID",
+      "jobId": "Auftrags-ID",
+      "backupId": "Sicherungs-ID",
+      "newer": "Neuere Ausführungen",
+      "older": "Ältere Ausführungen",
+      "allActions": "Alle Vorgänge",
+      "allResults": "Alle Ergebnisse",
+      "showAllRules": "Alle Zeitpläne anzeigen",
+      "toggleNote": "Das Deaktivieren verhindert zukünftige Termine. Eine aktive Ausführung wird mit ihren bisherigen Einstellungen abgeschlossen.",
+      "firstPage": "Erste Verlaufsseite"
+    },
+    "envFile": {
+      "loaded": "Die Werte aus der .env-Datei wurden in die Felder geladen.",
+      "missing": "Der Dienst hat keine .env-Datei. Füge Variablen manuell hinzu oder importiere eine Datei.",
+      "unavailable": "Der Knoten konnte .env nicht bereitstellen. Die manuelle Konfiguration bleibt verfügbar.",
+      "invalid": "Die .env-Datei hat ein nicht unterstütztes Format oder überschreitet 64 KiB.",
+      "precedence": "Dies sind Dateiw erte, keine Vorschau der im Panel gespeicherten Geheimnisse. Panelvariablen können Vorrang haben. Speichern überträgt nur bearbeitete Felder; die Schaltfläche unten bereitet Dateiwerte zum Speichern im Panel vor. Die .env-Datei bleibt unverändert.",
+      "apply": "Dateiwerte zum Speichern vorbereiten",
+      "source": "Quelle: .env-Datei",
+      "show": "Dateiwert anzeigen",
+      "hide": "Wert ausblenden",
+      "reserved": "Systemvariable — nur Dateiansicht",
+      "variableExample": "z. B. BOT_MODE",
+      "panelAndFile": "Dateiwert geladen; das Panel hat ebenfalls einen gespeicherten Wert",
+      "fileOnly": "Dateiwert geladen; nicht im Panel gespeichert",
+      "showEntered": "Eingegebenen Wert anzeigen"
+    },
+    "appearanceProfile": {
+      "title": "Darstellung der Dienste",
+      "description": "Wähle Optionen für Navigation, Ressourcen und Konsole. Die Einstellungen werden in deinem Konto gespeichert und für alle Dienste und Geräte verwendet.",
+      "fontSize": "Schriftgröße der Konsole",
+      "fontSizeValue": "{{size}} px",
+      "saved": "Darstellung der Dienste in deinem Konto gespeichert.",
+      "saveFailed": "Die Darstellung konnte nicht in deinem Konto gespeichert werden. Änderungen bleiben lokal verfügbar; versuche erneut, sie in deinem Profil zu speichern."
+    },
+    "filesV2": {
+      "note": "Tatsächliche Dienstdateien. Ziehe Dateien auf einen Ordner oder den Pfad oben, um sie zu verschieben; halte zum Kopieren Strg/⌘ gedrückt. Lege Dateien oder Ordner von deinem Computer zum Hochladen ab. Upload-Limit: 8 MiB pro Datei, 200 MiB und 1.000 Elemente pro Stapel.",
+      "uploadFolder": "Ordner hochladen",
+      "transfersTitle": "Dateioperationen und Übertragungen",
+      "sending": "Daten werden übertragen",
+      "confirming": "Warten auf die Bestätigung des Agenten",
+      "processing": "Der Agent verarbeitet den Vorgang",
+      "completed": "Vorgang bestätigt",
+      "notStarted": "Nicht gestartet: Das Ergebnis des vorherigen Vorgangs ist unbekannt. Aktualisiere vor dem Fortfahren.",
+      "limit": "Wähle maximal 1.000 Elemente und 200 MiB pro Stapel aus.",
+      "move": "Verschieben",
+      "copy": "Kopieren",
+      "archive": "ZIP erstellen",
+      "archiveDownload": "ZIP erstellen und herunterladen",
+      "extract": "ZIP entpacken",
+      "details": "Dateidetails",
+      "previewNamed": "Vorschau von {{name}}",
+      "more": "Aktionen für {{name}}",
+      "selectAll": "Alle Dateien auswählen",
+      "selectNamed": "{{name}} auswählen",
+      "favorite": "Favoritenstatus ändern: {{name}}",
+      "paste": "Einfügen",
+      "undo": "Verschieben rückgängig machen",
+      "redo": "Verschieben wiederholen",
+      "undoHint": "Rückgängig machen und Wiederholen gelten für bestätigte Verschiebungen und Umbenennungen. Geänderte Dateien sind durch ihre Revision geschützt.",
+      "destination": "Zielordner",
+      "noOverwrite": "Vorhandene Dateien und Ordner werden niemals automatisch ersetzt. Wähle bei einem vorhandenen Eintrag einen anderen Namen oder ein anderes Ziel.",
+      "path": "Pfad",
+      "revision": "Revision",
+      "kind": "Typ",
+      "symlink": "Symbolischer Link",
+      "chooseZip": "Wähle eine einzelne ZIP-Datei aus.",
+      "symlinkBlocked": "Dieser Vorgang folgt keinen symbolischen Links.",
+      "clipboard": "{{count}} Elemente zum Einfügen bereit.",
+      "nativeDownload": "Der Download der großen Datei wurde an den Browser übergeben. Den Fortschritt findest du in den Browser-Downloads.",
+      "zipDropHint": "Entpacke Dateien aus Windows-ZIP-Ordnern, bevor du sie ziehst. Alternativ kannst du das Archiv hochladen und „ZIP entpacken“ wählen.",
+      "preview": "Vorschau",
+      "download": "Herunterladen"
+    },
+    "steam": {
+      "configurationHelp": "Valheim lädt seine Dateien über SteamCMD herunter. Gib einen Servernamen, einen Weltnamen (Buchstaben, Ziffern, _ oder -) und ein Passwort mit 5–64 Zeichen ein, das nicht im Servernamen vorkommt. Git und hochgeladene Dateien sind nicht erforderlich. Das Panel weist zwei aufeinanderfolgende UDP-Ports zu. Der Server ist privat (Steam, ohne Crossplay). Welten sind in den Dateisicherungen des Dienstes enthalten."
+    },
+    "jobs": {
+      "statuses": {
+        "QUEUED": "In der Warteschlange",
+        "RUNNING": "Wird ausgeführt",
+        "COMPLETED": "Abgeschlossen",
+        "FAILED": "Fehlgeschlagen",
+        "CANCELLED": "Abgebrochen",
+        "PENDING": "Ausstehend",
+        "DISPATCHING": "Wird an den Agenten gesendet"
+      },
+      "types": {
+        "INSTALL": "Installation",
+        "REINSTALL": "Neuinstallation",
+        "START": "Start",
+        "STOP": "Herunterfahren",
+        "RESTART": "Neustart",
+        "KILL": "Erzwungenes Beenden"
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ param()
 
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
+. (Join-Path $PSScriptRoot 'helpers/Remove-TestDirectory.ps1')
 
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -64,6 +65,31 @@ function Get-ArchiveEntryText {
     return $utf8.GetString($bytes)
 }
 
+# Verify the filename encoding contract enforced by the panel ZIP reader.
+function Test-ArchiveEncoding {
+    param([string]$ArchivePath)
+    $bytes = [IO.File]::ReadAllBytes($ArchivePath)
+    $end = $bytes.Length - 22
+    if ($end -lt 0 -or [BitConverter]::ToUInt32($bytes, $end) -ne 0x06054b50) {
+        throw 'Missing standard ZIP end record.'
+    }
+    $count = [BitConverter]::ToUInt16($bytes, $end + 10)
+    $offset = [BitConverter]::ToUInt32($bytes, $end + 16)
+    for ($index = 0; $index -lt $count; $index++) {
+        if ([BitConverter]::ToUInt32($bytes, $offset) -ne 0x02014b50) {
+            throw 'Invalid central ZIP entry.'
+        }
+        $local = [BitConverter]::ToUInt32($bytes, $offset + 42)
+        if ([BitConverter]::ToUInt16($bytes, $offset + 8) -ne 0x0800 -or
+            [BitConverter]::ToUInt16($bytes, $local + 6) -ne 0x0800) {
+            throw 'ZIP filenames must explicitly use UTF-8 without data descriptors.'
+        }
+        $offset += 46 + [BitConverter]::ToUInt16($bytes, $offset + 28) +
+            [BitConverter]::ToUInt16($bytes, $offset + 30) +
+            [BitConverter]::ToUInt16($bytes, $offset + 32)
+    }
+}
+
 function Test-PluginArchive {
     param(
         [Parameter(Mandatory)]
@@ -73,6 +99,7 @@ function Test-PluginArchive {
         [string]$PluginRoot
     )
 
+    Test-ArchiveEncoding -ArchivePath $ArchivePath
     $manifestPath = Join-Path $PluginRoot 'manifest.json'
 
     $manifest = Get-Content -LiteralPath $manifestPath `
@@ -214,7 +241,8 @@ function New-TestArchive {
             $outputArchive = [IO.Compression.ZipArchive]::new(
                 $outputStream,
                 [IO.Compression.ZipArchiveMode]::Create,
-                $true
+                $true,
+                [Text.Encoding]::UTF8
             )
 
             try {
@@ -412,6 +440,17 @@ try {
         -ShouldSucceed $true `
         -PluginRoot $casePlugin
 
+    $missingUtf8 = Join-Path $tempRoot 'missing-utf8.zip'
+    $bytes = [IO.File]::ReadAllBytes($validArchive)
+    $central = [BitConverter]::ToUInt32($bytes, $bytes.Length - 6)
+    $local = [BitConverter]::ToUInt32($bytes, $central + 42)
+    $bytes[$central + 8] = 0
+    $bytes[$central + 9] = 0
+    $bytes[$local + 6] = 0
+    $bytes[$local + 7] = 0
+    [IO.File]::WriteAllBytes($missingUtf8, $bytes)
+    Invoke-ArchiveTest -Name 'Missing explicit UTF-8 filename flags' -ArchivePath $missingUtf8 -ShouldSucceed $false -PluginRoot $casePlugin
+
     $missingArchive = Join-Path $tempRoot 'missing.zip'
 
     New-TestArchive `
@@ -478,7 +517,6 @@ try {
 }
 finally {
     if (Test-Path -LiteralPath $tempRoot) {
-        Remove-Item -LiteralPath $tempRoot `
-            -Recurse -Force
+        Remove-TestDirectory -LiteralPath $tempRoot -TestRoot $tempRoot
     }
 }

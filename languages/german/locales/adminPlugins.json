@@ -1,5 +1,14 @@
 {
   "adminPlugins": {
+    "update": {
+      "action": "Aktualisieren",
+      "title": "Plugin-Aktualisierung",
+      "help": "Wähle ein ZIP mit einer neueren Version desselben Plugins (maximal 20 MiB). Das Paket wird vor der Anzeige der Versionsänderung geprüft. Bisherige Dateien bleiben erhalten; bei einer fehlgeschlagenen Aktualisierung bleibt die aktuelle Version aktiv. Einstellungen zur Verfügbarkeit von Designs und Sprachen bleiben erhalten. Eine ZIP-Aktualisierung stellt keine Repository-Herkunft her.",
+      "package": "ZIP-Aktualisierungspaket",
+      "invalidFile": "Wähle eine nicht leere ZIP-Datei mit maximal 20 MiB.",
+      "confirm": "Aktualisierung installieren",
+      "success": "Auf Version {{version}} aktualisiert."
+    },
     "title": "Plugins",
     "description": "Verwalte die in Tyravex registrierten Erweiterungen.",
     "refresh": "Aktualisieren",
@@ -112,6 +121,66 @@
     "updates": {
       "available": "Update verfügbar",
       "failed": "Aktualisierung fehlgeschlagen"
+    },
+    "repositories": {
+      "add": "Repository hinzufügen",
+      "addHelp": "Füge einen Community-Plugin-Katalog über eine öffentliche HTTPS-URL hinzu.",
+      "name": "Repositoryname",
+      "url": "Katalog-URL",
+      "title": "Repositorys",
+      "help": "Verwalte offizielle und Community-Plugin-Quellen.",
+      "loadError": "Repositorys konnten nicht geladen werden.",
+      "loading": "Repositorys werden geladen…",
+      "empty": "Keine Repositorys verfügbar.",
+      "official": "Offiziell",
+      "view": "Plugins anzeigen",
+      "rename": "Umbenennen",
+      "deleteTitle": "Repository löschen?",
+      "delete": "Repository löschen",
+      "back": "Zurück zu den Repositorys",
+      "refreshPlugins": "Plugins aktualisieren",
+      "pluginsTitle": "Plugins des Repositorys",
+      "pluginsHelp": "In diesem Repository veröffentlichte Plugins.",
+      "pluginsLoading": "Plugins werden geladen…",
+      "pluginsError": "Plugins des Repositorys konnten nicht geladen werden.",
+      "pluginsEmpty": "In diesem Repository wurden keine Plugins gefunden.",
+      "namePlaceholder": "Community-Plugins",
+      "newName": "Neuer Repositoryname",
+      "cancelRename": "Umbenennen abbrechen",
+      "deleteDescription": "Repository „{{name}}“ entfernen? Installierte Plugins werden nicht entfernt.",
+      "pageTitle": "Marketplace",
+      "pageHelp": "Verwalte Plugin-Repositorys für Tyravex."
+    },
+    "catalogUpdates": {
+      "check": "Nach Aktualisierungen suchen",
+      "installedAt": "Installiert am",
+      "updatedAt": "Aktualisiert am",
+      "title": "Aus Repository aktualisieren",
+      "help": "Wähle eine Quelle, lade das Paket zur Prüfung herunter und bestätige anschließend die Versionsänderung. Die Prüfung installiert keine Aktualisierungen.",
+      "source": "Repository-Quelle",
+      "community": "Community",
+      "communityHelp": "Dieses Paket stammt aus einem Community-Repository. Prüfe vor der Aktualisierung, ob du dieser Quelle vertraust.",
+      "preview": "Herunterladen und prüfen",
+      "confirm": "Repository-Aktualisierung bestätigen",
+      "manual": "Aus ZIP-Datei aktualisieren",
+      "versionChange": "v{{from}} → v{{to}}",
+      "checksum": "SHA-256: {{sha256}}",
+      "noUpdates": "Keine neueren kompatiblen Versionen in aktivierten Repositorys gefunden.",
+      "found": "Plugins mit Aktualisierungen: {{count}}",
+      "checkFailed": "Aktualisierungen konnten nicht geprüft werden. Versuche es erneut.",
+      "partialFailure": "Einige Quellen konnten nicht geprüft werden",
+      "failed": "Das Paket konnte nicht geprüft oder aktualisiert werden. Prüfe die Quelle und versuche es erneut.",
+      "errors": {
+        "PLUGIN_DOWNLOAD_BUSY": "Andere Pakete werden heruntergeladen. Warte und versuche es erneut.",
+        "PLUGIN_PACKAGE_DOWNLOAD_FAILED": "Die ZIP-Datei konnte nicht sicher heruntergeladen werden. Prüfe, ob das Release-Paket veröffentlicht ist. Du kannst es auch manuell hochladen.",
+        "PLUGIN_CATALOG_CHECKSUM_MISMATCH": "Die ZIP-Prüfsumme stimmt nicht mit dem Katalog überein. Es wurde keine Aktualisierung installiert.",
+        "PLUGIN_CATALOG_PACKAGE_MISMATCH": "Die ZIP-Version stimmt nicht mit dem Katalog überein. Prüfe das veröffentlichte Paket.",
+        "PLUGIN_CATALOG_CHANGED": "Der Katalog wurde nach der Vorschau geändert. Prüfe und lade die Aktualisierung erneut.",
+        "PLUGIN_REPOSITORY_DISABLED": "Das Repository wurde deaktiviert, entfernt oder geändert. Aktualisiere die verfügbaren Quellen.",
+        "PLUGIN_CATALOG_NO_UPDATE": "Diese Quelle enthält keine neuere kompatible Version dieses Plugins.",
+        "PLUGIN_CATALOG_OPERATION_ACTIVE": "Ein anderer Plugin-Vorgang ist aktiv oder eine Wiederherstellung ist erforderlich. Aktualisiere den Status.",
+        "PLUGIN_CATALOG_NOT_FOUND": "Plugin nicht gefunden. Aktualisiere die Liste."
+      }
     }
   }
 }

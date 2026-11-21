@@ -3,6 +3,7 @@ param()
 
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
+. (Join-Path $PSScriptRoot 'helpers/Remove-TestDirectory.ps1')
 
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $sourcePlugin = Join-Path $repoRoot 'languages/german'
@@ -117,7 +118,7 @@ function Invoke-RegistryTest {
     }
     finally {
         if (Test-Path -LiteralPath $caseRoot) {
-            Remove-Item -LiteralPath $caseRoot -Recurse -Force
+            Remove-TestDirectory -LiteralPath $caseRoot -TestRoot $tempRoot
         }
     }
 }
@@ -232,6 +233,6 @@ try {
 }
 finally {
     if (Test-Path -LiteralPath $tempRoot) {
-        Remove-Item -LiteralPath $tempRoot -Recurse -Force
+        Remove-TestDirectory -LiteralPath $tempRoot -TestRoot $tempRoot
     }
 }

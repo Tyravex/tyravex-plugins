@@ -1,11 +1,17 @@
 {
   "navigation": {
+    "eggtags": "Egg-Tags",
+    "egglibrary": "Egg-Bibliothek",
+    "importeggs": "Eggs importieren",
+    "eggrepositories": "Egg-Repositorys",
     "adminPanel": "Administrationsbereich",
     "auditlogs": "Auditprotokolle",
-    "jobs": "Aufgaben",
+    "jobs": "Aufträge",
     "maintenance": "Wartung",
+    "locations": "Standorte",
     "nodes": "Knoten",
-    "overview": "?bersicht",
+    "regions": "Regionen",
+    "overview": "Übersicht",
     "plugins": "Plugins",
     "profile": "Profil",
     "rolespermissions": "Rollen und Berechtigungen",
@@ -14,6 +20,9 @@
     "services": "Dienste",
     "settings": "Einstellungen",
     "userPanel": "Benutzerbereich",
-    "users": "Benutzer"
+    "users": "Benutzer",
+    "themes": "Designs",
+    "artwork": "Dienstgrafiken",
+    "domains": "Domains"
   }
 }

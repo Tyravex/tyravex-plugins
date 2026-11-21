@@ -28,7 +28,7 @@ Each plugin entry includes:
 
 | Plugin               | Version | Type     | Language         |
 | -------------------- | ------- | -------- | ---------------- |
-| German Language Pack | 1.0.0   | language | German (Deutsch) |
+| German Language Pack | 1.1.1   | language | German (Deutsch) |
 
 Plugin ID: `tyravex.language.german`
 
@@ -45,7 +45,7 @@ tyravex-plugins/
 │   ├── publish-registry.ps1
 │   └── verify-registry.ps1
 ├── dist/
-│   └── tyravex.language.german-1.0.0.zip
+│   └── tyravex.language.german-1.1.1.zip
 ├── registry.json
 └── README-marketplace.md
 ```
@@ -63,7 +63,7 @@ From the repository root, run:
 The generated archive is:
 
 ```text
-dist/tyravex.language.german-1.0.0.zip
+dist/tyravex.language.german-1.1.1.zip
 ```
 
 ## Generate the registry
@@ -122,13 +122,13 @@ Review the changes, then commit and push the registry and documentation to the `
 
 ### 3. Publish the release ZIP
 
-For German Language Pack v1.0.0:
+For German Language Pack v1.1.1:
 
 ```powershell
-gh release create tyravex.language.german-v1.0.0 `
-    ".\dist\tyravex.language.german-1.0.0.zip" `
+gh release create tyravex.language.german-v1.1.1 `
+    ".\dist\tyravex.language.german-1.1.1.zip" `
     --repo Tyravex/tyravex-plugins `
-    --title "German Language Pack v1.0.0" `
+    --title "German Language Pack v1.1.1" `
     --notes "Official German (Deutsch) language pack for Tyravex." `
     --target main
 ```
@@ -172,3 +172,17 @@ When publishing a new plugin version:
 6. Test the Marketplace listing and plugin installation.
 
 Do not reuse an existing version for a modified package. Publish a new version instead.
+
+## German 1.1.1 update
+
+The 1.1.1 source includes all 27 built-in panel translation sections, adding 1,726
+previously missing keys. It covers service workspaces, Minecraft and Valheim,
+Eggs, artwork, themes, domains, network ports, schedules, account settings,
+notifications, RBAC v2 and plugin updates. Existing German translations are
+retained with terminology and encoding corrections.
+
+Build and validate locally before updating an installed plugin with the ZIP.
+Preparing a registry file does not publish a GitHub Release or its archive.
+Publish the release asset before pushing registry metadata that references it.
+
+Version 1.1.1 also translates repository update checks, verified package previews, source selection and download error states. The separately prepared 1.1.0 archive remains unchanged.

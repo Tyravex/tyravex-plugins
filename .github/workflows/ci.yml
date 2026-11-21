@@ -58,6 +58,17 @@ jobs:
                     throw "Translation tests failed: $LASTEXITCODE"
                   }
 
+            - name: Test translation validation failures
+              working-directory: tyravex-plugins
+              run: |
+                  & pwsh -NoProfile -NonInteractive -File `
+                    ./tests/Test-TranslationValidation.ps1 `
+                    -PanelRoot ../panel
+
+                  if ($LASTEXITCODE -ne 0) {
+                    throw "Translation validation tests failed: $LASTEXITCODE"
+                  }
+
             - name: Validate plugin manifest
               working-directory: tyravex-plugins
               run: |

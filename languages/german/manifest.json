@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "tyravex.language.german",
   "type": "language",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "language": {
     "code": "de",
     "name": "German",
@@ -17,6 +17,7 @@
       "./locales/language.json",
       "./locales/dashboard.json",
       "./locales/servers.json",
+      "./locales/services.json",
       "./locales/common.json",
       "./locales/auth.json",
       "./locales/profile.json",
@@ -28,8 +29,15 @@
       "./locales/logout.json",
       "./locales/section.json",
       "./locales/layout.json",
+      "./locales/adminRegions.json",
+      "./locales/adminLocations.json",
       "./locales/adminNodes.json",
-      "./locales/adminServices.json"
+      "./locales/adminServices.json",
+      "./locales/eggs.json",
+      "./locales/appearance.json",
+      "./locales/userSettings.json",
+      "./locales/domains.json",
+      "./locales/network.json"
     ]
   }
 }

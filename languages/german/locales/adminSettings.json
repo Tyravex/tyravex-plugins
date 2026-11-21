@@ -20,6 +20,17 @@
       "system": "System",
       "users": "Benutzer"
     },
-    "title": "Administratoreinstellungen"
+    "title": "Administratoreinstellungen",
+    "defaultRoleNoEligible": "Es sind keine Rollen ohne globale Berechtigungen verfügbar.",
+    "defaultRoleDescription": "Jedes neue Konto erhält automatisch diese Rolle.",
+    "defaultRoleSave": "Standardrolle speichern",
+    "defaultRoleSaveSuccess": "Standardrolle erfolgreich gespeichert.",
+    "defaultRoleCurrent": "Aktuelle Standardrolle:",
+    "defaultRoleUnavailable": "Rolle nicht verfügbar",
+    "defaultRoleTitle": "Standardrolle für neue Konten",
+    "defaultRoleSaveError": "Die Standardrolle konnte nicht gespeichert werden. Sie wurde möglicherweise geändert oder ist nicht mehr zulässig.",
+    "defaultRoleLoadError": "Die Einstellungen der Standardrolle konnten nicht geladen werden.",
+    "defaultRoleSelect": "Neuen Konten zugewiesene Rolle",
+    "defaultRoleHint": "Es sind nur Rollen ohne globale Berechtigungen verfügbar. Änderungen gelten nur für zukünftige Konten. Die automatische Rollenzuweisung kann nicht deaktiviert werden."
   }
 }

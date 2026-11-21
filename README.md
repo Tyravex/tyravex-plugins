@@ -8,9 +8,9 @@ This repository contains official plugin sources, language packs, build and veri
 
 | Plugin                    | Type          | Version | Language         |
 | ------------------------- | ------------- | ------- | ---------------- |
-| `tyravex.language.german` | Language pack | `1.0.0` | German (Deutsch) |
+| `tyravex.language.german` | Language pack | `1.1.1` | German (Deutsch) |
 
-[German Language Pack v1.0.0](https://github.com/Tyravex/tyravex-plugins/releases/tag/tyravex.language.german-v1.0.0)
+[German Language Pack v1.1.1](https://github.com/Tyravex/tyravex-plugins/releases/tag/tyravex.language.german-v1.1.1)
 
 ## Repository structure
 
@@ -24,13 +24,14 @@ tyravex-plugins/
 ├── languages/
 │   └── german/
 │       ├── manifest.json
-│       └── locales/                    # 19 JSON translation files
+│       └── locales/                    # 27 JSON translation files
 ├── scripts/
 │   ├── build-language-plugin.ps1
 │   ├── publish-registry.ps1
 │   ├── verify-registry.ps1
 │   └── set-plugin-version.ps1          # Planned
 ├── tests/
+│   ├── Test-TranslationValidation.ps1
 │   ├── Test-Translations.ps1
 │   ├── Test-Manifest.ps1
 │   ├── Test-Archive.ps1
@@ -44,7 +45,7 @@ tyravex-plugins/
 └── LICENSE
 ```
 
-**Development status:** The four test suites and the GitHub Actions CI workflow have been implemented and passed local checks. The CI workflow has not yet been verified by a run on GitHub Actions. Automated version preparation and release publication remain planned.
+**Development status:** The five test suites and the GitHub Actions CI workflow have been implemented and passed local checks. The CI workflow has not yet been verified by a run on GitHub Actions. Automated version preparation and release publication remain planned.
 
 ## Requirements
 
@@ -70,7 +71,7 @@ The build script validates the manifest, checks translation file paths and JSON 
 Generated archive:
 
 ```text
-dist/tyravex.language.german-1.0.0.zip
+dist/tyravex.language.german-1.1.1.zip
 ```
 
 The `dist/` directory contains generated artifacts and is ignored by Git.
@@ -90,7 +91,7 @@ locales/
   sidebar.json
 ```
 
-The German Language Pack currently contains 19 translation JSON files. Its manifest declares the plugin ID, type, version, language metadata, and the list of included translation files.
+The German Language Pack currently contains 27 translation JSON files. Its manifest declares the plugin ID, type, version, language metadata, and the list of included translation files.
 
 ## Tyravex Marketplace
 
@@ -246,3 +247,17 @@ The workflow must reject duplicate release tags, invalid assets, and checksum mi
 ## License
 
 See [LICENSE](LICENSE) for applicable terms.
+
+## German 1.1.1 update
+
+The 1.1.1 source includes all 27 built-in panel translation sections, adding 1,726
+previously missing keys. It covers service workspaces, Minecraft and Valheim,
+Eggs, artwork, themes, domains, network ports, schedules, account settings,
+notifications, RBAC v2 and plugin updates. Existing German translations are
+retained with terminology and encoding corrections.
+
+Build and validate locally before updating an installed plugin with the ZIP.
+Preparing a registry file does not publish a GitHub Release or its archive.
+Publish the release asset before pushing registry metadata that references it.
+
+Version 1.1.1 also translates repository update checks, verified package previews, source selection and download error states. The separately prepared 1.1.0 archive remains unchanged.

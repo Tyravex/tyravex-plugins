@@ -86,6 +86,23 @@ $manifest = Get-Content -LiteralPath $manifestPath `
 $files = @($manifest.translations.files)
 $issues = [System.Collections.Generic.List[string]]::new()
 
+# Compare the manifest too, so a whole missing section cannot pass unnoticed.
+$englishManifestPath = Join-Path $englishRoot 'manifest.json'
+$englishManifest = Get-Content -LiteralPath $englishManifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
+$expectedFiles = @($englishManifest.translations.files)
+$declaredFiles = @($files | ForEach-Object { Split-Path $_ -Leaf })
+foreach ($expectedFile in $expectedFiles) {
+    if ($expectedFile -cnotin $declaredFiles) {
+        $issues.Add("Missing manifest translation section: $expectedFile")
+    }
+}
+foreach ($declaredFile in $declaredFiles) {
+    if ($declaredFile -cnotin $expectedFiles) {
+        $issues.Add("Unexpected manifest translation section: $declaredFile")
+    }
+}
+
+
 if ($files.Count -eq 0) {
     throw 'Manifest declares no translation files.'
 }
@@ -147,6 +164,11 @@ foreach ($relativeFile in $files) {
         if ($germanValue -is [string] -and
             [string]::IsNullOrWhiteSpace($germanValue)) {
             $issues.Add("[$fileName] Empty German translation: $key")
+        }
+
+        if ($germanValue -is [string] -and
+            $germanValue -match '\uFFFD|Ã.|Â\s|\p{L}\?\p{L}|(?<!\p{L})\?\p{L}|\?{2,}|\d\s+\?\s+\d') {
+            $issues.Add("[$fileName] Damaged translation encoding: $key")
         }
 
         $englishPlaceholders = @(

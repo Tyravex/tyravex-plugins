@@ -3,6 +3,9 @@
     "accountOverview": "Kontoübersicht",
     "accountOverviewDescription": "Grundlegende Informationen zu deinem Tyravex-Konto.",
     "categories": {
+      "games": "Spielserver",
+      "bots": "Bots",
+      "voice": "Sprachdienste",
       "discordBots": "Discord-Bots",
       "other": "Weitere Dienste",
       "servers": "Server",
@@ -77,10 +80,14 @@
       "users": "Benutzer"
     },
     "services": {
+      "all": "Alle Dienste",
+      "backToDashboard": "Zurück zur Übersicht",
+      "refresh": "Aktualisieren",
+      "retry": "Erneut versuchen",
       "apiPending": "Diese Kategorie ist bereits im Dienstkatalog verfügbar. Die Verwaltung der Dienste wird nach der Anbindung der API möglich sein.",
       "categoryLabel": "Dienstkategorien",
       "count": "Anzahl Dienste",
-      "description": "Verwalte deine Server, Bots und Hosting-Dienste an einem Ort.",
+      "description": "Verwalte deine Spielserver, Bots und Hosting-Dienste an einem Ort.",
       "detailsUnavailable": "Details sind nach der Installation verfügbar.",
       "draft": "Entwurf",
       "emptyDescription": "Deinem Konto sind in dieser Kategorie noch keine Dienste zugewiesen.",
@@ -89,12 +96,66 @@
       "linkedServer": "Verknüpfter Server",
       "loading": "Dienste werden geladen...",
       "pendingInstallation": "Wartet auf Installation",
-      "previewNote": "Dies sind Beispielserver, die nicht in der Datenbank gespeichert sind.",
+      "previewNote": "Dies sind Beispieldienste, die nicht in der Datenbank gespeichert sind.",
       "previewOff": "Vorschau: AUS",
       "previewOn": "Vorschau: EIN",
       "serviceId": "Dienst-ID",
       "subtitle": "Wähle eine Kategorie aus, um deine Dienste anzuzeigen.",
-      "title": "Deine Dienste"
+      "title": "Deine Dienste",
+      "notFoundTitle": "Dienst nicht gefunden",
+      "notFoundDescription": "Dieser Dienst existiert nicht oder du hast keinen Zugriff darauf."
+    },
+    "serviceDetails": {
+      "statusOnline": "Online",
+      "statusOffline": "Offline",
+      "statusMaintenance": "Wartung",
+      "statusUnknown": "Unbekannt",
+      "noData": "Keine Daten"
+    },
+    "workspace": {
+      "navigation": "Dienstmodule",
+      "installation": "Installation",
+      "resources": "CPU- / RAM-Ressourcen",
+      "noTelemetry": "Telemetrie nicht verfügbar",
+      "type": "Diensttyp",
+      "pendingTitle": "Modul noch nicht verbunden",
+      "pendingDescription": "Dieses Modul ist noch nicht verfügbar. Deine vorhandene Dienstkonfiguration bleibt erhalten.",
+      "extensionsDescription": "Plugins und Mods werden für kompatible Spiele, Servervarianten und Versionen verfügbar sein.",
+      "voiceDescription": "Die Sprachverwaltung wird nach der Anbindung der Dienstintegration verfügbar.",
+      "kinds": {
+        "game": {
+          "label": "Spielserver",
+          "description": "Verwalte deinen Spielserver, Spieler und Erweiterungen."
+        },
+        "bot": {
+          "label": "Bot",
+          "description": "Verwalte deinen Bot, die Umgebung, Protokolle und Module."
+        },
+        "voice": {
+          "label": "Sprachdienst",
+          "description": "Verwalte deinen Sprachdienst, Kanäle und Berechtigungen."
+        },
+        "other": {
+          "label": "Dienst",
+          "description": "Verwalte deine gehosteten Dienste."
+        }
+      },
+      "tabs": {
+        "overview": "Übersicht",
+        "console": "Konsole",
+        "files": "Dateien",
+        "extensions": "Plugins / Mods",
+        "players": "Spieler",
+        "channels": "Kanäle",
+        "permissions": "Berechtigungen",
+        "environment": "Umgebungsvariablen",
+        "logs": "Protokolle",
+        "modules": "Module",
+        "backups": "Sicherungen",
+        "schedules": "Zeitpläne",
+        "settings": "Einstellungen",
+        "domains": "Adressen und Domains"
+      }
     },
     "username": "Benutzername",
     "welcome": "Willkommen, {{username}}!"

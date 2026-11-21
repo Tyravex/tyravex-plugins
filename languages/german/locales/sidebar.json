@@ -6,6 +6,7 @@
     "comingLater": "Funktion in einer späteren Entwicklungsphase verfügbar",
     "mainNavigation": "Hauptnavigation",
     "sections": {
+      "eggs": "Egg-System",
       "account": "Konto",
       "infrastructure": "Infrastruktur",
       "management": "Verwaltung",
@@ -14,6 +15,23 @@
       "system": "System"
     },
     "soon": "Bald",
-    "userPanel": "Benutzerbereich"
+    "userPanel": "Benutzerbereich",
+    "userNavigation": {
+      "overview": "Übersicht",
+      "services": "Alle Dienste",
+      "projects": "Projekte und Gruppen",
+      "shared": "Mit mir geteilt",
+      "operations": "Vorgänge",
+      "activity": "Aktivitätsverlauf",
+      "resources": "Ressourcen"
+    },
+    "favorites": {
+      "title": "Bevorzugte Dienste",
+      "loading": "Wird geladen…",
+      "empty": "Noch keine bevorzugten Dienste. Das Anheften wird nach der Integration der Favoritenfunktion verfügbar.",
+      "showLess": "Weniger anzeigen",
+      "showAll": "Alle anzeigen ({{count}})"
+    },
+    "userNavigationLabel": "Benutzernavigation"
   }
 }

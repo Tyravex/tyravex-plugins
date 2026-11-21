@@ -1,0 +1,13 @@
+{
+  "userSettings": {
+    "title": "Benutzereinstellungen",
+    "description": "Paneleinstellungen, Benachrichtigungen und automatische Abmeldung. Kontodaten und Passwort verwaltest du in deinem Profil.",
+    "navigation": "Bereiche der Benutzereinstellungen",
+    "tabs": {
+      "notifications": "Benachrichtigungen",
+      "appearance": "Darstellung",
+      "session": "Sitzung",
+      "egg-tags": "Egg-Tags"
+    }
+  }
+}

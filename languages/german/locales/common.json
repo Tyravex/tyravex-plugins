@@ -1,5 +1,10 @@
 {
   "common": {
+    "unsaved": {
+      "title": "Ungespeicherte Änderungen verwerfen?",
+      "description": "Du hast ungespeicherte Änderungen. Beim Fortfahren werden die Änderungen im verlassenen Formular verworfen.",
+      "discard": "Verwerfen und fortfahren"
+    },
     "active": "Aktiv",
     "appName": "Tyravex",
     "back": "Zurück",
@@ -25,6 +30,7 @@
     "saving": "Wird gespeichert...",
     "search": "Suchen",
     "success": "Erfolg",
-    "yes": "Ja"
+    "yes": "Ja",
+    "copyright": "© {{year}} Tyravex. Alle Rechte vorbehalten."
   }
 }

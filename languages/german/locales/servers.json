@@ -38,7 +38,8 @@
         "undo": "Rückgängig",
         "up": "Nach oben",
         "uploadFiles": "Dateien hochladen",
-        "uploadFolder": "Ordner hochladen"
+        "uploadFolder": "Ordner hochladen",
+        "details": "Details"
       },
       "contextMenu": {
         "actionsFor": "Aktionen für {{name}}",
@@ -156,7 +157,8 @@
         "size": "Größe",
         "type": "Typ",
         "uploading": "Wird hochgeladen",
-        "uploadProgress": "Upload-Fortschritt"
+        "uploadProgress": "Upload-Fortschritt",
+        "actions": "Aktionen"
       },
       "messages": {
         "confirmDelete": "Möchtest du die ausgewählten Elemente wirklich löschen?",
@@ -277,6 +279,28 @@
         "download": "Als ZIP herunterladen",
         "extract": "Hier entpacken",
         "processing": "ZIP wird verarbeitet..."
+      },
+      "demoNotice": "Demonstrationsdateisystem. Änderungen sind vorübergehend und werden nicht auf den Server geschrieben.",
+      "noSelection": "Keine Datei ausgewählt",
+      "selectHint": "Wähle eine Datei aus, um ihre Details zu sehen.",
+      "notConnected": "Die Datei-API ist nicht verbunden.",
+      "operationMessages": {
+        "invalidName": "Gib einen gültigen Namen ein.",
+        "invalidCharacters": "Namen dürfen keine Schrägstriche oder Steuerzeichen enthalten.",
+        "tooManyItems": "Ein Archiv darf maximal 1000 Elemente enthalten.",
+        "contentLimit": "Der Archivinhalt überschreitet das Limit von 200 MiB.",
+        "archiveLimit": "Das ZIP-Archiv überschreitet das Limit von 100 MiB.",
+        "blockedFolder": "Eine Datei blockiert den Zielordner: {{path}}",
+        "unsafePath": "Das ZIP-Archiv enthält einen unsicheren Pfad.",
+        "itemExists": "Ein Element ist bereits vorhanden: {{path}}",
+        "parentFile": "Ein übergeordneter Pfad ist eine Datei statt eines Ordners.",
+        "nameExists": "Ein Element mit diesem Namen ist bereits vorhanden.",
+        "demoLimit": "Die Datei überschreitet das Limit von 100 MiB für den Demospeicher.",
+        "readFailed": "Diese Datei konnte nicht gelesen werden.",
+        "readProgress": "{{loaded}} / {{total}} lokal gelesen",
+        "readComplete": "In den Demospeicher eingelesen",
+        "added_one": "{{count}} Element zum Demospeicher hinzugefügt.",
+        "added_other": "{{count}} Elemente zum Demospeicher hinzugefügt."
       }
     },
     "loading": "Server werden geladen...",
@@ -303,6 +327,14 @@
       "removeNamed": "{{name}} aus dem Upload-Verlauf entfernen",
       "title": "Uploads",
       "uploading": "Wird hochgeladen"
+    },
+    "card": {
+      "status": "Status",
+      "players": "Spieler",
+      "cpu": "Prozessor",
+      "ram": "Arbeitsspeicher",
+      "online": "Online",
+      "offline": "Offline"
     }
   }
 }

@@ -15,6 +15,70 @@
     "saveError": "Änderungen konnten nicht gespeichert werden.",
     "saving": "Wird gespeichert...",
     "title": "Mein Profil",
-    "username": "Benutzername"
+    "username": "Benutzername",
+    "navigation": "Profileinstellungen",
+    "tabs": {
+      "account": "Kontodaten",
+      "security": "Sicherheit",
+      "avatar": "Profilbild"
+    },
+    "password": {
+      "title": "Passwort ändern",
+      "description": "Bestätige dein aktuelles Passwort, um ein neues festzulegen.",
+      "currentPassword": "Aktuelles Passwort",
+      "newPassword": "Neues Passwort",
+      "confirmation": "Neues Passwort bestätigen",
+      "show": "Passwörter anzeigen",
+      "hide": "Passwörter ausblenden",
+      "requirements": "Mindestens 12 Zeichen, maximal 72 UTF-8-Bytes. Umlaute und Emoji können mehr als ein Byte belegen.",
+      "sessionNotice": "Eine Passwortänderung meldet alle Sitzungen ab, auch diese. Melde dich mit deinem neuen Passwort erneut an.",
+      "submit": "Passwort ändern und abmelden",
+      "changed": "Dein Passwort wurde geändert. Melde dich mit deinem neuen Passwort erneut an.",
+      "errors": {
+        "mismatch": "Die neuen Passwörter müssen übereinstimmen.",
+        "invalid": "Verwende mindestens 12 Zeichen und maximal 72 UTF-8-Bytes.",
+        "currentIncorrect": "Das aktuelle Passwort ist falsch.",
+        "unchanged": "Wähle ein anderes Passwort als dein aktuelles.",
+        "rateLimited": "Zu viele Versuche. Bitte versuche es später erneut.",
+        "failed": "Dein Passwort konnte nicht geändert werden. Bitte versuche es erneut."
+      }
+    },
+    "idle": {
+      "title": "Automatische Abmeldung",
+      "description": "Wähle, wie lange dein Konto inaktiv bleiben darf.",
+      "label": "Nach Inaktivität abmelden",
+      "off": "Deaktiviert",
+      "options": {
+        "15": "15 Minuten",
+        "30": "30 Minuten",
+        "60": "1 Stunde",
+        "240": "4 Stunden"
+      },
+      "hint": "Aktivität in anderen Panel-Tabs verlängert diese Sitzung. Statistikaktualisierungen und andere Hintergrundanfragen zählen nicht. Die maximale Sitzungsdauer bleibt 7 Tage.",
+      "failed": "Die Einstellung konnte nicht gespeichert oder die Sitzung nicht verlängert werden. Bitte versuche es erneut.",
+      "warningTitle": "Deine Sitzung läuft gleich ab",
+      "warning": "Du wirst wegen Inaktivität in {{count}} s abgemeldet.",
+      "stay": "Angemeldet bleiben"
+    },
+    "avatar": {
+      "title": "Profilbild",
+      "description": "Wähle das Bild, das bei deinem Konto angezeigt wird. Die Vorschau zeigt den quadratischen Zuschnitt; gespeicherte Bilder sind 256 × 256 px groß.",
+      "choose": "Bild auswählen",
+      "preview": "Vorschau des neuen Bilds",
+      "invalid": "Wähle ein PNG-, JPEG- oder WebP-Bild mit maximal 5 MiB.",
+      "error": "Das Bild konnte nicht gespeichert werden. Prüfe sein Format und versuche es erneut.",
+      "save": "Bild speichern",
+      "saving": "Wird gespeichert…",
+      "remove": "Bild entfernen",
+      "cancel": "Auswahl abbrechen",
+      "saved": "Profilbild aktualisiert.",
+      "pending": "Ungespeicherte Änderungen",
+      "current": "Aktuelles Bild",
+      "dropTitle": "Ziehe dein Bild hierher",
+      "dropHere": "Lege dein Bild für die Vorschau ab",
+      "dropDescription": "Oder wähle eine Datei von deinem Computer aus. Dein Bild wird erst nach dem Speichern geändert.",
+      "chooseAnother": "Anderes Bild auswählen",
+      "maxSize": "Bis zu 5 MiB"
+    }
   }
 }

@@ -9,8 +9,8 @@ $manifest = Get-Content -LiteralPath $manifestPath -Raw -Encoding UTF8 | Convert
 if ($manifest.id -ne 'tyravex.language.german' -or $manifest.type -ne 'language') {
     throw 'Unexpected German plugin manifest.'
 }
-if ($manifest.translations.files.Count -ne 19) {
-    throw 'German plugin must contain 19 translation files.'
+if (@($manifest.translations.files).Count -eq 0) {
+    throw 'German plugin must declare translation files.'
 }
 foreach ($relative in $manifest.translations.files) {
     if ($relative -notmatch '^\./locales/[A-Za-z0-9_-]+\.json$') { throw "Invalid translation path: $relative" }

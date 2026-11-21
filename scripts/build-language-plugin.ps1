@@ -136,10 +136,12 @@ try {
     )
 
     try {
+        # The panel requires explicit UTF-8 filename flags, including ASCII paths.
         $archive = [IO.Compression.ZipArchive]::new(
             $fileStream,
             [IO.Compression.ZipArchiveMode]::Create,
-            $true
+            $true,
+            [Text.Encoding]::UTF8
         )
 
         try {
