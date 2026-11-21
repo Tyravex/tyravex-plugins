@@ -1,0 +1,28 @@
+{
+  "navigation": {
+    "eggtags": "Egg Tags",
+    "egglibrary": "Egg Library",
+    "importeggs": "Import Eggs",
+    "eggrepositories": "Egg Repositories",
+    "adminPanel": "Admin dashboard",
+    "auditlogs": "Audit Logs",
+    "jobs": "Jobs",
+    "maintenance": "Maintenance",
+    "locations": "Locations",
+    "nodes": "Nodes",
+    "regions": "Regions",
+    "overview": "Overview",
+    "plugins": "Plugins",
+    "profile": "Profile",
+    "rolespermissions": "Roles & Permissions",
+    "security": "Security",
+    "servers": "Servers",
+    "services": "Services",
+    "settings": "Settings",
+    "userPanel": "User dashboard",
+    "users": "Users",
+    "themes": "Themes",
+    "artwork": "Artwork",
+    "domains": "Domains"
+  }
+}

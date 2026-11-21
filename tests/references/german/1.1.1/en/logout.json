@@ -1,0 +1,6 @@
+{
+  "logout": {
+    "warningDescription": "You have been signed out locally, but your session may still be active on the server. Please try again later.",
+    "warningTitle": "Server logout could not be confirmed"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "code": "en",
+  "name": "English",
+  "nativeName": "English",
+  "type": "built-in",
+  "translations": {
+    "namespace": "translation",
+    "files": [
+      "sidebar.json",
+      "navigation.json",
+      "Navbar.json",
+      "language.json",
+      "dashboard.json",
+      "servers.json",
+      "services.json",
+      "common.json",
+      "auth.json",
+      "profile.json",
+      "adminUsers.json",
+      "adminPlugins.json",
+      "adminSettings.json",
+      "adminRoles.json",
+      "adminAudit.json",
+      "logout.json",
+      "section.json",
+      "layout.json",
+      "adminRegions.json",
+      "adminLocations.json",
+      "adminNodes.json",
+      "adminServices.json",
+      "eggs.json",
+      "appearance.json",
+      "userSettings.json",
+      "domains.json",
+      "network.json"
+    ]
+  }
+}

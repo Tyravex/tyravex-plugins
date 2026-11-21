@@ -35,14 +35,6 @@ jobs:
                   path: tyravex-plugins
                   persist-credentials: false
 
-            - name: Checkout Tyravex panel translations
-              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-              with:
-                  repository: Tyravex/panel
-                  ref: main
-                  path: panel
-                  persist-credentials: false
-
             - name: Show PowerShell version
               run: |
                   $PSVersionTable.PSVersion.ToString()
@@ -51,8 +43,7 @@ jobs:
               working-directory: tyravex-plugins
               run: |
                   & pwsh -NoProfile -NonInteractive -File `
-                    ./tests/Test-Translations.ps1 `
-                    -PanelRoot ../panel
+                    ./tests/Test-Translations.ps1
 
                   if ($LASTEXITCODE -ne 0) {
                     throw "Translation tests failed: $LASTEXITCODE"
@@ -62,8 +53,7 @@ jobs:
               working-directory: tyravex-plugins
               run: |
                   & pwsh -NoProfile -NonInteractive -File `
-                    ./tests/Test-TranslationValidation.ps1 `
-                    -PanelRoot ../panel
+                    ./tests/Test-TranslationValidation.ps1
 
                   if ($LASTEXITCODE -ne 0) {
                     throw "Translation validation tests failed: $LASTEXITCODE"
@@ -98,3 +88,39 @@ jobs:
                   if ($LASTEXITCODE -ne 0) {
                     throw "Registry tests failed: $LASTEXITCODE"
                   }
+
+    panel-compatibility:
+        name: Compatibility with published panel (advisory)
+        runs-on: windows-latest
+        timeout-minutes: 10
+        continue-on-error: true
+        defaults:
+            run:
+                shell: pwsh
+        steps:
+            - name: Checkout plugins repository
+              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+              with:
+                  path: tyravex-plugins
+                  persist-credentials: false
+            - name: Checkout Tyravex panel translations
+              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+              with:
+                  repository: Tyravex/panel
+                  ref: main
+                  path: panel
+                  persist-credentials: false
+
+            - name: Compare against published panel
+              working-directory: tyravex-plugins
+              run: |
+                  & pwsh -NoProfile -NonInteractive -File ./tests/Test-Translations.ps1 -PanelRoot ../panel *> compatibility.log
+                  $comparisonExit = $LASTEXITCODE
+                  if ($comparisonExit -ne 0) {
+                      Get-Content compatibility.log -Tail 15
+                      Write-Output '::warning::Published panel translations differ from this plugin release reference. See the advisory compatibility job.'
+                      '## Panel compatibility warning' >> $env:GITHUB_STEP_SUMMARY
+                      'Release validation uses a versioned reference. Published panel/main differs from this reference; review compatibility before deployment.' >> $env:GITHUB_STEP_SUMMARY
+                      exit $comparisonExit
+                  }
+                  Get-Content compatibility.log

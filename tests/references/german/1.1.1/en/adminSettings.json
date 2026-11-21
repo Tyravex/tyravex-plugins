@@ -1,0 +1,36 @@
+{
+  "adminSettings": {
+    "comingSoon": "This settings section will be available in the future.",
+    "description": "Manage panel configuration.",
+    "disabled": "Registration is disabled.",
+    "enabled": "Registration is enabled.",
+    "infoTitle": "Tip",
+    "loadError": "Failed to load registration settings.",
+    "loading": "Loading settings...",
+    "registrationDescription": "Allow new users to create accounts.",
+    "registrationInfo": "When registration is disabled, only administrators can create new user accounts.",
+    "registrationTitle": "User registration",
+    "saveError": "Failed to save registration settings.",
+    "saveSuccess": "Registration settings saved successfully.",
+    "saving": "Saving changes...",
+    "tabs": {
+      "navigationLabel": "Administrator settings sections",
+      "notifications": "Notifications",
+      "security": "Security",
+      "system": "System",
+      "users": "Users"
+    },
+    "title": "Admin settings",
+    "defaultRoleNoEligible": "No roles without global permissions are available.",
+    "defaultRoleDescription": "Every new account automatically receives this role.",
+    "defaultRoleSave": "Save default role",
+    "defaultRoleSaveSuccess": "Default role saved successfully.",
+    "defaultRoleCurrent": "Current default role:",
+    "defaultRoleUnavailable": "Role unavailable",
+    "defaultRoleTitle": "Default role for new accounts",
+    "defaultRoleSaveError": "Could not save the default role. It may have changed or become ineligible.",
+    "defaultRoleLoadError": "Could not load default role settings.",
+    "defaultRoleSelect": "Role assigned to new accounts",
+    "defaultRoleHint": "Only roles without global permissions are available. Changes affect future accounts only. Automatic role assignment cannot be disabled."
+  }
+}

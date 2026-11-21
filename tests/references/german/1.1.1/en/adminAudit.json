@@ -1,0 +1,43 @@
+{
+  "adminAudit": {
+    "action": "Action",
+    "actions": {
+      "ROLE_ASSIGNED": "Role assigned",
+      "ROLE_CREATED": "Role created",
+      "ROLE_DELETED": "Role deleted",
+      "ROLE_REVOKED": "Role revoked",
+      "ROLE_UPDATED": "Role updated",
+      "USER_CREATED": "User created",
+      "USER_DISABLED": "User disabled",
+      "USER_ENABLED": "User enabled",
+      "USER_UPDATED": "User updated"
+    },
+    "activityHistory": "Activity history",
+    "actorId": "Actor ID",
+    "administrator": "Administrator",
+    "allActions": "All actions",
+    "anyAdministrator": "Any administrator",
+    "apply": "Apply",
+    "breadcrumb": "Tyravex / Administration / System",
+    "clearFilters": "Clear filters",
+    "description": "Review administrator actions and role changes.",
+    "details": "Details",
+    "empty": "No audit entries match the selected filters.",
+    "entriesCount_one": "{{count}} entry",
+    "entriesCount_other": "{{count}} entries",
+    "hide": "Hide",
+    "invalidActorId": "Actor ID must be a positive integer.",
+    "loadError": "Unable to load audit entries.",
+    "loading": "Loading audit entries...",
+    "pageOf": "Page {{page}} of {{pages}}",
+    "target": "Target",
+    "targets": {
+      "ROLE": "Role",
+      "USER": "User"
+    },
+    "time": "Time",
+    "title": "Audit Logs",
+    "unknownActor": "Deleted / unknown",
+    "view": "View"
+  }
+}

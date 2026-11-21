@@ -1,0 +1,7 @@
+{
+  "language": {
+    "saveError": "Could not save the language preference. Please try again.",
+    "pluginDisabled": "Plugin disabled",
+    "loadError": "Could not load available languages. Please try again."
+  }
+}

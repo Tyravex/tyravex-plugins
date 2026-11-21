@@ -1,0 +1,84 @@
+{
+  "profile": {
+    "accountDetails": "Account details",
+    "description": "Account details, profile picture and security.",
+    "email": "Email address",
+    "firstName": "First name",
+    "firstNamePlaceholder": "Enter your first name",
+    "invalidName": "Enter a valid name of up to 80 characters.",
+    "lastName": "Last name",
+    "lastNamePlaceholder": "Enter your last name",
+    "optionalNamesHint": "Both fields are optional. Leave them empty to remove saved values.",
+    "readOnlyHint": "Username and email address are currently read-only.",
+    "save": "Save changes",
+    "saved": "Your profile has been updated.",
+    "saveError": "Could not update your profile. Please try again.",
+    "saving": "Saving changes...",
+    "title": "Profile",
+    "username": "Username",
+    "navigation": "Profile settings",
+    "tabs": {
+      "account": "Account details",
+      "security": "Security",
+      "avatar": "Profile picture"
+    },
+    "password": {
+      "title": "Change password",
+      "description": "Confirm your current password to set a new one.",
+      "currentPassword": "Current password",
+      "newPassword": "New password",
+      "confirmation": "Confirm new password",
+      "show": "Show passwords",
+      "hide": "Hide passwords",
+      "requirements": "At least 12 characters, up to 72 UTF-8 bytes. Accented characters and emoji may use more than one byte.",
+      "sessionNotice": "Changing your password signs out all sessions, including this one. Sign in again with your new password.",
+      "submit": "Change password and sign out",
+      "changed": "Your password has been changed. Sign in again with your new password.",
+      "errors": {
+        "mismatch": "The new passwords must match.",
+        "invalid": "Use at least 12 characters and no more than 72 UTF-8 bytes.",
+        "currentIncorrect": "The current password is incorrect.",
+        "unchanged": "Choose a password different from your current one.",
+        "rateLimited": "Too many attempts. Please try again later.",
+        "failed": "Could not change your password. Please try again."
+      }
+    },
+    "idle": {
+      "title": "Automatic sign-out",
+      "description": "Choose how long your account may remain inactive.",
+      "label": "Sign out after inactivity",
+      "off": "Disabled",
+      "options": {
+        "15": "15 minutes",
+        "30": "30 minutes",
+        "60": "1 hour",
+        "240": "4 hours"
+      },
+      "hint": "Activity in other panel tabs extends this session. Statistics refreshes and other background requests do not. The maximum session lifetime remains 7 days.",
+      "failed": "Could not save the setting or extend the session. Please try again.",
+      "warningTitle": "Your session is about to expire",
+      "warning": "You will be signed out in {{count}} s due to inactivity.",
+      "stay": "Stay signed in"
+    },
+    "avatar": {
+      "title": "Profile picture",
+      "description": "Choose the picture shown with your account. The preview shows the square crop; saved pictures are 256 ? 256 px.",
+      "choose": "Choose picture",
+      "preview": "New picture preview",
+      "invalid": "Choose a PNG, JPEG or WebP up to 5 MiB.",
+      "error": "Could not save the picture. Check its format and try again.",
+      "save": "Save picture",
+      "saving": "Saving…",
+      "remove": "Remove picture",
+      "cancel": "Cancel selection",
+      "saved": "Profile picture updated.",
+      "pending": "Unsaved changes",
+      "current": "Current picture",
+      "dropTitle": "Drag your picture here",
+      "dropHere": "Drop your picture to preview it",
+      "dropDescription": "Or choose a file from your computer. Your picture changes only after saving.",
+      "chooseAnother": "Choose another picture",
+      "maxSize": "Up to 5 MiB"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "common": {
+    "unsaved": {
+      "title": "Discard unsaved changes?",
+      "description": "You have unsaved changes. Continuing will discard changes in the form you leave.",
+      "discard": "Discard and continue"
+    },
+    "active": "Active",
+    "appName": "Tyravex",
+    "back": "Back",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "create": "Create",
+    "delete": "Delete",
+    "disabled": "Disabled",
+    "edit": "Edit",
+    "enabled": "Enabled",
+    "error": "Something went wrong. Please try again.",
+    "inactive": "Inactive",
+    "loading": "Loading...",
+    "next": "Next",
+    "no": "No",
+    "noResults": "No results found.",
+    "optional": "Optional",
+    "previous": "Previous",
+    "refresh": "Refresh",
+    "retry": "Try again",
+    "save": "Save",
+    "saving": "Saving...",
+    "search": "Search",
+    "success": "Changes saved successfully.",
+    "yes": "Yes",
+    "copyright": "© {{year}} Tyravex. All rights reserved."
+  }
+}

@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param([string]$PanelRoot = (Join-Path $PSScriptRoot '..\..\panel'))
+param([string]$PanelRoot)
 
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
@@ -7,7 +7,12 @@ Set-StrictMode -Version Latest
 $repoRoot = Split-Path $PSScriptRoot -Parent
 $sourcePlugin = Join-Path $repoRoot 'languages/german'
 $sourceChecker = Join-Path $PSScriptRoot 'Test-Translations.ps1'
-$sourceEnglish = Join-Path $PanelRoot 'apps/frontend/src/shared/i18n/locales/en'
+$pluginManifest = Get-Content -LiteralPath (Join-Path $sourcePlugin 'manifest.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+$sourceEnglish = if ($PanelRoot) {
+    Join-Path $PanelRoot 'apps/frontend/src/shared/i18n/locales/en'
+} else {
+    Join-Path $repoRoot ('tests/references/german/' + $pluginManifest.version + '/en')
+}
 $tempRoot = Join-Path ([IO.Path]::GetTempPath()) ('tyravex-translation-tests-' + [guid]::NewGuid().ToString('N'))
 $passed = 0
 $failed = 0
@@ -20,7 +25,7 @@ function Update-TestJson {
 }
 
 function Invoke-TranslationCase {
-    param([string]$Name, [bool]$ShouldSucceed, [scriptblock]$Modify)
+    param([string]$Name, [bool]$ShouldSucceed, [scriptblock]$Modify, [switch]$ComparePanel)
     $caseRoot = Join-Path $tempRoot ('case-' + [guid]::NewGuid().ToString('N'))
     try {
         $languages = Join-Path $caseRoot 'languages'
@@ -33,11 +38,20 @@ function Invoke-TranslationCase {
         foreach ($file in Get-ChildItem -LiteralPath $sourceEnglish -Filter '*.json' -File) {
             Copy-Item -LiteralPath $file.FullName -Destination $english
         }
+        $reference = Join-Path $tests ('references/german/' + $pluginManifest.version + '/en')
+        New-Item -ItemType Directory -Force -Path $reference | Out-Null
+        foreach ($file in Get-ChildItem -LiteralPath $sourceEnglish -Filter '*.json' -File) {
+            Copy-Item -LiteralPath $file.FullName -Destination $reference
+        }
         if ($null -ne $Modify) { & $Modify (Join-Path $languages 'german') }
         $succeeded = $false
         $failure = ''
         try {
-            & (Join-Path $tests 'Test-Translations.ps1') -PanelRoot $panel *> $null
+            if ($ComparePanel) {
+                & (Join-Path $tests 'Test-Translations.ps1') -PanelRoot $panel *> $null
+            } else {
+                & (Join-Path $tests 'Test-Translations.ps1') *> $null
+            }
             $succeeded = $true
         } catch { $failure = $_.Exception.Message }
         if ($succeeded -eq $ShouldSucceed) {
@@ -55,12 +69,25 @@ function Invoke-TranslationCase {
 try {
     New-Item -ItemType Directory -Path $tempRoot | Out-Null
     Invoke-TranslationCase -Name 'Complete German resources' -ShouldSucceed $true
+    Invoke-TranslationCase -Name 'Explicit panel compatibility check' -ShouldSucceed $true -ComparePanel
+    Invoke-TranslationCase -Name 'Missing versioned reference' -ShouldSucceed $false -Modify {
+        param($plugin)
+        Update-TestJson (Join-Path $plugin 'manifest.json') { param($json) $json.version = '9.9.9' }
+    }
     Invoke-TranslationCase -Name 'Missing whole manifest section' -ShouldSucceed $false -Modify {
         param($plugin)
         Update-TestJson (Join-Path $plugin 'manifest.json') {
             param($json)
             $json.translations.files = @($json.translations.files | Where-Object { $_ -ne './locales/services.json' })
         }
+    }
+    Invoke-TranslationCase -Name 'Missing individual translation' -ShouldSucceed $false -Modify {
+        param($plugin)
+        Update-TestJson (Join-Path $plugin 'locales/common.json') { param($json) $json.common.PSObject.Properties.Remove('cancel') }
+    }
+    Invoke-TranslationCase -Name 'Unexpected individual translation' -ShouldSucceed $false -Modify {
+        param($plugin)
+        Update-TestJson (Join-Path $plugin 'locales/common.json') { param($json) $json.common | Add-Member -NotePropertyName unexpectedReferenceKey -NotePropertyValue 'Zusatz' }
     }
     Invoke-TranslationCase -Name 'Lost leading umlaut' -ShouldSucceed $false -Modify {
         param($plugin)

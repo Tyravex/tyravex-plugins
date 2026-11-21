@@ -1,8 +1,7 @@
 [CmdletBinding()]
 param(
-    [string]$PanelRoot = (
-        Join-Path $PSScriptRoot '..\..\panel'
-    )
+    [string]$PanelRoot,
+    [string]$ReferenceRoot
 )
 
 $ErrorActionPreference = 'Stop'
@@ -15,11 +14,24 @@ $repoRoot = (Resolve-Path (
 $pluginRoot = Join-Path $repoRoot 'languages/german'
 $manifestPath = Join-Path $pluginRoot 'manifest.json'
 
-$englishRoot = Join-Path $PanelRoot `
-    'apps/frontend/src/shared/i18n/locales/en'
-
 if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf)) {
     throw "Manifest not found: $manifestPath"
+}
+
+# Released packages use their versioned reference; panel comparisons are explicit.
+if ($PanelRoot -and $ReferenceRoot) {
+    throw 'Specify either PanelRoot or ReferenceRoot, not both.'
+}
+$manifest = Get-Content -LiteralPath $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
+if ($manifest.version -notmatch '^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?$') {
+    throw 'Invalid plugin version for translation reference.'
+}
+$englishRoot = if ($PanelRoot) {
+    Join-Path $PanelRoot 'apps/frontend/src/shared/i18n/locales/en'
+} elseif ($ReferenceRoot) {
+    $ReferenceRoot
+} else {
+    Join-Path $repoRoot ('tests/references/german/' + $manifest.version + '/en')
 }
 
 if (-not (Test-Path -LiteralPath $englishRoot -PathType Container)) {

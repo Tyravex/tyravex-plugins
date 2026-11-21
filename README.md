@@ -261,3 +261,7 @@ Preparing a registry file does not publish a GitHub Release or its archive.
 Publish the release asset before pushing registry metadata that references it.
 
 Version 1.1.1 also translates repository update checks, verified package previews, source selection and download error states. The separately prepared 1.1.0 archive remains unchanged.
+
+## Versioned translation validation
+
+Release CI validates German against its versioned English catalog in `tests/references/german/<version>/en`. It does not require the unpublished panel changes to be pushed. A separate advisory job compares the package with published `Tyravex/panel` main and reports drift. See [translation references](tests/references/README.md) for update and local validation instructions.

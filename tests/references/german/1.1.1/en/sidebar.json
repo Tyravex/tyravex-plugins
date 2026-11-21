@@ -1,0 +1,37 @@
+{
+  "sidebar": {
+    "administration": "Administration",
+    "administrationNavigation": "Administration navigation",
+    "adminPanel": "Admin panel",
+    "comingLater": "Coming in a later development stage",
+    "mainNavigation": "Main navigation",
+    "sections": {
+      "eggs": "Eggs System",
+      "account": "Account",
+      "infrastructure": "Infrastructure",
+      "management": "Management",
+      "operations": "Operations",
+      "plugins": "Plugins",
+      "system": "System"
+    },
+    "soon": "Soon",
+    "userPanel": "User panel",
+    "userNavigation": {
+      "overview": "Overview",
+      "services": "All services",
+      "projects": "Projects & groups",
+      "shared": "Shared with me",
+      "operations": "Operations",
+      "activity": "Activity history",
+      "resources": "Resources"
+    },
+    "favorites": {
+      "title": "Favorite services",
+      "loading": "Loading…",
+      "empty": "No favorite services yet. Pinning will be available after the favorites feature is connected.",
+      "showLess": "Show less",
+      "showAll": "Show all ({{count}})"
+    },
+    "userNavigationLabel": "User navigation"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "userSettings": {
+    "title": "User settings",
+    "description": "Panel preferences, notifications and automatic logout. Manage account details and password in your profile.",
+    "navigation": "User settings sections",
+    "tabs": {
+      "notifications": "Notifications",
+      "appearance": "Appearance",
+      "session": "Session",
+      "egg-tags": "Egg tags"
+    }
+  }
+}

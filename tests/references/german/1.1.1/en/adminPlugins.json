@@ -1,0 +1,186 @@
+{
+  "adminPlugins": {
+    "update": {
+      "action": "Update",
+      "title": "Plugin update",
+      "help": "Choose a ZIP containing a newer version of the same plugin (maximum 20 MiB). The package is checked before showing the version change. Previous files are retained; a failed update keeps the current version. Theme and language availability settings are preserved. A ZIP update does not establish repository provenance.",
+      "package": "Update ZIP package",
+      "invalidFile": "Choose a nonempty ZIP file up to 20 MiB.",
+      "confirm": "Install update",
+      "success": "Updated to version {{version}}."
+    },
+    "title": "Plugins",
+    "description": "Manage extensions registered in Tyravex.",
+    "refresh": "Refresh",
+    "loading": "Loading plugins...",
+    "emptyTitle": "No installed plugins",
+    "emptyDescription": "No plugins were found in the registry.",
+    "name": "Identifier",
+    "type": "Type",
+    "version": "Version",
+    "status": "Status",
+    "errorTitle": "Unable to load plugins",
+    "errorDescription": "Check the backend connection and try again.",
+    "types": {
+      "BILLING": "Billing",
+      "INTEGRATION": "Integration",
+      "LANGUAGE": "Language",
+      "NOTIFICATION": "Notification",
+      "OTHER": "Other",
+      "THEME": "Theme"
+    },
+    "statuses": {
+      "DISABLED": "Disabled",
+      "FAILED": "Failed",
+      "INSTALLED": "Active",
+      "INSTALLING": "Installing",
+      "UNINSTALLING": "Uninstalling",
+      "UPDATING": "Updating"
+    },
+    "categories": {
+      "all": "All plugins",
+      "count_one": "{{count}} plugin",
+      "count_other": "{{count}} plugins",
+      "navigationLabel": "Plugin categories"
+    },
+    "stats": {
+      "active": "Active",
+      "disabled": "Disabled",
+      "navigationLabel": "Plugin statistics",
+      "total": "Total plugins",
+      "installing": "Installing",
+      "updating": "Updating",
+      "failed": "Failed"
+    },
+    "install": {
+      "cancel": "Cancel",
+      "close": "Close",
+      "description": "Upload a compatible Tyravex language or theme plugin ZIP package.",
+      "errors": {
+        "conflict": "Plugin is already installed.",
+        "empty": "The ZIP package is empty.",
+        "forbidden": "Insufficient permissions.",
+        "generic": "Plugin installation failed.",
+        "invalid": "Invalid plugin package.",
+        "selectZip": "Select a ZIP package.",
+        "tooLarge": "Plugin package exceeds the 20 MiB limit.",
+        "unauthorized": "Authentication required.",
+        "unsupported": "Only ZIP packages are supported."
+      },
+      "installing": "Installing...",
+      "limit": "Maximum package size: 20 MiB",
+      "open": "Install plugin",
+      "selectFile": "Choose a ZIP package",
+      "submit": "Install plugin",
+      "success": "Plugin \"{{id}}\" installed successfully.",
+      "title": "Install plugin"
+    },
+    "actions": {
+      "header": "Actions",
+      "open": "Open plugin actions",
+      "details": "Details",
+      "enable": "Enable",
+      "disable": "Disable",
+      "uninstall": "Uninstall"
+    },
+    "toggle": {
+      "enableTitle": "Enable plugin?",
+      "disableTitle": "Disable plugin?",
+      "enableDescription": "The plugin will be reactivated. If it provides a language, that language will become available in the panel.",
+      "disableDescription": "The plugin will be disabled. If it provides a language, that language will no longer be selectable.",
+      "cancel": "Cancel",
+      "processing": "Processing...",
+      "errors": {
+        "generic": "Could not change the plugin status.",
+        "unauthorized": "Your session has expired. Please sign in again.",
+        "forbidden": "You do not have permission to manage plugins.",
+        "notFound": "Plugin not found.",
+        "conflict": "The plugin status has changed or this operation is currently unavailable. Refresh the list."
+      }
+    },
+    "uninstall": {
+      "title": "Uninstall plugin?",
+      "warning": "This action cannot be undone. The plugin will be removed from the Tyravex registry, and its files will be deleted from disk.",
+      "description": "To confirm uninstallation, enter the exact plugin identifier shown below.",
+      "confirmLabel": "Confirm plugin identifier",
+      "confirmPlaceholder": "Enter the full plugin identifier",
+      "confirm": "Uninstall plugin",
+      "processing": "Uninstalling...",
+      "cancel": "Cancel",
+      "close": "Close",
+      "cleanupPending": "The plugin has been removed from the registry, but its files could not be fully deleted. Server-side cleanup must still be completed.",
+      "errors": {
+        "badRequest": "The plugin identifier confirmation is invalid.",
+        "unauthorized": "Your session has expired. Please sign in again.",
+        "forbidden": "You do not have permission to uninstall plugins.",
+        "notFound": "Plugin not found. Refresh the list.",
+        "conflict": "The plugin is being processed or its current status does not allow uninstallation. Refresh the list.",
+        "generic": "Could not uninstall the plugin. Please try again."
+      }
+    },
+    "updates": {
+      "available": "Update available",
+      "failed": "Update failed"
+    },
+    "repositories": {
+      "add": "Add repository",
+      "addHelp": "Add a community plugin registry using a public HTTPS URL.",
+      "name": "Repository name",
+      "url": "Registry URL",
+      "title": "Repositories",
+      "help": "Manage official and community plugin sources.",
+      "loadError": "Could not load repositories.",
+      "loading": "Loading repositories...",
+      "empty": "No repositories available.",
+      "official": "Official",
+      "view": "View plugins",
+      "rename": "Rename",
+      "deleteTitle": "Delete repository?",
+      "delete": "Delete repository",
+      "back": "Back to repositories",
+      "refreshPlugins": "Refresh plugins",
+      "pluginsTitle": "Repository plugins",
+      "pluginsHelp": "Plugins published in this repository.",
+      "pluginsLoading": "Loading plugins...",
+      "pluginsError": "Could not load repository plugins.",
+      "pluginsEmpty": "No plugins found in this repository.",
+      "namePlaceholder": "Community Plugins",
+      "newName": "New repository name",
+      "cancelRename": "Cancel rename",
+      "deleteDescription": "Remove repository “{{name}}”? Installed plugins will not be removed.",
+      "pageTitle": "Marketplace",
+      "pageHelp": "Manage plugin repositories for Tyravex."
+    },
+    "catalogUpdates": {
+      "check": "Check for updates",
+      "installedAt": "Installed at",
+      "updatedAt": "Updated at",
+      "title": "Update from repository",
+      "help": "Select a source, download and verify the package, then confirm the version change. Checking does not install updates.",
+      "source": "Repository source",
+      "community": "Community",
+      "communityHelp": "This package comes from a community repository. Confirm that you trust this source before updating.",
+      "preview": "Download and verify",
+      "confirm": "Confirm repository update",
+      "manual": "Update from a ZIP file",
+      "versionChange": "v{{from}} → v{{to}}",
+      "checksum": "SHA-256: {{sha256}}",
+      "noUpdates": "No newer compatible versions found in enabled repositories.",
+      "found": "Plugins with updates: {{count}}",
+      "checkFailed": "Could not check for updates. Try again.",
+      "partialFailure": "Some sources could not be checked",
+      "failed": "The package could not be verified or updated. Check the source and try again.",
+      "errors": {
+        "PLUGIN_DOWNLOAD_BUSY": "Other packages are downloading. Wait and try again.",
+        "PLUGIN_PACKAGE_DOWNLOAD_FAILED": "Could not safely download the ZIP. Check that the release asset is published. You can also upload it manually.",
+        "PLUGIN_CATALOG_CHECKSUM_MISMATCH": "The ZIP checksum does not match the catalog. No update was installed.",
+        "PLUGIN_CATALOG_PACKAGE_MISMATCH": "The ZIP version does not match the catalog. Check the published package.",
+        "PLUGIN_CATALOG_CHANGED": "The catalog changed after preview. Check and download the update again.",
+        "PLUGIN_REPOSITORY_DISABLED": "The repository was disabled, removed or changed. Refresh the available sources.",
+        "PLUGIN_CATALOG_NO_UPDATE": "There is no newer compatible version for this plugin in this source.",
+        "PLUGIN_CATALOG_OPERATION_ACTIVE": "Another plugin operation is active or recovery is required. Refresh its status.",
+        "PLUGIN_CATALOG_NOT_FOUND": "Plugin not found. Refresh the list."
+      }
+    }
+  }
+}

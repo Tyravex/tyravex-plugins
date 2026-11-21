@@ -1,0 +1,14 @@
+{
+  "section": {
+    "administrationDescription": "Manage your Tyravex infrastructure.",
+    "administrationOverview": "Administration overview",
+    "breadcrumb": "Tyravex / Administration",
+    "moduleInDevelopment": "Module in development",
+    "nodesDescription": "Node management will be connected to the existing backend in a later stage.",
+    "nodesTitle": "Nodes",
+    "notAvailableYet": "This screen does not yet provide live management operations.",
+    "openUserManagement": "Open user management",
+    "selectSidebar": "Select a section in the administration sidebar.",
+    "workspace": "Administration workspace"
+  }
+}

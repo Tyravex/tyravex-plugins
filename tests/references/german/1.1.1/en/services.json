@@ -1,0 +1,561 @@
+{
+  "services": {
+    "minecraft": {
+      "title": "Minecraft configuration",
+      "help": "Choose an official Vanilla version and a node TCP port. Java is selected for that version. Recommended resources: 2 GiB RAM and 4 GiB disk. Installation leaves the server stopped.",
+      "createHelp": "After saving the service, choose a Minecraft version and port and accept the EULA. Server files are downloaded from Mojang; no Git repository is required.",
+      "version": "Minecraft version",
+      "chooseVersion": "Choose a version",
+      "port": "Node TCP port",
+      "acceptEula": "I have read and accept the terms of the",
+      "savedConfiguration": "Saved: Minecraft {{version}}, Java {{java}}, TCP port {{port}}.",
+      "locked": "The version and port can be changed before installation starts.",
+      "saved": "Configuration saved. You can proceed to service installation."
+    },
+    "status": {
+      "installation": "Installation",
+      "runtime": "Process",
+      "installationStates": {
+        "DRAFT": "Draft",
+        "INSTALLED": "Ready",
+        "FAILED": "Failed",
+        "INSTALLING": "In progress",
+        "PENDING_INSTALL": "Waiting"
+      }
+    },
+    "workspace": {
+      "appearance": {
+        "title": "Appearance",
+        "navigation": "Service menu position",
+        "side": "Side",
+        "top": "Top",
+        "showResources": "Show resource statistics",
+        "compact": "Compact view",
+        "advanced": "Advanced options",
+        "local": "Appearance settings are saved to your account. Full controls are available in your profile.",
+        "reset": "Restore default appearance"
+      },
+      "profiles": {
+        "discord": {
+          "title": "Discord bot",
+          "description": "Console, files and environment for your Discord bot. A running process does not confirm a successful Discord login."
+        },
+        "telegram": {
+          "title": "Telegram bot",
+          "description": "Console, files and environment for your Telegram bot. Polling and webhooks depend on the selected application."
+        },
+        "bot": {
+          "title": "Bot",
+          "description": "Manage your bot process, project files and environment variables."
+        },
+        "minecraft": {
+          "title": "Minecraft",
+          "description": "Console and resources for your Minecraft server. Players, engines and extensions require integration with the selected Egg."
+        },
+        "game": {
+          "title": "Game server",
+          "description": "Shared workspace for game servers with modules tailored to the game and Egg environment."
+        },
+        "voice": {
+          "title": "Voice service",
+          "description": "Console and environment for your voice service. Channel management depends on application integration."
+        },
+        "other": {
+          "title": "Service",
+          "description": "Console, resources and configuration for your service."
+        }
+      },
+      "resources": {
+        "title": "Resources",
+        "memory": "Memory",
+        "cpu": "CPU",
+        "disk": "Disk",
+        "limit": "Allocation",
+        "noLimit": "Allocation unavailable",
+        "noData": "No measurement",
+        "waiting": "Usage will appear when service telemetry is connected. A missing measurement does not mean zero usage.",
+        "lastMeasurement": "Last measurement"
+      },
+      "console": {
+        "title": "Console",
+        "connected": "Agent updates active",
+        "unavailable": "Console stream unavailable",
+        "unavailableHelp": "This service does not have an Agent log stream connected yet. Power controls work independently of the console.",
+        "empty": "Waiting for logs",
+        "emptyHelp": "New application output will appear here.",
+        "search": "Search console…",
+        "noMatches": "No matching output",
+        "pause": "Pause view",
+        "resume": "Resume view",
+        "paused": "View paused. The application is still running.",
+        "clear": "Clear view",
+        "expand": "Expand console",
+        "autoScroll": "Auto-scroll",
+        "readOnly": "Application output · no shell access",
+        "wrap": "Wrap lines",
+        "timestamps": "Timestamps",
+        "fontSize": "Font size",
+        "buffer": "View buffer: up to 2000 lines",
+        "output": "Application output"
+      },
+      "technical": "Technical details",
+      "processNote": "Environment installation, process execution and platform connectivity are separate states.",
+      "settingsHelp": "Open the full configuration to review project source, Egg, allocated resources and application variables. Available changes depend on installation status.",
+      "files": {
+        "externalSource": "This service uses Git or an application preset. Uploading project files is available for services using the Own files source. Review the source in configuration."
+      },
+      "upcoming": "This module needs an integration and is not available yet.",
+      "soon": "Soon",
+      "npmTerminationNote": "npm recorded the SIGTERM termination signal. This is expected during a service stop or restart and does not by itself mean the bot crashed. If no shutdown was planned, check schedule history and service state. Original logs are preserved below."
+    },
+    "sources": {
+      "startRequirements": "Required before starting the application",
+      "installEmpty": "You can install an empty environment and upload files later. Installation leaves the application stopped. Uploaded changes apply on the next start or restart, which also prepares dependencies.",
+      "title": "How will you supply the service files?",
+      "FILES": "Your own files — upload through the panel",
+      "APPLICATION": "Ready-made application from the catalog",
+      "GIT": "Git repository — optional source",
+      "help": {
+        "FILES": "GitHub is not required. Save this source selection, then upload project files or a folder in the section below.",
+        "APPLICATION": "Choose an application. The panel uses its approved profile's source and settings; you do not need your own repository.",
+        "GIT": "Optionally fetch your own project from a public Git repository. This mode requires a project URL and a configuration save."
+      },
+      "filesTitle": "Project files",
+      "filesHelp": "Upload your project before or after installing the environment. Uploading the same path replaces its staged version; changes apply at the next start or restart.",
+      "filesLimits": "Up to 512 files, 8 MiB per file and 32 MiB total. .git, node_modules and .venv folders are skipped; the Agent installs dependencies.",
+      "filesLocked": "Files are editable on a draft or installed service using the files source, when no operation is active.",
+      "chooseFiles": "Choose files",
+      "chooseFolder": "Choose project folder",
+      "selected": "Selected files: {{count}}",
+      "upload": "Upload selected files",
+      "remove": "Remove file",
+      "empty": "No project files yet. You can install the environment now and add files later.",
+      "confirmRemove": "Remove “{{path}}” from the prepared project?"
+    },
+    "power": {
+      "kill": "Kill",
+      "killDescription": "Force the process to stop immediately",
+      "killUnavailable": "Force stop requires a connected Agent with Kill support.",
+      "killConfirmTitle": "Force stop this service?",
+      "killConfirmDescription": "The process will stop immediately without time to save its state. Unsaved application data may be lost. Service files and the volume will not be deleted.",
+      "killConfirm": "Force stop",
+      "details": "Status and startup requirements",
+      "title": "Service power controls",
+      "description": "Start, stop and restart are executed by the Agent. Job state does not confirm the bot's Discord or Twitch connection.",
+      "active": "An operation is active",
+      "queued": "The command was accepted.",
+      "unknown": "The agent did not confirm the outcome. Check whether it has finished. Unlocking closes job tracking without retrying the command or changing the bot state.",
+      "reconcile": "Check and unlock"
+    },
+    "installation": {
+      "title": "Service Installation Center",
+      "serviceLabel": "Service",
+      "status": {
+        "draft": {
+          "title": "Service is waiting for installation",
+          "description": "The service has been created, but its environment has not been installed yet."
+        },
+        "pending": {
+          "title": "Waiting for installation",
+          "description": "The installation job is waiting to be processed."
+        },
+        "installing": {
+          "title": "Installation in progress",
+          "description": "The service environment is being prepared. Management remains locked."
+        },
+        "failed": {
+          "title": "Installation failed",
+          "description": "An error occurred during installation. Check the job details below."
+        },
+        "installed": {
+          "title": "Installation completed",
+          "description": "The service is ready to manage."
+        },
+        "unknown": {
+          "title": "Checking installation status",
+          "description": "The current installation status could not be determined."
+        }
+      },
+      "steps": {
+        "title": "Installation steps",
+        "current": "Current step",
+        "preparation": {
+          "title": "Preparation",
+          "description": "Service configuration"
+        },
+        "queue": {
+          "title": "Waiting",
+          "description": "Job assignment"
+        },
+        "installation": {
+          "title": "Installation",
+          "description": "Environment preparation"
+        },
+        "completed": {
+          "title": "Completed",
+          "description": "Management panel activation"
+        }
+      },
+      "locked": {
+        "badge": "Panel locked",
+        "title": "Service management is unavailable",
+        "description": "Console, files, settings and other modules will become available after installation completes successfully."
+      },
+      "job": {
+        "title": "Installation job",
+        "description": "Current status of the job submitted to the Tyravex installation system.",
+        "loading": "Checking installation job...",
+        "loadError": "Unable to load the current installation job. Creating another job remains disabled.",
+        "noActiveJob": "No active installation job.",
+        "progress": "Installation progress",
+        "progressSource": "Progress is provided by the current backend installation job.",
+        "status": {
+          "pending": "Waiting for installation",
+          "dispatching": "Preparing installation",
+          "queued": "Queued for installation",
+          "running": "Installation in progress"
+        }
+      },
+      "actions": {
+        "start": "Start installation",
+        "retry": "Retry installation",
+        "requesting": "Requesting installation...",
+        "alreadyRequested": "Installation already requested",
+        "checkAgain": "Check again"
+      },
+      "errors": {
+        "installationFailed": "Installation failed. Retrying is only available when the backend allows creating a new job.",
+        "requestFailed": "Unable to request installation."
+      },
+      "notifications": {
+        "requested": {
+          "description": "The installation job is waiting for execution.",
+          "title": "Installation requested"
+        },
+        "alreadyRequested": {
+          "description": "An active installation job already exists.",
+          "title": "Installation already requested"
+        },
+        "requestFailed": {
+          "description": "Please try again later.",
+          "title": "Unable to request installation"
+        }
+      },
+      "readiness": {
+        "title": "Installation readiness",
+        "missing": "Missing variables",
+        "configure": "Configure variables in the admin panel",
+        "contactAdmin": "Ask an administrator to complete the service configuration."
+      },
+      "environment": {
+        "locked": "Editing is temporarily locked during installation or another service operation.",
+        "unsaved": "Save or discard your variable changes.",
+        "empty": "No declared variables. Add your own or import .env."
+      }
+    },
+    "details": {
+      "installationStatusLabel": "Installation status",
+      "informationTitle": "Service information"
+    },
+    "configuration": {
+      "title": "Service configuration",
+      "action": "Change configuration",
+      "back": "Back to service",
+      "sourceTitle": "Project and runtime",
+      "sourceLocked": "Project and runtime can be changed before the first installation when no job is active.",
+      "saved": "Configuration saved.",
+      "allocationNote": "An administrator assigns the node and resource limits. Before installation you can choose a compatible, enabled Egg and application profile.",
+      "egg": "Egg template",
+      "node": "Node",
+      "adminHelp": "Open administrative service diagnostics"
+    },
+    "profiles": {
+      "catalog": "Ready-made application catalog",
+      "catalogHelp": "Choose an application to fill in its compatible Egg, profile and project source. Installation starts separately after saving configuration and satisfying the requirements.",
+      "platform": "Platform",
+      "allPlatforms": "All platforms",
+      "platforms": {
+        "discord": "Discord",
+        "twitch": "Twitch",
+        "teamspeak": "TeamSpeak 3"
+      },
+      "noApplications": "No applications match these filters.",
+      "preview": "Preview — installer support needs extending",
+      "installerAvailable": "Installer available — check application requirements",
+      "importRequired": "Import and approve a compatible Egg containing this profile first",
+      "upstream": "Upstream project",
+      "useApplication": "Choose this application",
+      "eggSearch": "Search environments or applications",
+      "eggSelect": "Egg environment",
+      "noEggs": "No Eggs are available for this category.",
+      "approvedOnly": "Only approved, enabled Eggs from active repositories can be assigned.",
+      "openCatalog": "Open repositories and download Eggs",
+      "search": "Search applications or variants",
+      "select": "Application or startup variant",
+      "applySource": "Choose this ready-made application",
+      "sourceHelp": "The panel uses the application's profile source. Your own repository is not required. Saving configuration and starting installation are separate steps.",
+      "customHelp": "A variant for your own project. Upload files through the panel or optionally select the Git source.",
+      "variables": "Application variables",
+      "credentialsWarning": "Changing the saved profile clears the previous application variables and secrets. Enter them again after saving."
+    },
+    "live": {
+      "files": "Service files",
+      "newFile": "New file",
+      "newFolder": "New folder",
+      "upload": "Upload files",
+      "refresh": "Refresh",
+      "filesNote": "Actual service files on the node. Changes are saved immediately; the application may need a restart. Single file limit: 8 MiB. Search covers the current folder.",
+      "search": "Search folder",
+      "hidden": "Show hidden files",
+      "name": "Name",
+      "size": "Size",
+      "modified": "Modified",
+      "actions": "Actions",
+      "download": "Download",
+      "rename": "Rename",
+      "remove": "Delete",
+      "empty": "No matching files.",
+      "invalidName": "Enter a valid name.",
+      "fileLimit": "File exceeds 8 MiB.",
+      "confirmRemove": "Confirm deletion",
+      "removeNote": "The folder and its contents will be deleted. This cannot be undone.",
+      "saveHint": "Save file on node",
+      "saved": "Saved on node",
+      "saveFailed": "File was not saved. It may have changed elsewhere or the agent is unavailable. Keep your changes and reload the file.",
+      "backups": "Backups",
+      "createBackup": "Create backup",
+      "backupsNote": "Private file archives stored on this node, up to 5 backups. Panel-encrypted variables and external databases are excluded. Node disk failure can also destroy these backups.",
+      "stopForBackup": "Stop the service to create or restore a backup. A confirmed agent status is required.",
+      "safetyBackup": "Safety backup before restore",
+      "filesCount": "files",
+      "skipped": "skipped",
+      "restore": "Restore",
+      "noBackups": "No backups yet.",
+      "confirmRestore": "Restore files from backup?",
+      "restoreNote": "Current service files will be replaced. The agent verifies SHA-256 and backs up current files before replacing them. A free slot within the 5-backup limit is required.",
+      "removeBackupNote": "This archive will be permanently deleted from the node.",
+      "confirm": "Confirm",
+      "environmentNote": "Saved panel secrets remain hidden. If an .env file exists, the form displays its values. Panel configuration changes are injected at the next start or restart. Edit the physical file separately in Files.",
+      "variableName": "Variable name",
+      "addVariable": "Add variable",
+      "importEnv": "Import values from .env",
+      "envImportFailed": "Invalid .env file or 64 KiB limit exceeded. Single-line KEY=value entries are supported.",
+      "errors": {
+        "AGENT_WORKSPACE_UNAVAILABLE": "The agent cannot currently provide service files or status. Check its connection and version.",
+        "FILE_REVISION_CHANGED": "The file changed. Refresh the folder or keep your text and reload the file.",
+        "FILE_ALREADY_EXISTS": "A file or folder with this name already exists. Open it for editing or choose another name.",
+        "INVALID_SERVICE_PATH": "Invalid path or symlink. Select a file inside the service directory.",
+        "FILE_NOT_FOUND": "File not found. Refresh the folder.",
+        "BACKUP_LIMIT_REACHED": "Backup limit reached. Delete an unneeded archive; restoring requires a free safety-backup slot.",
+        "BACKUP_CHECKSUM_MISMATCH": "Backup checksum mismatch. Service files were not replaced.",
+        "STOP_SERVICE_FOR_BACKUP": "Stop the service before creating or restoring a backup.",
+        "WORKSPACE_BUSY": "The agent is busy. Refresh the status and try again.",
+        "SERVICE_OPERATION_ACTIVE": "Another service operation is active. Wait for it to finish.",
+        "WORKSPACE_TIMEOUT": "The agent did not respond in time. Refresh the status.",
+        "WORKSPACE_OUTCOME_UNKNOWN": "The outcome could not be confirmed. The operation was not repeated. Refresh the status before making another change.",
+        "WORKSPACE_OPERATION_FAILED": "The agent could not complete the operation. Refresh the status and check the node connection.",
+        "RESTORE_PARTIAL_SAFETY_BACKUP_AVAILABLE": "Restore was interrupted. Files may be partially replaced; a safety backup of the previous state is available.",
+        "INVALID_SCHEDULE_NAME": "Enter a schedule name (up to 100 characters).",
+        "INVALID_TIMEZONE": "Enter a valid IANA zone, such as Europe/Warsaw.",
+        "INVALID_SCHEDULE_DATE": "Choose a valid future date and time within the next year.",
+        "INVALID_SCHEDULE_DAYS": "Select at least one weekday.",
+        "SCHEDULE_LIMIT_REACHED": "The service limit of 20 schedules has been reached.",
+        "SCHEDULE_CHANGED": "The schedule changed. Refresh the list before editing again.",
+        "SCHEDULE_PHASE_CHANGED": "The schedule phase changed. The operation was not repeated.",
+        "SCHEDULE_RUNNING": "This schedule is running. Wait for it to finish before editing or deleting it.",
+        "SCHEDULE_OPERATION_ACTIVE": "Another service operation or schedule is active.",
+        "SCHEDULE_MISSED": "The panel missed this execution. The overdue occurrence was skipped.",
+        "SCHEDULE_OWNER_CHANGED": "Service ownership changed or the account is inactive. The schedule was disabled.",
+        "SCHEDULE_INTERRUPTED": "Execution was interrupted. Check the service before another operation.",
+        "SCHEDULE_RESUME_FAILED": "The service could not resume after backup. Check its console and configuration.",
+        "SCHEDULE_POWER_FAILED": "The agent did not confirm successful completion of the power operation.",
+        "SCHEDULE_EXECUTION_FAILED": "Schedule execution failed. Check the node status and service configuration.",
+        "SCHEDULE_RESERVATION_EXPIRED": "The schedule reservation expired. Check its history and the service state.",
+        "SERVICE_NOT_INSTALLED": "The service must be installed and assigned to a node.",
+        "INVALID_SCHEDULE_TIME": "Enter a valid time in HH:MM format.",
+        "INVALID_SCHEDULE_ACTION": "Select a supported operation and frequency.",
+        "INVALID_SCHEDULE_OPTIONS": "Check the service stop and resume options.",
+        "INVALID_HISTORY_FILTER": "Invalid history filter.",
+        "INVALID_HISTORY_CURSOR": "This history page is unavailable. Return to the first page.",
+        "INVALID_SERVICE_APPEARANCE": "Invalid service appearance settings.",
+        "AGENT_FILE_OPERATIONS_UNAVAILABLE": "The node agent needs the updated file operations module.",
+        "FILE_TRANSFER_LIMIT": "Transfer limit exceeded: 1,000 items or 200 MiB. ZIP input is limited to 100 MiB.",
+        "SERVICE_DISK_LIMIT": "The service disk budget has insufficient free space.",
+        "INVALID_ZIP_ARCHIVE": "The ZIP archive is invalid or corrupted.",
+        "INVALID_TRANSFER_TARGET": "Choose a different destination. A folder cannot be moved into itself or onto the same path.",
+        "FILE_TRANSFER_SESSION_CHANGED": "Your account session changed. The queued operation was not sent.",
+        "VIRTUAL_FILES_DROP_UNSUPPORTED": "The browser received virtual files from a Windows archive. Extract the ZIP first or upload the archive itself. No files in this batch were uploaded.",
+        "AGENT_RECONCILIATION_UNAVAILABLE": "Recovery requires a connected agent with lifecycle recovery support.",
+        "AGENT_OPERATION_STILL_ACTIVE": "The agent is still executing an operation. Wait and check again.",
+        "SERVICE_OPERATION_NOT_RECONCILABLE": "The job changed or cannot be safely unlocked. Refresh the view.",
+        "AGENT_SESSION_CHANGED": "The agent connection changed. Check its state again."
+      }
+    },
+    "schedules": {
+      "title": "Schedules",
+      "description": "Schedule a restart, shutdown or backup. Executions run on the panel even when your browser is closed.",
+      "create": "Add schedule",
+      "edit": "Edit",
+      "remove": "Delete schedule",
+      "name": "Name",
+      "action": "Operation",
+      "cadence": "Frequency",
+      "timezone": "Time zone (IANA)",
+      "date": "Date and time in the selected zone",
+      "time": "Time in the selected zone",
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "pause": "Disable",
+      "enable": "Enable",
+      "next": "Next execution",
+      "empty": "No schedules yet.",
+      "backupNote": "Backups require a stopped service and a free slot within the 5-archive limit. A running service is skipped unless stopping is allowed. Archives are not deleted automatically.",
+      "stopForBackup": "Stop the running service before backup",
+      "resumeAfterBackup": "Start after backup only if this schedule stopped the service",
+      "timezoneNote": "Nonexistent daylight-saving times are skipped. Repeated times run once at the first occurrence. Missed executions older than 2 minutes are skipped.",
+      "history": "Execution history",
+      "historyNote": "Filterable, paginated history. Dates use your browser time zone. A successful result means the system confirmed completion.",
+      "scheduled": "Scheduled",
+      "result": "Result",
+      "noHistory": "No executions yet.",
+      "removeNote": "This schedule will be disabled and removed from the list. Its history is retained. Active executions cannot be deleted.",
+      "actions": {
+        "RESTART": "Restart service",
+        "STOP": "Shut down service",
+        "BACKUP": "Create backup"
+      },
+      "cadences": {
+        "ONCE": "Once",
+        "DAILY": "Daily",
+        "WEEKLY": "Selected weekdays"
+      },
+      "days": {
+        "0": "Sunday",
+        "1": "Monday",
+        "2": "Tuesday",
+        "3": "Wednesday",
+        "4": "Thursday",
+        "5": "Friday",
+        "6": "Saturday"
+      },
+      "statuses": {
+        "RUNNING": "Running",
+        "COMPLETED": "Successful",
+        "FAILED": "Unsuccessful",
+        "SKIPPED": "Skipped",
+        "UNKNOWN": "Unconfirmed outcome"
+      },
+      "phases": {
+        "CLAIMED": "Checking readiness",
+        "WAIT_ACTION": "Waiting for the operation",
+        "WAIT_STOP": "Stopping service",
+        "BACKUP_EXECUTING": "Creating backup",
+        "BACKUP_DONE": "Completing backup",
+        "WAIT_START": "Starting service after backup"
+      },
+      "searchTimezone": "Search time zones",
+      "chooseTimezone": "Select a time zone",
+      "offsetNote": "UTC offsets are shown for today; schedules account for daylight saving time.",
+      "lastExecution": "Last execution",
+      "neverExecuted": "Not executed yet",
+      "details": "Execution details",
+      "phase": "Phase",
+      "finished": "Finished",
+      "executionId": "Execution ID",
+      "jobId": "Job ID",
+      "backupId": "Backup ID",
+      "newer": "Newer executions",
+      "older": "Older executions",
+      "allActions": "All operations",
+      "allResults": "All results",
+      "showAllRules": "Show all schedules",
+      "toggleNote": "Disabling prevents future occurrences. An active execution finishes using its existing settings.",
+      "firstPage": "First history page"
+    },
+    "envFile": {
+      "loaded": "Values from the .env file have been loaded into the fields.",
+      "missing": "The service has no .env file. Add variables manually or import a file.",
+      "unavailable": "The node could not provide .env. Manual configuration remains available.",
+      "invalid": "The .env file has an unsupported format or exceeds 64 KiB.",
+      "precedence": "These are file values, not a preview of saved panel secrets. Panel variables may take precedence. Save sends edited fields only; the button below prepares file values for saving in the panel. The .env file remains unchanged.",
+      "apply": "Prepare file values for saving",
+      "source": "Source: .env file",
+      "show": "Show file value",
+      "hide": "Hide value",
+      "reserved": "System variable — file view only",
+      "variableExample": "e.g. BOT_MODE",
+      "panelAndFile": "File value loaded; the panel also has a saved value",
+      "fileOnly": "File value loaded; not saved in the panel",
+      "showEntered": "Show entered value"
+    },
+    "appearanceProfile": {
+      "title": "Service appearance",
+      "description": "Choose navigation, resources and console options. Settings are saved to your account and shared across services and devices.",
+      "fontSize": "Console font size",
+      "fontSizeValue": "{{size}} px",
+      "saved": "Service appearance saved to your account.",
+      "saveFailed": "Could not save appearance to your account. Changes remain available locally; try saving them again in your profile."
+    },
+    "filesV2": {
+      "note": "Actual service files. Drag files onto a folder or the path above to move them; hold Ctrl/⌘ to copy. Drop files or folders from your computer to upload. Upload limit: 8 MiB per file, 200 MiB and 1,000 items per batch.",
+      "uploadFolder": "Upload folder",
+      "transfersTitle": "File operations and transfers",
+      "sending": "Transferring data",
+      "confirming": "Waiting for the agent to confirm the operation",
+      "processing": "Agent is processing the operation",
+      "completed": "Operation confirmed",
+      "notStarted": "Not started: the previous operation has an unknown outcome. Refresh before continuing.",
+      "limit": "Select at most 1,000 items and 200 MiB per batch.",
+      "move": "Move",
+      "copy": "Copy",
+      "archive": "Create ZIP",
+      "archiveDownload": "Create and download ZIP",
+      "extract": "Extract ZIP",
+      "details": "File details",
+      "previewNamed": "Preview {{name}}",
+      "more": "Actions for {{name}}",
+      "selectAll": "Select all files",
+      "selectNamed": "Select {{name}}",
+      "favorite": "Toggle favorite: {{name}}",
+      "paste": "Paste",
+      "undo": "Undo move",
+      "redo": "Redo move",
+      "undoHint": "Undo and redo apply to confirmed moves and renames. Changed files are protected by their revision.",
+      "destination": "Destination folder",
+      "noOverwrite": "Existing files and folders are never replaced automatically. Choose a different name or destination if one already exists.",
+      "path": "Path",
+      "revision": "Revision",
+      "kind": "Type",
+      "symlink": "Symbolic link",
+      "chooseZip": "Select a single ZIP file.",
+      "symlinkBlocked": "This operation does not follow symbolic links.",
+      "clipboard": "{{count}} items ready to paste.",
+      "nativeDownload": "Large-file download was handed to the browser. View its progress in browser downloads.",
+      "zipDropHint": "Extract files from Windows ZIP folders before dragging them. Alternatively upload the archive and choose “Extract ZIP”.",
+      "preview": "Preview",
+      "download": "Download"
+    },
+    "steam": {
+      "configurationHelp": "Valheim downloads its files through SteamCMD. Enter a server name, world name (letters, digits, _ or -), and a 5–64 character password that does not occur in the server name. Git and uploaded files are not required. The panel allocates two consecutive UDP ports. The server is private (Steam, without crossplay). Worlds are included in service file backups."
+    },
+    "jobs": {
+      "statuses": {
+        "QUEUED": "Queued",
+        "RUNNING": "Running",
+        "COMPLETED": "Completed",
+        "FAILED": "Failed",
+        "CANCELLED": "Cancelled",
+        "PENDING": "Pending",
+        "DISPATCHING": "Sending to the agent"
+      },
+      "types": {
+        "INSTALL": "Installation",
+        "REINSTALL": "Reinstallation",
+        "START": "Start",
+        "STOP": "Shutdown",
+        "RESTART": "Restart",
+        "KILL": "Force stop"
+      }
+    }
+  }
+}
