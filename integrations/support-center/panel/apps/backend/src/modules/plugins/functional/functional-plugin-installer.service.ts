@@ -24,9 +24,7 @@ export class FunctionalPluginInstallerService {
       where: { id: manifest.id },
       select: { status: true, version: true },
     });
-    return [
-      { manifest, source: 'LOCAL' as const, published: false, installed },
-    ];
+    return [{ manifest, source: 'BUNDLED' as const, installed }];
   }
 
   async install(id: string, actorId: number, confirmation: string) {

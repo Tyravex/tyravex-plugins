@@ -31,7 +31,9 @@ function host(plugin, root) {
   for (const check of plugin.lock.hostChecks) {
     const target = inside(panel, check.path);
     fs.mkdirSync(path.dirname(target), { recursive: true });
-    fs.appendFileSync(target, `${check.contains}\n`);
+    if (plugin.lock.files.some(file => file.path === check.path)) {
+      fs.copyFileSync(path.join(plugin.panel, check.path), target);
+    } else fs.appendFileSync(target, `${check.contains}\n`);
   }
   return panel;
 }
@@ -108,7 +110,8 @@ test("dry-run does not write files; apply copies reviewed sources without runnin
   const model = verify(plugin);
   const panel = host(model, root);
   const proposal = plan(model, panel);
-  assert.ok(proposal.changes.every((change) => change.state === "CREATE"));
+  assert.ok(proposal.changes.every((change) => ["CREATE", "UNCHANGED"].includes(change.state)));
+  assert.ok(proposal.changes.some(change => change.state === "CREATE"));
   assert.ok(!fs.existsSync(path.join(panel, model.lock.files[0].path)));
   apply(model, proposal);
   assert.ok(

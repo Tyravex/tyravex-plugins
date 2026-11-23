@@ -189,4 +189,8 @@ Version 1.1.1 also translates repository update checks, verified package preview
 
 ## Native integration sources
 
-[Support Center 0.3.0](integrations/support-center/README.md) is distributed as reviewed native source in `native-plugins.json`. Its backend, UI and host adapters are compiled into a compatible Tyravex panel build. It is intentionally separate from the downloadable language/theme ZIP registry above. Do not upload the native source archive to the language/theme installer or advertise compatibility with an older panel without testing the host integration. Installation and database updates remain explicit administrator actions in the compiled native plugin card.
+[Support Center 0.3.1](integrations/support-center/README.md) is distributed as reviewed native source in `native-plugins.json`. Its backend, UI and host adapters are compiled into a compatible Tyravex panel build. It is intentionally separate from the downloadable language/theme ZIP registry above. Do not upload the native source archive to the language/theme installer or advertise compatibility with an older panel without testing the host integration. Installation and database updates remain explicit administrator actions in the compiled native plugin card.
+
+## Marketplace integration in 0.3.1
+
+The compatible panel reads native-plugins.json together with the official package registry. Support Center appears once in Tyravex Official with Preview and confirmed lifecycle actions. Published, compiled and installed versions remain separate; a newer source release can require a panel update. Unknown/expired publication metadata is not presented as an unpublished plugin, and newer installed versions are never offered a downgrade. No migration definitions or live data are changed by this source release.

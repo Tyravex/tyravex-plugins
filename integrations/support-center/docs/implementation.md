@@ -2,6 +2,14 @@
 
 Support Center 0.3.0 is a host-reviewed native functional plugin, not downloaded JavaScript. Its frontend manifest and PL/EN/DE translations live in `apps/frontend/src/plugins/support-center`; backend registration and reviewed migrations live in `apps/backend/src/plugins/support-center`. Shared contracts are in `packages/types/src/plugins` and `packages/types/src/support-center`. Business logic, API adapters, components, hooks, preview fixtures and tests remain in their own module folders.
 
+## Official Marketplace integration (0.3.1)
+
+The official repository listing combines the existing language/theme registry with the fixed `native-plugins.json` endpoint. The native catalog is read-only metadata and cannot provide executable code, installation state or compiled capabilities. Backend validation restricts repository URLs and paths, rejects duplicate IDs and bounds response size. The server supplies the locally compiled version independently of the published source version. Only the existing confirmed native installer can install or upgrade Support Center.
+
+The Marketplace shows Support Center once inside Tyravex Official, including Preview, published/available/installed versions and lifecycle actions. Installed-role controls remain on the plugin management/detail pages. A newer source release without a matching panel build prompts a panel update; it does not become an executable ZIP update. Installed versions newer than the available build are never offered a downgrade. Refresh explicitly bypasses both official catalog caches.
+
+When GitHub is unavailable, language packages remain listed and the bundled Support Center remains manageable. Its repository version is marked unknown rather than displaying expired metadata as published or calling the plugin unpublished. Catalog requests and listing do not run migrations or assign roles. PL/EN/DE labels are owned by the plugin namespace.
+
 ## Source ownership and distribution
 
 The official native source package is maintained in `Tyravex/tyravex-plugins`, under `integrations/support-center`. The panel keeps an integrated compilation copy; shared contracts stay in `packages/types/src/support-center`. The package includes reviewed source files, migrations, PL/EN/DE resources and tests, with a `source-lock.json` checksum inventory and guarded synchronization scripts. Compare sources before editing or applying an update. The plugin repository's `native-plugins.json` lists native sources separately from installable language/theme ZIP packages in `registry.json`.
@@ -36,7 +44,7 @@ Run `node apps/backend/scripts/test-support-workflow-database.cjs` only with aut
 
 Open **Administration → Plugins → Marketplace → Local plugins → Preview**, or `/admin/plugins/local/support-center/preview` with `plugin:read`. The interactive preview uses in-memory sample data and supports client/staff perspectives, messages, ticket state, consent, revocation and history. Reset or reload discards preview changes. It never calls the support API or agent.
 
-The local card is also available on the Plugins page. It is explicitly marked unpublished. No commit, release or public catalog entry is required to view it.
+The shared native plugin card is also available on the Plugins page and its detail page. Publication metadata is read from the official native catalog; the compiled preview is available without installing the plugin or publishing a panel build.
 
 ## Explicit local installation
 

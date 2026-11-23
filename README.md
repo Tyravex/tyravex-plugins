@@ -266,8 +266,12 @@ Version 1.1.1 also translates repository update checks, verified package preview
 
 Release CI validates German against its versioned English catalog in `tests/references/german/<version>/en`. It does not require the unpublished panel changes to be pushed. A separate advisory job compares the package with published `Tyravex/panel` main and reports drift. See [translation references](tests/references/README.md) for update and local validation instructions.
 
-## Support Center 0.3.0 native sources
+## Support Center 0.3.1 native sources
 
-The official [Support Center](integrations/support-center/README.md) source package is available in `integrations/support-center`. It includes 113 reviewed source files, PL/EN/DE translations, four plugin-owned database migrations, and tests for the service ticket and temporary-access workflow.
+The official [Support Center](integrations/support-center/README.md) source package is available in `integrations/support-center`. It includes 137 reviewed source files, PL/EN/DE translations, four plugin-owned database migrations, and tests for the service ticket and temporary-access workflow.
 
 Native integration sources are listed separately in `native-plugins.json`. They require a compatible reviewed panel build; they are not installed by the language/theme ZIP uploader. See the plugin README for source verification, guarded synchronization, builds and administrator installation steps.
+
+## Marketplace integration in 0.3.1
+
+The compatible panel reads native-plugins.json together with the official package registry. Support Center appears once in Tyravex Official with Preview and confirmed lifecycle actions. Published, compiled and installed versions remain separate; a newer source release can require a panel update. Unknown/expired publication metadata is not presented as an unpublished plugin, and newer installed versions are never offered a downgrade. No migration definitions or live data are changed by this source release.

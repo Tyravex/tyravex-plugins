@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "pluginId": "tyravex.support-center",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "distribution": "native-source",
   "roots": [
     "apps/backend/src/modules/support-center",
@@ -18,9 +18,28 @@
     "apps/frontend/src/shared/lib/routes/support.ts",
     "apps/frontend/src/shared/i18n/test/functionalPluginResources.test.ts",
     "packages/types/src/plugins/functional-plugin.types.ts",
-    "packages/types/src/support-center"
+    "packages/types/src/support-center",
+    "apps/backend/src/modules/plugins/marketplace/native",
+    "apps/backend/src/modules/plugins/marketplace/official-registry.http.ts",
+    "apps/backend/src/modules/plugins/marketplace/marketplace-registry.service.ts",
+    "apps/backend/src/modules/plugins/marketplace/marketplace-repositories.controller.ts",
+    "apps/backend/src/modules/plugins/marketplace/test/native-plugin-catalog.spec.ts",
+    "apps/backend/src/modules/plugins/marketplace/test/marketplace-repositories.controller.spec.ts",
+    "apps/backend/src/modules/plugins/marketplace/test/marketplace-repositories-permissions.http.spec.ts",
+    "apps/backend/src/modules/plugins/plugins.module.ts",
+    "apps/frontend/src/features/plugins/components/MarketplaceRepositoryDetails.tsx",
+    "apps/frontend/src/features/plugins/components/NativeMarketplacePluginCard.tsx",
+    "apps/frontend/src/features/plugins/components/test/MarketplaceNativeListing.test.tsx",
+    "apps/frontend/src/features/plugins/components/test/MarketplaceRepositories.rbac-v2.test.tsx",
+    "apps/frontend/src/features/plugins/api/marketplaceApi.ts",
+    "apps/frontend/src/pages/admin/marketplace/AdminMarketplacePage.tsx",
+    "apps/frontend/src/pages/admin/plugins/AdminPluginsPage.tsx",
+    "apps/frontend/src/pages/admin/plugins/AdminPluginDetailsPage.tsx",
+    "packages/types/src/marketplace/native-marketplace.types.ts",
+    "packages/types/src/marketplace/marketplace.types.ts",
+    "packages/types/src/marketplace/index.ts"
   ],
-  "snapshotSha256": "112a309c7ba789b19f11f0cef99f0745ca7f5f143f6588c05596c0129eedf56b",
+  "snapshotSha256": "5152360bbc161102aaa63f8097f041a3839309eae394be7630a2f07c339f4020",
   "files": [
     {
       "path": "apps/backend/scripts/support/verify-http-workflow.cjs",
@@ -36,7 +55,7 @@
     },
     {
       "path": "apps/backend/src/modules/plugins/functional/functional-plugin-installer.service.ts",
-      "sha256": "6ee4eed493d1a5107512b9c71865ff29c8ba0d15ba472042398017adad626ce9"
+      "sha256": "ed093c8f51d03980d477113890500ba33bfe5ff40a689a5ae219a6b805cd31f6"
     },
     {
       "path": "apps/backend/src/modules/plugins/functional/functional-plugin-migrations.ts",
@@ -52,7 +71,7 @@
     },
     {
       "path": "apps/backend/src/modules/plugins/functional/test/functional-plugin-installer.spec.ts",
-      "sha256": "dfe0be44dd894c6fd7c6f3d0696cd910474566cf5c4bff11f2df020f7a37ff45"
+      "sha256": "87e38ff878262f015fed3775520e5c428a3c73bedf3de8255f4435f8e25384e5"
     },
     {
       "path": "apps/backend/src/modules/plugins/functional/test/functional-plugin-lifecycle.spec.ts",
@@ -65,6 +84,42 @@
     {
       "path": "apps/backend/src/modules/plugins/functional/test/functional-plugin.http.spec.ts",
       "sha256": "670038778ecd73aa1fdbe8d5a2f509e634c7fae691afded509f0b771be190350"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/marketplace/marketplace-registry.service.ts",
+      "sha256": "444a0f77bbd46e4b962db028de72d7a8defe2b8c12a83d5ead6c1df3f3719ab1"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/marketplace/marketplace-repositories.controller.ts",
+      "sha256": "ac33af7976ef3912847eb026381df2cb2e6fc2bdecadad800b01dcb720a7f396"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/marketplace/native/native-plugin-catalog.service.ts",
+      "sha256": "0cc8c60abcff40f27a80622bcfdd3c078f426c97a5c49174588f696a5bcc3947"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/marketplace/native/native-plugin-catalog.validation.ts",
+      "sha256": "ca85ba82300ad3012857ed723358ab8f4d5a85521eefd2f8c54139407b61f99b"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/marketplace/official-registry.http.ts",
+      "sha256": "c97d6bed2f629678a35037e4dddb42b946cc6bf7ac19be3cc81c71e60a36e1a2"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/marketplace/test/marketplace-repositories-permissions.http.spec.ts",
+      "sha256": "b3404ef21e880cff87e0f3c21c56b114a8c7f63976d47a0fc34f63d3bdc6f09a"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/marketplace/test/marketplace-repositories.controller.spec.ts",
+      "sha256": "34c836c4367f57c02907447069f0dd661b8a910043aa5d519ff47573f9dfcfac"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/marketplace/test/native-plugin-catalog.spec.ts",
+      "sha256": "f16130fe90de62f01819c3d98549b247e6c803667040ea88eedbb34684fe9806"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/plugins.module.ts",
+      "sha256": "4568bd2664bc93c2cac50152152ae02ad6a046f28f725f13f48793e369979732"
     },
     {
       "path": "apps/backend/src/modules/support-center/access/support-access.policy.ts",
@@ -211,8 +266,28 @@
       "sha256": "08da4f59e06ed0844684b49859c9abbdd86978791c4518a26d5d9109b7dfb179"
     },
     {
+      "path": "apps/frontend/src/features/plugins/api/marketplaceApi.ts",
+      "sha256": "c4b1a04cd930c06b990436e43c94efaf0f809a07d592364fc25a2f7779cf339c"
+    },
+    {
+      "path": "apps/frontend/src/features/plugins/components/MarketplaceRepositoryDetails.tsx",
+      "sha256": "cba87a0bad7c753963afa97088890e6bd1a33b2476725193e8896f9d5306657f"
+    },
+    {
+      "path": "apps/frontend/src/features/plugins/components/NativeMarketplacePluginCard.tsx",
+      "sha256": "b57aabb6a56ea6bf5d641bc27fefad2e47ec4656204e18305cbecdcc9d1e2a63"
+    },
+    {
+      "path": "apps/frontend/src/features/plugins/components/test/MarketplaceNativeListing.test.tsx",
+      "sha256": "2dc1d3f7ff78c4298d066cfaf1d5895d1518765f6b97dc7221da1c1864364378"
+    },
+    {
+      "path": "apps/frontend/src/features/plugins/components/test/MarketplaceRepositories.rbac-v2.test.tsx",
+      "sha256": "62765fa29414c421293ac4d2bb3b1704e202fb7c830c868003934a80453f48b3"
+    },
+    {
       "path": "apps/frontend/src/features/support-center/api/supportCenterApi.ts",
-      "sha256": "cd6c0df0466251ebb7a38e4c4bddb04dac4d1ad1a1d22cdf8d862e6e5acdcd24"
+      "sha256": "62990c67442fa8a086bc272ce0fdc84cc06d897b468d9c58bd89019e72b47658"
     },
     {
       "path": "apps/frontend/src/features/support-center/api/supportMutation.ts",
@@ -220,7 +295,7 @@
     },
     {
       "path": "apps/frontend/src/features/support-center/components/LocalSupportPluginCard.tsx",
-      "sha256": "b608d705db8b8998584b208801af7b7e55b308c880d2090ba733d0dc05d7c609"
+      "sha256": "9480389c46f1d2308f3b80fbba6441a4a61084dbb0f3175ed83c7257584edb7c"
     },
     {
       "path": "apps/frontend/src/features/support-center/components/PluginRoleBadges.tsx",
@@ -269,6 +344,10 @@
     {
       "path": "apps/frontend/src/features/support-center/components/SupportPermissionStatus.tsx",
       "sha256": "7f1e1cd26823d95c1346349fd78dab70081a31fe3b633e06c9a1b1f289091f73"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportPluginCard.tsx",
+      "sha256": "60af4dbbe3ccd6bc31668f3e95617261a567d914cd09f899e97580c9b635da44"
     },
     {
       "path": "apps/frontend/src/features/support-center/components/SupportQueueFilters.tsx",
@@ -347,12 +426,20 @@
       "sha256": "6cb11e240db660a16a89ec87830560bf8edd2ec1ae68f3789e65ac3b6b78e243"
     },
     {
+      "path": "apps/frontend/src/features/support-center/hooks/useSupportPublication.ts",
+      "sha256": "5e4e5897e295dca22ce65632f1407c2af3ac9e7d10321658b8578e56ad2d4840"
+    },
+    {
       "path": "apps/frontend/src/features/support-center/hooks/useSupportUnreadCount.ts",
       "sha256": "c2a49103f446329d7a47f18cd327323ab11fa5cb891292735619262d93d993a8"
     },
     {
       "path": "apps/frontend/src/features/support-center/hooks/useSupportUpdates.ts",
       "sha256": "0a47f357a5d96f1eeec6490e6a0e670bbcdede8ba9e2a53e785ac635174c3277"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/lib/nativePluginVersions.ts",
+      "sha256": "b644b1cc60b9b0210558e576597906c281e860728d5c032dd467b5b5b1b31dcb"
     },
     {
       "path": "apps/frontend/src/features/support-center/lib/supportError.ts",
@@ -376,7 +463,7 @@
     },
     {
       "path": "apps/frontend/src/features/support-center/test/LocalSupportPluginCard.test.tsx",
-      "sha256": "2e0d7d39c42483667171cccb54f02de76a79bb7dcd014a171af6c9368d3ff60d"
+      "sha256": "32f5ae2dce7e67c495c384cc230026c657065e028c01cb1bcd26ebf2e02d1346"
     },
     {
       "path": "apps/frontend/src/features/support-center/test/PluginRoleBindingPanel.test.tsx",
@@ -407,6 +494,10 @@
       "sha256": "2fcee0298fe11701edfa256eb6e08bd5ea769f5bdaab1158adf3d5bdef699bf7"
     },
     {
+      "path": "apps/frontend/src/features/support-center/test/SupportPluginVersions.test.tsx",
+      "sha256": "079a95faf22cac87dcb35db531e4df44c7832ae6281833c4c27263c9d3dfadae"
+    },
+    {
       "path": "apps/frontend/src/features/support-center/test/SupportTicketView.test.tsx",
       "sha256": "e3e388432f574ed2ce302d993e26af7dc95589a177379d83a78d7bb3e68f7a4b"
     },
@@ -423,6 +514,18 @@
       "sha256": "d2d9cdf4140f4c19180b522d32581958634612f79b2df93eadd9a1ea024af39c"
     },
     {
+      "path": "apps/frontend/src/pages/admin/marketplace/AdminMarketplacePage.tsx",
+      "sha256": "48dfd3a2c7779e245ef714c04647c2cab09c3a4bb8b8cea37643dba3e06f62aa"
+    },
+    {
+      "path": "apps/frontend/src/pages/admin/plugins/AdminPluginDetailsPage.tsx",
+      "sha256": "23882de2453ad1acab172d4bd0907de611ca3bafe68d0fd74e7e8a861b0261e3"
+    },
+    {
+      "path": "apps/frontend/src/pages/admin/plugins/AdminPluginsPage.tsx",
+      "sha256": "60e9b4a22edd7b35c1c49153ae124fc69181f0bd64a6192b13152c97565cb619"
+    },
+    {
       "path": "apps/frontend/src/pages/support/SupportCenterPage.tsx",
       "sha256": "5bc9b64d3eed4bdda93e621bb57c95762f6099257e462175cf2644eaf44456ff"
     },
@@ -432,15 +535,15 @@
     },
     {
       "path": "apps/frontend/src/plugins/support-center/locales/de.json",
-      "sha256": "c600e4f376fb07da2eea60211a57516494c42a54162acbc3ba76246384b2a19d"
+      "sha256": "a81ae8d26d4ed4434cc663299165063fcb089fc5126c41fd03d37e685ef0bd4d"
     },
     {
       "path": "apps/frontend/src/plugins/support-center/locales/en.json",
-      "sha256": "cd8f3773e0b033b4e2fb7ac0f937cdb0e06a22234bac0e8028bba32ab6a4be2f"
+      "sha256": "a20c6cce11844578bcba22bbd77ae1f51176be7e0545fcacf2808185d0e5adf7"
     },
     {
       "path": "apps/frontend/src/plugins/support-center/locales/pl.json",
-      "sha256": "d9e7d8dbd56abcfa0dbdf98b77e425fb7d9d94b3041b7743fd19ffa6ac26465d"
+      "sha256": "5316912cc013baa772a953974b86e42deda32418920158e10e6dc5d9856177a1"
     },
     {
       "path": "apps/frontend/src/plugins/support-center/manifest.ts",
@@ -455,6 +558,18 @@
       "sha256": "6a9bae7238ae79671ef77c251b91bfcb41ff860ed41eb2fddcdcc33c8b347b7f"
     },
     {
+      "path": "packages/types/src/marketplace/index.ts",
+      "sha256": "374947e3a7a57c35802e5d8fc527992025c8e3b329d9a0405c4fa6f919477665"
+    },
+    {
+      "path": "packages/types/src/marketplace/marketplace.types.ts",
+      "sha256": "59f551c1076cb52a316817bdadc1a1fd217412e3ee522a7357c455c028ba199c"
+    },
+    {
+      "path": "packages/types/src/marketplace/native-marketplace.types.ts",
+      "sha256": "e8b3ceba9b91fd9cad50f8629905d8d2309dcb6b330af810cafa33153842873e"
+    },
+    {
       "path": "packages/types/src/plugins/functional-plugin.types.ts",
       "sha256": "47a2962b0e7e861e93115b55add51cba5d0f39e11b9e947c6a5c126df5c60f0a"
     },
@@ -464,7 +579,7 @@
     },
     {
       "path": "packages/types/src/support-center/support-center.manifest.ts",
-      "sha256": "e3326ef78e598ee5a6ac84c7f4a979abc36a3bddce2783c50f6bfb3e109994c8"
+      "sha256": "c31fc36ba93e994c58b4592a92b1c21907a065a8d9e7693639b179a24f7243e9"
     },
     {
       "path": "packages/types/src/support-center/support-center.types.ts",

@@ -12,13 +12,11 @@ describe('local functional plugin installation', () => {
       $executeRawUnsafe: jest.fn(),
       plugin: {
         findUnique: jest.fn().mockResolvedValue(null),
-        create: jest
-          .fn()
-          .mockResolvedValue({
-            id: manifest.id,
-            version: manifest.version,
-            status: 'INSTALLED',
-          }),
+        create: jest.fn().mockResolvedValue({
+          id: manifest.id,
+          version: manifest.version,
+          status: 'INSTALLED',
+        }),
         delete: jest.fn(),
       },
       permission: {
@@ -29,7 +27,11 @@ describe('local functional plugin installation', () => {
       role: {
         upsert: jest.fn(),
         create: jest.fn().mockResolvedValue({ id: 'new-support' }),
-        findUnique: jest.fn().mockImplementation(({ where }) => where.name === 'Owner' ? { id: 'owner' } : null),
+        findUnique: jest
+          .fn()
+          .mockImplementation(({ where }) =>
+            where.name === 'Owner' ? { id: 'owner' } : null,
+          ),
         update: jest.fn(),
       },
       adminAuditLog: { create: jest.fn() },
@@ -42,7 +44,7 @@ describe('local functional plugin installation', () => {
   });
   it('listing local plugins does not create schemas or register permissions', async () => {
     expect(await installer.localCatalog()).toMatchObject([
-      { source: 'LOCAL', published: false, installed: null },
+      { source: 'BUNDLED', installed: null },
     ]);
     expect(prisma.$transaction).not.toHaveBeenCalled();
     expect(tx.$executeRawUnsafe).not.toHaveBeenCalled();
@@ -69,7 +71,12 @@ describe('local functional plugin installation', () => {
     });
     expect(tx.permission.upsert).toHaveBeenCalledTimes(3);
     expect(tx.role.create).toHaveBeenCalledWith({
-      data: { name: 'Support', permissions: { connect: [{ name: 'support:read' }, { name: 'support:manage' }] } },
+      data: {
+        name: 'Support',
+        permissions: {
+          connect: [{ name: 'support:read' }, { name: 'support:manage' }],
+        },
+      },
     });
     expect(tx.role.findUnique).toHaveBeenCalledWith({
       where: { name: 'Owner' },

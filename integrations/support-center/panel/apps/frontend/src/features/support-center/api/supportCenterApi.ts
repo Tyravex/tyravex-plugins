@@ -17,8 +17,7 @@ import type {
 export type { SupportTicketSummary } from "@shared/types";
 export interface LocalPlugin {
   manifest: FunctionalPluginManifest;
-  source: "LOCAL";
-  published: false;
+  source: "BUNDLED";
   installed: { status: string; version: string } | null;
 }
 export const supportCenterApi = {

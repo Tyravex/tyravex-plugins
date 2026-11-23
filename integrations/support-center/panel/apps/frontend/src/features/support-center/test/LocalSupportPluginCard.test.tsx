@@ -23,6 +23,12 @@ vi.mock("@/app/store/auth.store", () => ({
     select({ user: { id: 1, permissions: ["plugin:read", "plugin:manage"] } }),
 }));
 vi.mock("@/shared/store/user", () => ({ useUser: {} }));
+vi.mock("../hooks/useSupportPublication", () => ({
+  useSupportPublication: () => ({
+    entry: { publishedVersion: "0.3.1", compiledVersion: "0.3.1" },
+    loading: false,
+  }),
+}));
 vi.mock("../api/supportCenterApi", () => ({
   supportCenterApi: {
     localCatalog: vi.fn(),
@@ -35,12 +41,11 @@ afterEach(() => {
   vi.clearAllMocks();
 });
 
-it("shows the unpublished preview while requiring explicit confirmation before installation", async () => {
+it("shows the official source preview while requiring explicit confirmation before installation", async () => {
   vi.mocked(supportCenterApi.localCatalog).mockResolvedValue([
     {
       manifest: supportCenterPlugin,
-      source: "LOCAL",
-      published: false,
+      source: "BUNDLED",
       installed: null,
     },
   ]);

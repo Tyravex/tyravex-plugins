@@ -1,4 +1,4 @@
-# Support Center 0.3.0
+# Support Center 0.3.1
 
 Official native Support Center sources for Tyravex. This repository is the source of truth for the plugin; the panel keeps a compiled integration copy. The package includes backend services/controllers, host lifecycle and role adapters, reviewed migrations, shared contracts, frontend components/routes, PL/EN/DE translations and tests.
 
@@ -46,7 +46,7 @@ After approved source synchronization, use the panel's normal builds and tests. 
 ./scripts/build-native-plugin.ps1
 ```
 
-This produces `dist/tyravex.support-center-0.3.0-source.zip` and its SHA-256 file. Existing archives are never overwritten. The archive is a source distribution for a reviewed panel build, not a file to upload to the language/theme installer.
+This produces `dist/tyravex.support-center-0.3.1-source.zip` and its SHA-256 file. Existing archives are never overwritten. The archive is a source distribution for a reviewed panel build, not a file to upload to the language/theme installer.
 
 ## Validation in the compatible panel checkout
 
@@ -60,3 +60,7 @@ pnpm --filter frontend test src/features/support-center src/shared/i18n/test/fun
 ```
 
 Database/real-agent tests require explicit approval and an isolated test environment. The source archive does not contain credentials or the local cleanup/administration scripts used for live panel tests. See [implementation and security boundaries](docs/implementation.md) for consent, role ownership, retention and installation details.
+
+## Marketplace integration in 0.3.1
+
+The compatible panel reads native-plugins.json together with the official package registry. Support Center appears once in Tyravex Official with Preview and confirmed lifecycle actions. Published, compiled and installed versions remain separate; a newer source release can require a panel update. Unknown/expired publication metadata is not presented as an unpublished plugin, and newer installed versions are never offered a downgrade. No migration definitions or live data are changed by this source release.

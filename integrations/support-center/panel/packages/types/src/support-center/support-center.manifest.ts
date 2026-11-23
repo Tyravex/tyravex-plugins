@@ -4,7 +4,7 @@ import { SUPPORT_NAMESPACE, SUPPORT_PLUGIN_ID } from "./support-center.types";
 export const SUPPORT_CENTER_MANIFEST: FunctionalPluginManifest = {
   schemaVersion: 1,
   id: SUPPORT_PLUGIN_ID,
-  version: "0.3.0",
+  version: "0.3.1",
   type: "integration",
   runtime: "native",
   translations: {
