@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "plugins": [
+    {
+      "id": "tyravex.support-center",
+      "name": "Support Center",
+      "version": "0.3.0",
+      "type": "integration",
+      "runtime": "native",
+      "distribution": "source",
+      "path": "integrations/support-center",
+      "repositoryUrl": "https://github.com/Tyravex/tyravex-plugins",
+      "languages": ["en", "pl", "de"],
+      "requiresHostIntegration": true
+    }
+  ]
+}

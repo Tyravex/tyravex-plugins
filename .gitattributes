@@ -5,3 +5,7 @@
 *.ps1 text eol=crlf
 *.yml text eol=lf
 *.yaml text eol=lf
+# Native plugin source files use stable line endings for checksums.
+*.ts text eol=lf
+*.tsx text eol=lf
+*.cjs text eol=lf

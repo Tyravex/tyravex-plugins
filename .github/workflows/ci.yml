@@ -39,6 +39,23 @@ jobs:
               run: |
                   $PSVersionTable.PSVersion.ToString()
 
+            - name: Verify native integration sources
+              working-directory: tyravex-plugins
+              run: |
+                  node scripts/native-plugin.cjs verify
+                  if ($LASTEXITCODE -ne 0) { throw "Native source verification failed" }
+
+            - name: Test native source synchronization
+              working-directory: tyravex-plugins
+              run: |
+                  node --test tests/native/native-plugin.test.cjs
+                  if ($LASTEXITCODE -ne 0) { throw "Native source tests failed" }
+
+            - name: Build reviewed native source archive
+              working-directory: tyravex-plugins
+              run: |
+                  ./scripts/build-native-plugin.ps1
+
             - name: Validate German translations
               working-directory: tyravex-plugins
               run: |

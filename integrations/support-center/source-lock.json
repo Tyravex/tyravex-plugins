@@ -1,0 +1,516 @@
+{
+  "schemaVersion": 1,
+  "pluginId": "tyravex.support-center",
+  "version": "0.3.0",
+  "distribution": "native-source",
+  "roots": [
+    "apps/backend/src/modules/support-center",
+    "apps/backend/src/plugins/support-center",
+    "apps/backend/src/modules/plugins/functional",
+    "apps/backend/src/rbac/plugin-roles",
+    "apps/backend/scripts/test-support-workflow-database.cjs",
+    "apps/backend/scripts/support/verify-reliability.cjs",
+    "apps/backend/scripts/support/verify-http-workflow.cjs",
+    "apps/frontend/src/features/support-center",
+    "apps/frontend/src/pages/support",
+    "apps/frontend/src/plugins/support-center",
+    "apps/frontend/src/app/router/routes/support.routes.tsx",
+    "apps/frontend/src/shared/lib/routes/support.ts",
+    "apps/frontend/src/shared/i18n/test/functionalPluginResources.test.ts",
+    "packages/types/src/plugins/functional-plugin.types.ts",
+    "packages/types/src/support-center"
+  ],
+  "snapshotSha256": "112a309c7ba789b19f11f0cef99f0745ca7f5f143f6588c05596c0129eedf56b",
+  "files": [
+    {
+      "path": "apps/backend/scripts/support/verify-http-workflow.cjs",
+      "sha256": "99c615f309010362716832e7d21c714e8b19a205b61a51f76f0351c0fb029de9"
+    },
+    {
+      "path": "apps/backend/scripts/support/verify-reliability.cjs",
+      "sha256": "12e570f2380e187dfeb953afd0c00a8512bbe04a3130775561a07a1be79c662c"
+    },
+    {
+      "path": "apps/backend/scripts/test-support-workflow-database.cjs",
+      "sha256": "96612dea8de19015bdfd02e4c782ae2a48b2615222ac99a274389be03744f71d"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/functional/functional-plugin-installer.service.ts",
+      "sha256": "6ee4eed493d1a5107512b9c71865ff29c8ba0d15ba472042398017adad626ce9"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/functional/functional-plugin-migrations.ts",
+      "sha256": "4472c5d391a60ae064017c488c682de0d94fec6a4736aed00d006bba5987b3f0"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/functional/functional-plugin-role-templates.ts",
+      "sha256": "5bc5d7e3b7717cca26a33b009484822d40f6e91f280fe8c523fb443483f27719"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/functional/functional-plugin.controller.ts",
+      "sha256": "2862de1a3646a0de7d6c55741e3c3760d5a9aad6128fbcf91004fa9a39a48378"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/functional/test/functional-plugin-installer.spec.ts",
+      "sha256": "dfe0be44dd894c6fd7c6f3d0696cd910474566cf5c4bff11f2df020f7a37ff45"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/functional/test/functional-plugin-lifecycle.spec.ts",
+      "sha256": "f0d78e3616e23b4e471cf9276efa4eddfa6656ff585aa24597effa41faf3316b"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/functional/test/functional-plugin-role-templates.spec.ts",
+      "sha256": "e4b85ef299c9850b20ea61ed1135d50f9018874765d7bf3a5025079982441f25"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/functional/test/functional-plugin.http.spec.ts",
+      "sha256": "670038778ecd73aa1fdbe8d5a2f509e634c7fae691afded509f0b771be190350"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/access/support-access.policy.ts",
+      "sha256": "30dde3aca9775dd8657da1d5f1a7e7c5b4e7fe0c27b806deea08a3317c6f33dc"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/access/support-consent.controller.ts",
+      "sha256": "a82d09e07a594112cc59cfff733794951cc3b8f8f72cde2975192e3e15c0016b"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/access/support-consent.dto.ts",
+      "sha256": "64d5f1188a6bb80154f750d2e91d16963ff2ad63d8d93516e28dd1be1181267b"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/access/support-consent.service.ts",
+      "sha256": "a6502766e8d3f675048e76ad84821b8b859f2835fa77b49e7d8d79c04019fcdf"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/access/support-operation-audit.ts",
+      "sha256": "8d9844916d42ffa5b083acfec61c0f107171867169dae86a3b84793b218cf961"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/access/support-staff.policy.ts",
+      "sha256": "af9c486bebe93a5d844cea12b9520b970470d8d40a98b05778af0dfd1e5900b4"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/access/test/support-access.policy.spec.ts",
+      "sha256": "bb944a0b6305735d5374aa0154676c721894e206300f957f1d0a7765a1ca27d4"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/access/test/support-consent.service.spec.ts",
+      "sha256": "81a7a1ff58950e989c9afc46715440c2b8c55c8f4d181a8547414294a2393bcb"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/mutations/support-mutation.service.ts",
+      "sha256": "5232b9460964b0348f7c0c8ff7ab702d275b50288d884c489a32d22abb2fc789"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/mutations/support-rate-limit.exception.ts",
+      "sha256": "0b113064b22d27b675d8743d315ce7968134403989269ff11cba6d987f465c56"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/mutations/test/support-mutation.service.spec.ts",
+      "sha256": "c3c943f010801bda988d6eccc7a7ec0c6ca4fbe856c02d6a7e8cd746b34a8f43"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/notifications/support-notification-buffer.ts",
+      "sha256": "06534115c74c6dfeacb650f1d0f04dcc4c7cda0c642b66d4890cd542079319d6"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/notifications/support-notifications.ts",
+      "sha256": "ee60bfb06f89b9b90d80f190840d3defa286d6e573569ea67c0c2f2588487073"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/support-activity.ts",
+      "sha256": "3b8a5141a7ee732174445e31c550e3db2bca17827401730a27a1158b48eec860"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/support-center.controller.ts",
+      "sha256": "b887ea54f67c00b5f0069d342413904c16efbea3af23a3406c7312ea3b82a421"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/support-center.dto.ts",
+      "sha256": "c6f479f7e4bb5892f5004c83595699556d7bd5307763fa822105f12749466e22"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/support-center.module.ts",
+      "sha256": "d8e03ef3ea0f85151a7ecc6f2e7d65c568fc9bcc4070c3c42e061b57e2449e79"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/support-center.service.ts",
+      "sha256": "9696b0bf88479237b29727fe98d12ddf144f327cf850f0f126549f2125657c89"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/support-context.ts",
+      "sha256": "58ce856900091f53ac0d7ee9a7e5f27849e64b273d48879fdb0afe0b62605b51"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/test/support-center.http.spec.ts",
+      "sha256": "aae3bbfe2255d0cfe68ed5e6c9d28bc3186645fd41de8a305ccd8a62ea90e1be"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/test/support-center.service.spec.ts",
+      "sha256": "7d6cc6d18f533c7c509e1c3ddfbd527abfd494b0d2af15004420014b096c1dbd"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/workflow/support-status.policy.ts",
+      "sha256": "11eefd1610343d0dbd2662a030ae57f8dae27ff6942d42ec4778b605124a6cd6"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/workflow/support-ticket.queries.ts",
+      "sha256": "fee7ac2d50d48d83327d48a758367ba803b976a5a574e125782e252b1173c5bc"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/workflow/support-workflow.controller.ts",
+      "sha256": "c59363e49e501d985fc5095d8cc88cf99e2fe4140ceca58b7167673b512df6c2"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/workflow/support-workflow.dto.ts",
+      "sha256": "af64e817d437966685a49f87f8f5d2912e0e90ad07934d0d2fd6d58eb1dbcc45"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/workflow/support-workflow.policy.ts",
+      "sha256": "81d39263d4e18314ce53e037b73d56f708860efa9389250d3656aba584faddf2"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/workflow/support-workflow.service.ts",
+      "sha256": "6498806d3a283ceaf4891258c77c861dd9622f22651758bae4edbc57a1638609"
+    },
+    {
+      "path": "apps/backend/src/modules/support-center/workflow/test/support-workflow.dto.spec.ts",
+      "sha256": "97c379d59de38bddd02e28abf6cd6231a7d6eb05c737b1be100775bdcb29f152"
+    },
+    {
+      "path": "apps/backend/src/plugins/support-center/manifest.ts",
+      "sha256": "452b7bf709539d951bba03206d52245bd05203b5efec055df48f1c928a4c277e"
+    },
+    {
+      "path": "apps/backend/src/plugins/support-center/migrations/001-initial.ts",
+      "sha256": "fa0b4471a5e3cf141c4af95de3e6271d52e6329ce4fc415232770ead39963ffc"
+    },
+    {
+      "path": "apps/backend/src/plugins/support-center/migrations/002-managed-roles.ts",
+      "sha256": "2639a02f504bb410ed9ba660fa474a4d32dfe6847237dba9af286dd253c1f2b1"
+    },
+    {
+      "path": "apps/backend/src/plugins/support-center/migrations/003-workflow.ts",
+      "sha256": "ea458cc9552f4010ed9355c6e99cbe5697b2beeab975dc09b08707681d3e67d2"
+    },
+    {
+      "path": "apps/backend/src/plugins/support-center/migrations/004-reliability.ts",
+      "sha256": "55d69b77ef5abd4772833f8c976bef6e8bc8ff861eb749c2184985fa6971a306"
+    },
+    {
+      "path": "apps/backend/src/rbac/plugin-roles/plugin-role-management.service.ts",
+      "sha256": "01a76d170a5f663a27edc5e83b31d1d5f3627893d52a98319fd8032a4e80bc7f"
+    },
+    {
+      "path": "apps/backend/src/rbac/plugin-roles/test/plugin-role-management.spec.ts",
+      "sha256": "02d28a2b92d650bfd87207453da5c5ab3863d3da1057a948cf2b18f7ee710a02"
+    },
+    {
+      "path": "apps/frontend/src/app/router/routes/support.routes.tsx",
+      "sha256": "08da4f59e06ed0844684b49859c9abbdd86978791c4518a26d5d9109b7dfb179"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/api/supportCenterApi.ts",
+      "sha256": "cd6c0df0466251ebb7a38e4c4bddb04dac4d1ad1a1d22cdf8d862e6e5acdcd24"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/api/supportMutation.ts",
+      "sha256": "b0c8f3bda7a2bb62c323ee9ded003d79bbb5be7b685f47c97b6911c793dd1d08"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/LocalSupportPluginCard.tsx",
+      "sha256": "b608d705db8b8998584b208801af7b7e55b308c880d2090ba733d0dc05d7c609"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/PluginRoleBadges.tsx",
+      "sha256": "61dbcff1037be823566b0d17d614bb4aca3b663cc4dc2d2f388e2e141b352e9b"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/PluginRoleBindingPanel.tsx",
+      "sha256": "4d7822fdc24cb037579af1509b0f9cc81fbb5fab15d74098bd58f8b2b1950333"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/ServiceSupportAccessBanner.tsx",
+      "sha256": "dc0627974d2fa6ee47cec7c28e918e7f73e5e4298406548db3cf1c0d787625cb"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/ServiceSupportAction.tsx",
+      "sha256": "46aea1e1a698a18142893bce9fa2d04aa24c960e867dc99425d78ef7d9d71482"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportAccessPanel.tsx",
+      "sha256": "255b43dcbf464508e9f6bd233d07e87b11b19bdd94c0c3844a9bbe4284b04d4a"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportAssignmentPanel.tsx",
+      "sha256": "bdc5af3356d21fdaff094f42ab9033c13711547d1b4f6b3182ba9234e83c04ce"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportConsentForm.tsx",
+      "sha256": "ad75a41c5dd0a21283921f356085b046da82745bd939cf377b50b6c1fa53c2e8"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportConversation.tsx",
+      "sha256": "117034951ec3057b2706ebf7a9a56c124634be58b30f77a255d6d6214ce7d29d"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportHistory.tsx",
+      "sha256": "d9a938cd6a440def4bab4ceae087417884137a5825ddf1caef0829dee725831e"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportNavigationLink.tsx",
+      "sha256": "3d232a5d67353b91bbac3f5a610b98054c38419cc0d7b57844c66acdef2af7d2"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportOwnerAccess.tsx",
+      "sha256": "117a415383685c09d702bbe03c10dcca5f8ee86e257426230095ab1dd6333a50"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportPermissionStatus.tsx",
+      "sha256": "7f1e1cd26823d95c1346349fd78dab70081a31fe3b633e06c9a1b1f289091f73"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportQueueFilters.tsx",
+      "sha256": "4dda7931767fa1cb11e5e85163befce5194e0f577d6d4ace4ad7b434e12c25be"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportTicketDetail.tsx",
+      "sha256": "cf9537ee14ddcab663ef51575510a98906e9a80aada0284713e980f3db732f71"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportTicketForm.tsx",
+      "sha256": "6e24e4c1a32e82c66692c797fb301e50bb2c00eb93c8a9df37cd98ea60e10da8"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/SupportWorkspacePanel.tsx",
+      "sha256": "8d5c30b887b474296295cba54fa973a25aba453eed8db21debc4c73baac61459"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/layout/SupportCenterScreen.tsx",
+      "sha256": "7f229986305dcd825a358ae8bf4e221a076a1752696701b251ce0b290ca5e925"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/layout/SupportPageHeader.tsx",
+      "sha256": "ed50f886831b1f65f081e258bdce9f2e02e85b78508efb0616ef1b89fd2094d1"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/layout/SupportPreviewToolbar.tsx",
+      "sha256": "05db531f5085346a030141f8373edf153dd8aaecd87a514cc85e8cf284733de4"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/queue/SupportQueue.tsx",
+      "sha256": "81416a69fa40e07e66e64c119bbbb14e92eebc384d7fd852d623ef8a271db517"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/queue/SupportStatusFilters.tsx",
+      "sha256": "423e2ebe08b6575005e22bc21ab0044c4041f4e14d100e6c6bb964f006fdf882"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/queue/SupportTicketList.tsx",
+      "sha256": "51ab477c0587f3e86d61478384953812b7fde2fec42fd50747a6913d7939ac1f"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/ticket/SupportStatusBadge.tsx",
+      "sha256": "961f790f7921cf7955f25dd7877638b1409f887d5713189c276067c8ed44e343"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/ticket/SupportTicketActions.tsx",
+      "sha256": "bc3a8a90deff78fe047456731ee7a0a9187caeec5563df28aa259c7c6aec3ec8"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/ticket/SupportTicketContext.tsx",
+      "sha256": "c2c45845e76bf674adfdaa99115edc365e0ac7f0b974039b9c7e6dc89f2e77e9"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/ticket/SupportTicketHeader.tsx",
+      "sha256": "3e3b74b9575e82d18498b9afc4bacb63e9ce7cef4ea10ce488b10f80fd6e071f"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/components/ticket/SupportTicketView.tsx",
+      "sha256": "dc26baf636b474ba6da9cab9a253b00541cef21e8ed816fece2f160a4e95edd7"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/config/supportStatusStyles.ts",
+      "sha256": "0f926f3455d1dc0192078ea5f384768e9bc19dee05653633ecb800b59f0a9edf"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/hooks/useSupportAvailability.ts",
+      "sha256": "f40da66c4407e2eb565b650165c7d4c782e0507d916da88442b903ce5b9a4ab4"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/hooks/useSupportCenter.ts",
+      "sha256": "715300ce7431b7c0691e6c1d44962c55e915b354c274b6dbe362e39c69272795"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/hooks/useSupportDetailsDisclosure.ts",
+      "sha256": "6cb11e240db660a16a89ec87830560bf8edd2ec1ae68f3789e65ac3b6b78e243"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/hooks/useSupportUnreadCount.ts",
+      "sha256": "c2a49103f446329d7a47f18cd327323ab11fa5cb891292735619262d93d993a8"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/hooks/useSupportUpdates.ts",
+      "sha256": "0a47f357a5d96f1eeec6490e6a0e670bbcdede8ba9e2a53e785ac635174c3277"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/lib/supportError.ts",
+      "sha256": "eb4511622b6bcd69a3e97a37c6bd2b86b1a8ac85abce16debe7db7adeb7c3f1e"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/lib/supportQueueParams.ts",
+      "sha256": "a5e8a94fbdc86ce752e27c94c32035fd97c7953c561e6d87bf3d4416c7b821a2"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/lib/useSupportTranslation.ts",
+      "sha256": "7084f1f8487d1386bd43aef09474cb7fcce65ca15eab4e9313040060dc28a482"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/model/support-center.model.ts",
+      "sha256": "0e435de3472570bf38e8e0a5d4218d00f13785e41ee1109451f655fef6e63a00"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/preview/useSupportPreview.ts",
+      "sha256": "045528920a78e0fed60e6f5894754b5861e1e92db66a54f90bb63a3f153705d3"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/LocalSupportPluginCard.test.tsx",
+      "sha256": "2e0d7d39c42483667171cccb54f02de76a79bb7dcd014a171af6c9368d3ff60d"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/PluginRoleBindingPanel.test.tsx",
+      "sha256": "709ebad3c1e5c556828a695c0e2d4b5196d4ee450e374a959b1b76d1ded7b542"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/ServiceSupportAction.test.tsx",
+      "sha256": "ebd9e62eadce84a65ee128c1a5e52be6132badcfacec79385eff39f340191656"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/SupportArchivedTicket.test.tsx",
+      "sha256": "5f93b79903a91564473f06a0fed887ebb41cf2391ed51b4101f3100143469cff"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/SupportAssignmentPanel.test.tsx",
+      "sha256": "2383afc5e2766a9fc20d2eee342f6f463bb83d98f866eeb954b3368666f4a40a"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/SupportCenterPreview.test.tsx",
+      "sha256": "71ea9495a7c92048fb99cbdb835184cc2372931ac9be1d963f0af377a411b17c"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/SupportNavigation.test.tsx",
+      "sha256": "4c50a827aeb590017d5febc42b2edb832822a9daa4488ca11f6503dff7010e60"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/SupportOwnerAccess.test.tsx",
+      "sha256": "2fcee0298fe11701edfa256eb6e08bd5ea769f5bdaab1158adf3d5bdef699bf7"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/SupportTicketView.test.tsx",
+      "sha256": "e3e388432f574ed2ce302d993e26af7dc95589a177379d83a78d7bb3e68f7a4b"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/fixtures/supportTicket.ts",
+      "sha256": "854d29404463b6d972be7d339d2aea0bffd5d0c7cfb2fb550fd35a6dbd9ea4d8"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/supportMutation.test.ts",
+      "sha256": "7aa9a9333446718f459819874865ef1fa8e7d04e953432719df701cf3a4f9b0d"
+    },
+    {
+      "path": "apps/frontend/src/features/support-center/test/supportQueueParams.test.ts",
+      "sha256": "d2d9cdf4140f4c19180b522d32581958634612f79b2df93eadd9a1ea024af39c"
+    },
+    {
+      "path": "apps/frontend/src/pages/support/SupportCenterPage.tsx",
+      "sha256": "5bc9b64d3eed4bdda93e621bb57c95762f6099257e462175cf2644eaf44456ff"
+    },
+    {
+      "path": "apps/frontend/src/pages/support/SupportTicketPage.tsx",
+      "sha256": "ec9b99deb487cdd82b6d129dc6b2aa46f1512cdc1d0da2888a529b692a98a37f"
+    },
+    {
+      "path": "apps/frontend/src/plugins/support-center/locales/de.json",
+      "sha256": "c600e4f376fb07da2eea60211a57516494c42a54162acbc3ba76246384b2a19d"
+    },
+    {
+      "path": "apps/frontend/src/plugins/support-center/locales/en.json",
+      "sha256": "cd8f3773e0b033b4e2fb7ac0f937cdb0e06a22234bac0e8028bba32ab6a4be2f"
+    },
+    {
+      "path": "apps/frontend/src/plugins/support-center/locales/pl.json",
+      "sha256": "d9e7d8dbd56abcfa0dbdf98b77e425fb7d9d94b3041b7743fd19ffa6ac26465d"
+    },
+    {
+      "path": "apps/frontend/src/plugins/support-center/manifest.ts",
+      "sha256": "f288d4fb78dc56b14b264c414fe32393fe79ec2fb196937cc5d973220b1394f4"
+    },
+    {
+      "path": "apps/frontend/src/shared/i18n/test/functionalPluginResources.test.ts",
+      "sha256": "eca43e472b71977b8a95b0ad9a91a978c35b34bcfb72d86da8ce70f218b4762d"
+    },
+    {
+      "path": "apps/frontend/src/shared/lib/routes/support.ts",
+      "sha256": "6a9bae7238ae79671ef77c251b91bfcb41ff860ed41eb2fddcdcc33c8b347b7f"
+    },
+    {
+      "path": "packages/types/src/plugins/functional-plugin.types.ts",
+      "sha256": "47a2962b0e7e861e93115b55add51cba5d0f39e11b9e947c6a5c126df5c60f0a"
+    },
+    {
+      "path": "packages/types/src/support-center/index.ts",
+      "sha256": "4bd205233e9ae8319b0d9aacde504f55035cd3418d9833916fc83583d090e839"
+    },
+    {
+      "path": "packages/types/src/support-center/support-center.manifest.ts",
+      "sha256": "e3326ef78e598ee5a6ac84c7f4a979abc36a3bddce2783c50f6bfb3e109994c8"
+    },
+    {
+      "path": "packages/types/src/support-center/support-center.types.ts",
+      "sha256": "38b0d77d4b1105ccf6051059f9508ea605ff898459d95c326c523e401564a556"
+    },
+    {
+      "path": "packages/types/src/support-center/support-notification.types.ts",
+      "sha256": "fd0b5c5adf072773eb11faab6614dfcb577e15e69e5678230bca68dd8de8c8e8"
+    }
+  ],
+  "hostChecks": [
+    {
+      "path": "apps/backend/src/app.module.ts",
+      "contains": "SupportCenterModule"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/plugins.module.ts",
+      "contains": "FunctionalPluginInstallerService"
+    },
+    {
+      "path": "apps/backend/src/rbac/rbac.module.ts",
+      "contains": "PluginRoleManagementService"
+    },
+    {
+      "path": "apps/backend/src/modules/services/workspace/service-workspace.broker.ts",
+      "contains": "authorizeSupportWorkspace"
+    },
+    {
+      "path": "apps/backend/src/modules/services/workspace/service-workspace.broker.ts",
+      "contains": "finishSupportOperation"
+    },
+    {
+      "path": "apps/backend/src/modules/plugins/lifecycle/plugin-lifecycle.service.ts",
+      "contains": "plugin_support_center.grants"
+    },
+    {
+      "path": "apps/frontend/src/app/router/routes.tsx",
+      "contains": "supportRoutes"
+    },
+    {
+      "path": "apps/frontend/src/shared/i18n/functionalPluginResources.ts",
+      "contains": "registerFunctionalPluginResources"
+    },
+    {
+      "path": "packages/types/src/index.ts",
+      "contains": "support-center"
+    }
+  ]
+}

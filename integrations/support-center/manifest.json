@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "tyravex.support-center",
+  "version": "0.3.0",
+  "type": "integration",
+  "runtime": "native",
+  "translations": {
+    "namespace": "plugin.tyravex.support-center",
+    "defaultLanguage": "en",
+    "languages": ["en", "pl", "de"]
+  },
+  "database": {
+    "schema": "plugin_support_center",
+    "migrations": [
+      "001_initial",
+      "002_managed_roles",
+      "003_workflow",
+      "004_reliability"
+    ]
+  },
+  "permissions": ["support:read", "support:manage", "support:access"],
+  "roleTemplates": [
+    {
+      "name": "Support",
+      "permissions": ["support:read", "support:manage"]
+    }
+  ]
+}

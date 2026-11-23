@@ -265,3 +265,9 @@ Version 1.1.1 also translates repository update checks, verified package preview
 ## Versioned translation validation
 
 Release CI validates German against its versioned English catalog in `tests/references/german/<version>/en`. It does not require the unpublished panel changes to be pushed. A separate advisory job compares the package with published `Tyravex/panel` main and reports drift. See [translation references](tests/references/README.md) for update and local validation instructions.
+
+## Support Center 0.3.0 native sources
+
+The official [Support Center](integrations/support-center/README.md) source package is available in `integrations/support-center`. It includes 113 reviewed source files, PL/EN/DE translations, four plugin-owned database migrations, and tests for the service ticket and temporary-access workflow.
+
+Native integration sources are listed separately in `native-plugins.json`. They require a compatible reviewed panel build; they are not installed by the language/theme ZIP uploader. See the plugin README for source verification, guarded synchronization, builds and administrator installation steps.

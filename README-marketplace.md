@@ -186,3 +186,7 @@ Preparing a registry file does not publish a GitHub Release or its archive.
 Publish the release asset before pushing registry metadata that references it.
 
 Version 1.1.1 also translates repository update checks, verified package previews, source selection and download error states. The separately prepared 1.1.0 archive remains unchanged.
+
+## Native integration sources
+
+[Support Center 0.3.0](integrations/support-center/README.md) is distributed as reviewed native source in `native-plugins.json`. Its backend, UI and host adapters are compiled into a compatible Tyravex panel build. It is intentionally separate from the downloadable language/theme ZIP registry above. Do not upload the native source archive to the language/theme installer or advertise compatibility with an older panel without testing the host integration. Installation and database updates remain explicit administrator actions in the compiled native plugin card.
